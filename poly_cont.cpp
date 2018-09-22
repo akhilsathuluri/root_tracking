@@ -1,4 +1,4 @@
-// J here is a double** type but LinearSolve accepts only double* type so need to fix that
+// The main doesnt recognize the polycont function for some reason
 
 #include <iostream>
 #include <gsl/gsl_statistics.h>
@@ -17,9 +17,9 @@ int main(){
 double* phval;
 double th[3] = {0.13, 1.4242, 2.4314};
 double ph[3] = {-0.134, 0.2452, 1.442652};
-phval = polycont(3, 3, th, ph);
-cout<<phval[0]<<" "<<phval[1]<<" "<<phval[2]<<" "<<endl;
-
+// phval = ph;
+// phval = polycont(3, 3, th, ph);
+// cout<<phval[0]<<" "<<phval[1]<<" "<<phval[2]<<" "<<endl;
 return 0;
 }
 
