@@ -1,25 +1,28 @@
-// The main doesnt recognize the polycont function for some reason
+// Take one known set of roots as input and check if the values are correct
 
 #include <iostream>
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_sf_pow_int.h>
 #include <gsl/gsl_linalg.h>
+#include <math.h>
 
 using namespace std;
 
-double* polycont(double sof_rows_J, double sof_cols_J, double* th, double* ph);
+
+double* polycont(int sof_rows_J, int sof_cols_J, double* th, double* ph);
 double* absarray(double* data, int size);
 double* LinearSolve(double* A_data, int sof_A_rows, int sof_A_cols, double* b_data);
 double* computeJ(double* th, double* ph);
 double* computef(double* th, double* ph);
 
+
 int main(){
 double* phval;
-double th[3] = {0.13, 1.4242, 2.4314};
+double th[3] = {0.1353, -2.14124, 5.135};
 double ph[3] = {-0.134, 0.2452, 1.442652};
-// phval = ph;
-// phval = polycont(3, 3, th, ph);
-// cout<<phval[0]<<" "<<phval[1]<<" "<<phval[2]<<" "<<endl;
+ phval = ph;
+ phval = polycont(3, 3, th, ph);
+ cout<<phval[0]<<" "<<phval[1]<<" "<<phval[2]<<" "<<endl;
 return 0;
 }
 
