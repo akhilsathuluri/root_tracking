@@ -1,7 +1,7 @@
 #include <iostream>
 #include <math.h>
 #include <gsl/gsl_statistics.h>
-#include <stdlib.h>
+// #include <stdlib.h>
 
 using namespace std;
 
