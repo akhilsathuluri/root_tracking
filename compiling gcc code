@@ -1,0 +1,16 @@
+g++ polysol.cpp -o poly -lgsl -lgslcblas -lm
+
+Helper in cpp
+finding max or min or any statistical properties of arrays:
+1. https://www.gnu.org/software/gsl/manual/html_node/Maximum-and-Minimum-values.html
+2. https://www.gnu.org/software/gsl/manual/html_node/Example-statistical-programs.html
+
+Pow function in gsl
+1. https://www.gnu.org/software/gsl/manual/html_node/Power-Function.html
+
+Complete gsl type of using arrays and structures. Should stick with these from the next codes I write
+1. https://www.gnu.org/software/gsl/doc/html/vectors.html
+
+
+Observations:
+It is seen that including the Eigen/Dense library increases the time of compilation of the code!
