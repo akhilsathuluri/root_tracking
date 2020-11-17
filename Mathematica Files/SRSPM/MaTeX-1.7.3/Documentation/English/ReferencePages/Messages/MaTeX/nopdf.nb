@@ -1,0 +1,382 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11416,        373]
+NotebookOptionsPosition[      8375,        286]
+NotebookOutlinePosition[     10503,        343]
+CellTagsIndexPosition[     10460,        340]
+WindowTitle->MaTeX::nopdf
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["MATEX", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Tutorials",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Tutorials", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Configuring MaTeX\"\>":>
+       Documentation`HelpLookup["paclet:MaTeX/tutorial/ConfiguringMaTeX"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"Tutorials"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"MaTeX\"\>":>Documentation`HelpLookup[
+       "paclet:MaTeX/ref/MaTeX"], "\<\"ConfigureMaTeX\"\>":>
+       Documentation`HelpLookup["paclet:MaTeX/ref/ConfigureMaTeX"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"MaTeX/ref/message/MaTeX/nopdf\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["MaTeX/ref/message/MaTeX/nopdf"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[TextData[{
+ Cell["MaTeX::nopdf", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    InterpretationBox[
+     StyleBox[
+      GraphicsBox[{},
+       BaselinePosition->Baseline,
+       ImageSize->{6, 0}],
+      CacheGraphics->False],
+     Spacer[6]]]],
+   "Details"
+  }], "NotesFrameText"],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"MaTeX", "::", "nopdf"}], "MessageName"], ":", 
+  " ", "\<\"LaTeX failed to produce a PDF file. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:MaTeX/ref/message/MaTeX/nopdf\\\", ButtonNote -> \
+\\\"MaTeX`MaTeX::nopdf\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellLabel->"During evaluation of In[14]:=",
+ CellID->1125965131],
+
+Cell[TextData[{
+ "This message is generated when ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"L", 
+     StyleBox[
+      AdjustmentBox["A",
+       BoxBaselineShift->-0.4,
+       BoxMargins->{{-0.5, -0.3}, {0, 0}}],
+      FontSize->Smaller], "T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " does not output a PDF file. Set the ",
+ Cell[BoxData[
+  RowBox[{"\"\<LogFileFunction\>\"", "\[Rule]", "Print"}]], "InlineFormula"],
+ " option within ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["MaTeX"]],"paclet:MaTeX/ref/MaTeX"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ " to see the log file."
+}], "Notes",
+ CellID->1067943069],
+
+Cell[TextData[{
+ "This message often indicates that there is a problem with the ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " installation."
+}], "Notes",
+ CellID->350257649],
+
+Cell[TextData[{
+ "If this message is accompanied by a ",
+ Cell[BoxData[
+  RowBox[{"RunProcess", "::", "pnfd"}]], "InlineFormula"],
+ " message on a Windows system, it may indicate that your version of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " is affected by a ",
+ ButtonBox["RunProcess",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/RunProcess"],
+ " bug related to non-ASCII characters in the current directory. Use ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ConfigureMaTeX"]],"paclet:MaTeX/ref/ConfigureMaTeX"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ " to explicitly set MaTeX's ",
+ Cell[BoxData["\"\<WorkingDirectory\>\""], "InlineFormula"],
+ " to a location that does not contain non-ASCII characters in its path (e.g. \
+",
+ Cell[BoxData["\"\<C:\\\\temp\>\""], "InlineFormula"],
+ "). "
+}], "Notes",
+ CellID->889665713],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["MaTeX"]],"paclet:MaTeX/ref/MaTeX"},
+   "RefLink",
+   BaseStyle->FEPrivate`If[
+     FEPrivate`Less[FEPrivate`$VersionNumber, 11.1], {
+     "InlineFormula", FontFamily -> "Verdana"}, {"InlineFormula"}]]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ConfigureMaTeX"]],"paclet:MaTeX/ref/ConfigureMaTeX"},
+   "RefLink",
+   BaseStyle->FEPrivate`If[
+     FEPrivate`Less[FEPrivate`$VersionNumber, 11.1], {
+     "InlineFormula", FontFamily -> "Verdana"}, {"InlineFormula"}]]], 
+  "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Tutorials"
+}], "TutorialsSection",
+ WholeCellGroupOpener->True,
+ CellID->250839057],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Configuring MaTeX"]],"paclet:MaTeX/tutorial/ConfiguringMaTeX"},
+  "RefLink",
+  BaseStyle->"Tutorials"]], "Tutorials",
+ CellID->341631938],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowTitle->"MaTeX::nopdf",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 12, 4, 15, 44, 40.583790}", 
+    "history" -> {"1.6", "", "", ""}, "context" -> "MaTeX`", "keywords" -> {},
+     "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> 
+    True, "label" -> "MaTeX", "language" -> "en", "paclet" -> "MaTeX", 
+    "status" -> "None", "summary" -> "MaTeX::nopdf", "synonyms" -> {}, 
+    "tabletags" -> DocumentationBuild`Make`Private`tabletaggingrules$7869, 
+    "title" -> "MaTeX::nopdf", "titlemodifier" -> "", "windowtitle" -> 
+    "MaTeX::nopdf", "type" -> "Message", "uri" -> 
+    "MaTeX/ref/message/MaTeX/nopdf"}},
+CellContext->"Global`",
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
+2014)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["NotesSection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData["PrimaryExamplesSection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData["ExampleSection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData["ExampleSubsection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData[
+    "GuideTutorialsSection", StyleDefinitions -> 
+     StyleData["SeeAlsoSection"]]]}, Visible -> False, FrontEndVersion -> 
+  "10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, 2014)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[584, 21, 2582, 67, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[3169, 90, 289, 11, 70, "ObjectNameGrid"],
+Cell[CellGroupData[{
+Cell[3483, 105, 730, 24, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1],
+Cell[4216, 131, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[4250, 133, 435, 9, 70, "Message",
+ CellID->1125965131],
+Cell[4688, 144, 776, 26, 70, "Notes",
+ CellID->1067943069],
+Cell[5467, 172, 343, 12, 70, "Notes",
+ CellID->350257649],
+Cell[5813, 186, 875, 24, 70, "Notes",
+ CellID->889665713],
+Cell[6691, 212, 31, 0, 70, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6759, 217, 270, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[7032, 231, 736, 22, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7805, 258, 272, 12, 70, "TutorialsSection",
+ CellID->250839057],
+Cell[8080, 272, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[8114, 274, 185, 5, 70, "Tutorials",
+ CellID->341631938],
+Cell[8302, 281, 31, 0, 70, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[8348, 284, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,5 +1,5 @@
 # include <iostream>
-# include <Eigen/Dense>
+# include <eigen3/Eigen/Dense>
 # include "test.h"
 #include <stdio.h>
 #include <gsl/gsl_linalg.h>

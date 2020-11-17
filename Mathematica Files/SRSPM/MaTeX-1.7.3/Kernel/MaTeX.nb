@@ -1,0 +1,451 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13657,        442]
+NotebookOptionsPosition[      9866,        339]
+NotebookOutlinePosition[     12386,        402]
+CellTagsIndexPosition[     12343,        399]
+WindowTitle->MaTeX
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["MATEX GUIDE", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Functions",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Functions", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"AxesStyle\"\>":>Documentation`HelpLookup[
+       "paclet:ref/AxesStyle"], "\<\"BlackFrame\"\>":>
+       Documentation`HelpLookup[
+       "paclet:MaTeX/ref/BlackFrame"], "\<\"ClearMaTeXCache\"\>":>
+       Documentation`HelpLookup[
+       "paclet:MaTeX/ref/ClearMaTeXCache"], "\<\"ConfigureMaTeX\"\>":>
+       Documentation`HelpLookup[
+       "paclet:MaTeX/ref/ConfigureMaTeX"], "\<\"FrameStyle\"\>":>
+       Documentation`HelpLookup["paclet:ref/FrameStyle"], "\<\"MaTeX\"\>":>
+       Documentation`HelpLookup["paclet:MaTeX/ref/MaTeX"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"GuideFunction"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Related Guides",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Related Guides", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Generating and Importing TeX\"\>":>
+       Documentation`HelpLookup[
+       "paclet:tutorial/GeneratingAndImportingTeX"], "\<\"Mathematical \
+Typesetting\"\>":>Documentation`HelpLookup[
+       "paclet:guide/MathematicalTypesetting"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"GuideMoreAbout"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Tutorials",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Tutorials", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Configuring MaTeX\"\>":>
+       Documentation`HelpLookup[
+       "paclet:MaTeX/tutorial/ConfiguringMaTeX"], "\<\"Typesetting with MaTeX\
+\"\>":>Documentation`HelpLookup[
+       "paclet:MaTeX/tutorial/TypesettingWithMaTeX"], "\<\"Preparing Figures \
+to Size\"\>":>Documentation`HelpLookup[
+       "paclet:MaTeX/tutorial/PreparingFiguresToSize"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"GuideTutorial"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"MaTeX/guide/MaTeX\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["MaTeX/guide/MaTeX"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["MaTeX", "GuideTitle",
+ CellID->942062912],
+
+Cell[TextData[{
+ "MaTeX makes it easy to typeset expressions using ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"L", 
+     StyleBox[
+      AdjustmentBox["A",
+       BoxBaselineShift->-0.4,
+       BoxMargins->{{-0.5, -0.3}, {0, 0}}],
+      FontSize->Smaller], "T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " without leaving Mathematica. It is primarily intended for creating \
+beautifully typeset figure labels. The latest version is always available \
+from ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["http://szhorvat.net/mathematica/MaTeX"]],
+    "http://szhorvat.net/mathematica/MaTeX"},
+   "WebLink",
+   BaseStyle->{"GuideAbstract"}]]],
+ ". MaTeX is licensed under the ",
+ ButtonBox["MIT license",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MaTeX/License/MIT"],
+ "."
+}], "GuideAbstract",
+ CellID->396060580]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Reference"
+}], "GuideReferenceSection",
+ WholeCellGroupOpener->True],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["MaTeX"]],"paclet:MaTeX/ref/MaTeX"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " convert ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"L", 
+     StyleBox[
+      AdjustmentBox["A",
+       BoxBaselineShift->-0.4,
+       BoxMargins->{{-0.5, -0.3}, {0, 0}}],
+      FontSize->Smaller], "T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " code into Mathematica graphics"
+}], "GuideText",
+ CellID->203374175],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ConfigureMaTeX"]],"paclet:MaTeX/ref/ConfigureMaTeX"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " set the location of ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"L", 
+     StyleBox[
+      AdjustmentBox["A",
+       BoxBaselineShift->-0.4,
+       BoxMargins->{{-0.5, -0.3}, {0, 0}}],
+      FontSize->Smaller], "T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ ", Ghostscript, and other MaTeX settings"
+}], "GuideText",
+ CellID->1463276848],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ClearMaTeXCache"]],"paclet:MaTeX/ref/ClearMaTeXCache"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " clear any cached results"
+}], "GuideText",
+ CellID->1690080009],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["BlackFrame"]],"paclet:MaTeX/ref/BlackFrame"},
+   "RefLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " can be used as ",
+ ButtonBox["FrameStyle",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/FrameStyle"],
+ " or ",
+ ButtonBox["AxesStyle",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/AxesStyle"]
+}], "GuideText",
+ CellID->1580182154],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Tutorials"
+}], "GuideTutorialsSection",
+ WholeCellGroupOpener->True,
+ CellID->415694126],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[TextData[ButtonBox["Configuring MaTeX",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MaTeX/tutorial/ConfiguringMaTeX"]], "GuideTutorial",
+ CellID->1481783382],
+
+Cell[TextData[ButtonBox["Typesetting with MaTeX",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MaTeX/tutorial/TypesettingWithMaTeX"]], "GuideTutorial",
+ CellID->1049061760],
+
+Cell[TextData[ButtonBox["Preparing Figures to Size",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MaTeX/tutorial/PreparingFiguresToSize"]], "GuideTutorial",\
+
+ CellID->671122172],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Related Guides"
+}], "GuideMoreAboutSection",
+ WholeCellGroupOpener->True,
+ CellID->23220180],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Generating and Importing TeX"]],
+   "paclet:tutorial/GeneratingAndImportingTeX"},
+  "RefLink",
+  BaseStyle->"GuideMoreAbout"]], "GuideMoreAbout",
+ CellID->1567025153],
+
+Cell[BoxData[
+ TemplateBox[{Cell[
+    TextData["Mathematical Typesetting"]],
+   "paclet:guide/MathematicalTypesetting"},
+  "RefLink",
+  BaseStyle->"GuideMoreAbout"]], "GuideMoreAbout",
+ CellID->1040255401]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowTitle->"MaTeX",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "GuideColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 12, 4, 15, 44, 37.128772}", 
+    "history" -> {"1.6", "", "", ""}, "context" -> "MaTeX`", 
+    "keywords" -> {
+     "TeX", "LaTeX", "typesetting", "typeset LaTeX", "pdflatex", "xelatex", 
+      "formula typesetting", "formula display", "TeX output", "tex", "latex", 
+      "tex label", "latex label", "math typesetting", 
+      "mathematical typesetting"}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "MaTeX Guide", "language" -> "en", "paclet" -> "MaTeX", "status" -> 
+    "None", "summary" -> 
+    "MaTeX makes it easy to typeset expressions using LATEX without leaving \
+Mathematica. It is primarily intended for creating beautifully typeset figure \
+labels. The latest version is always available from \
+http://szhorvat.net/mathematica/MaTeX. MaTeX is licensed under the MIT \
+license.", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$6349, "title" -> 
+    "MaTeX", "titlemodifier" -> "", "windowtitle" -> "MaTeX", "type" -> 
+    "Guide", "uri" -> "MaTeX/guide/MaTeX"}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
+2014)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> 
+     FrontEnd`FileName[{"Wolfram"}, "Reference.nb", CharacterEncoding -> 
+       "UTF-8"]]], 
+   Cell[
+    StyleData["NotesSection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData["PrimaryExamplesSection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData["ExampleSection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData["ExampleSubsection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData[
+    "GuideTutorialsSection", StyleDefinitions -> 
+     StyleData["SeeAlsoSection"]]]}, Visible -> False, FrontEndVersion -> 
+  "10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, 2014)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[577, 21, 4032, 101, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[4634, 126, 47, 1, 70, "GuideTitle",
+ CellID->942062912],
+Cell[4684, 129, 942, 30, 70, "GuideAbstract",
+ CellID->396060580]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5663, 164, 257, 11, 70, "GuideReferenceSection"],
+Cell[5923, 177, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[5957, 179, 667, 24, 70, "GuideText",
+ CellID->203374175],
+Cell[6627, 205, 706, 24, 70, "GuideText",
+ CellID->1463276848],
+Cell[7336, 231, 311, 10, 70, "GuideText",
+ CellID->1690080009],
+Cell[7650, 243, 471, 17, 70, "GuideText",
+ CellID->1580182154],
+Cell[8124, 262, 31, 0, 70, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8192, 267, 277, 12, 70, "GuideTutorialsSection",
+ CellID->415694126],
+Cell[8472, 281, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[8506, 283, 159, 3, 70, "GuideTutorial",
+ CellID->1481783382],
+Cell[8668, 288, 168, 3, 70, "GuideTutorial",
+ CellID->1049061760],
+Cell[8839, 293, 174, 4, 70, "GuideTutorial",
+ CellID->671122172],
+Cell[9016, 299, 31, 0, 70, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9084, 304, 281, 12, 70, "GuideMoreAboutSection",
+ CellID->23220180],
+Cell[9368, 318, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[9402, 320, 214, 6, 70, "GuideMoreAbout",
+ CellID->1567025153],
+Cell[9619, 328, 205, 6, 70, "GuideMoreAbout",
+ CellID->1040255401]
+}, Open  ]],
+Cell[9839, 337, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)

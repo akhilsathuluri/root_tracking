@@ -1,0 +1,1709 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     63842,       1700]
+NotebookOptionsPosition[     54330,       1394]
+NotebookOutlinePosition[     57466,       1470]
+CellTagsIndexPosition[     57423,       1467]
+WindowTitle->Configuring MaTeX
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["MATEX TUTORIAL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Related Tutorials",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Related Tutorials", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"Typesetting with MaTeX\"\>":>
+       Documentation`HelpLookup["paclet:MaTeX/tutorial/TypesettingWithMaTeX"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"RelatedTutorialsSection"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "Related Guides",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"Related Guides", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"MaTeX\"\>":>Documentation`HelpLookup[
+       "paclet:MaTeX/guide/MaTeX"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"TutorialMoreAboutSection"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"MaTeX/tutorial/ConfiguringMaTeX\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["MaTeX/tutorial/ConfiguringMaTeX"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell[CellGroupData[{
+
+Cell["Configuring MaTeX", "Title",
+ CellID->509267359],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{
+     Cell["Prerequisites"],"paclet:MaTeX/tutorial/ConfiguringMaTeX#707881275",
+      GraphicsBox[
+       TagBox[
+        RasterBox[{{{128, 128, 128, 32}, {128, 128, 128, 16}, {128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128,
+          128, 128, 0}, {128, 128, 128, 48}}, {{128, 128, 128, 48}, {128, 128,
+          128, 239}, {128, 128, 128, 112}, {128, 128, 128, 0}, {128, 128, 128,
+          0}, {128, 128, 128, 16}, {128, 128, 128, 143}, {128, 128, 128, 
+         239}}, {{128, 128, 128, 0}, {128, 128, 128, 64}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 112}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 32}}, {{128, 128, 128, 
+         32}, {128, 128, 128, 16}, {128, 128, 128, 16}, {128, 128, 128, 
+         175}, {128, 128, 128, 255}, {128, 128, 128, 127}, {128, 128, 128, 
+         0}, {128, 128, 128, 48}}, {{128, 128, 128, 48}, {128, 128, 128, 
+         239}, {128, 128, 128, 112}, {128, 128, 128, 0}, {128, 128, 128, 
+         16}, {128, 128, 128, 16}, {128, 128, 128, 143}, {128, 128, 128, 
+         239}}, {{128, 128, 128, 0}, {128, 128, 128, 64}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 112}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 32}}, {{128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 128, 175}, {
+         128, 128, 128, 255}, {128, 128, 128, 127}, {128, 128, 128, 0}, {128, 
+         128, 128, 0}}, {{128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 
+         128, 0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 0}}}, {{0, 8}, {8, 0}}, {0, 
+         255}, ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic], Selectable -> False], BaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}],GraphicsBox[
+       TagBox[
+        RasterBox[{{{229, 95, 28, 32}, {229, 95, 28, 16}, {229, 95, 28, 0}, {
+         229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+         0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 95, 28, 239}, {229,
+          95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+         16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{229, 95, 28, 0}, {
+         229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 
+         28, 112}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 28, 
+         32}}, {{229, 95, 28, 32}, {229, 95, 28, 16}, {229, 95, 28, 16}, {229,
+          95, 28, 175}, {229, 95, 28, 255}, {229, 95, 28, 127}, {229, 95, 28, 
+         0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 95, 28, 239}, {229,
+          95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 95, 28, 
+         16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{229, 95, 28, 0}, {
+         229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 
+         28, 112}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 28, 
+         32}}, {{229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 
+         95, 28, 175}, {229, 95, 28, 255}, {229, 95, 28, 127}, {229, 95, 28, 
+         0}, {229, 95, 28, 0}}, {{229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95,
+          28, 0}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 95, 28, 0}, {229,
+          95, 28, 0}, {229, 95, 28, 0}}}, {{0, 8}, {8, 0}}, {0, 255}, 
+         ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic], Selectable -> False], BaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], 
+    TemplateBox[{
+     Cell["Resetting the configuration"],
+      "paclet:MaTeX/tutorial/ConfiguringMaTeX#378763460",GraphicsBox[
+       TagBox[
+        RasterBox[{{{128, 128, 128, 32}, {128, 128, 128, 16}, {128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128,
+          128, 128, 0}, {128, 128, 128, 48}}, {{128, 128, 128, 48}, {128, 128,
+          128, 239}, {128, 128, 128, 112}, {128, 128, 128, 0}, {128, 128, 128,
+          0}, {128, 128, 128, 16}, {128, 128, 128, 143}, {128, 128, 128, 
+         239}}, {{128, 128, 128, 0}, {128, 128, 128, 64}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 112}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 32}}, {{128, 128, 128, 
+         32}, {128, 128, 128, 16}, {128, 128, 128, 16}, {128, 128, 128, 
+         175}, {128, 128, 128, 255}, {128, 128, 128, 127}, {128, 128, 128, 
+         0}, {128, 128, 128, 48}}, {{128, 128, 128, 48}, {128, 128, 128, 
+         239}, {128, 128, 128, 112}, {128, 128, 128, 0}, {128, 128, 128, 
+         16}, {128, 128, 128, 16}, {128, 128, 128, 143}, {128, 128, 128, 
+         239}}, {{128, 128, 128, 0}, {128, 128, 128, 64}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 112}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 32}}, {{128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 128, 175}, {
+         128, 128, 128, 255}, {128, 128, 128, 127}, {128, 128, 128, 0}, {128, 
+         128, 128, 0}}, {{128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 
+         128, 0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 0}}}, {{0, 8}, {8, 0}}, {0, 
+         255}, ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic], Selectable -> False], BaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}],GraphicsBox[
+       TagBox[
+        RasterBox[{{{229, 95, 28, 32}, {229, 95, 28, 16}, {229, 95, 28, 0}, {
+         229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+         0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 95, 28, 239}, {229,
+          95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+         16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{229, 95, 28, 0}, {
+         229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 
+         28, 112}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 28, 
+         32}}, {{229, 95, 28, 32}, {229, 95, 28, 16}, {229, 95, 28, 16}, {229,
+          95, 28, 175}, {229, 95, 28, 255}, {229, 95, 28, 127}, {229, 95, 28, 
+         0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 95, 28, 239}, {229,
+          95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 95, 28, 
+         16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{229, 95, 28, 0}, {
+         229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 
+         28, 112}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 28, 
+         32}}, {{229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 
+         95, 28, 175}, {229, 95, 28, 255}, {229, 95, 28, 127}, {229, 95, 28, 
+         0}, {229, 95, 28, 0}}, {{229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95,
+          28, 0}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 95, 28, 0}, {229,
+          95, 28, 0}, {229, 95, 28, 0}}}, {{0, 8}, {8, 0}}, {0, 255}, 
+         ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic], Selectable -> False], BaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}]},
+   {
+    TemplateBox[{
+     Cell["First time setup"],
+      "paclet:MaTeX/tutorial/ConfiguringMaTeX#389691836",GraphicsBox[
+       TagBox[
+        RasterBox[{{{128, 128, 128, 32}, {128, 128, 128, 16}, {128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128,
+          128, 128, 0}, {128, 128, 128, 48}}, {{128, 128, 128, 48}, {128, 128,
+          128, 239}, {128, 128, 128, 112}, {128, 128, 128, 0}, {128, 128, 128,
+          0}, {128, 128, 128, 16}, {128, 128, 128, 143}, {128, 128, 128, 
+         239}}, {{128, 128, 128, 0}, {128, 128, 128, 64}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 112}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 32}}, {{128, 128, 128, 
+         32}, {128, 128, 128, 16}, {128, 128, 128, 16}, {128, 128, 128, 
+         175}, {128, 128, 128, 255}, {128, 128, 128, 127}, {128, 128, 128, 
+         0}, {128, 128, 128, 48}}, {{128, 128, 128, 48}, {128, 128, 128, 
+         239}, {128, 128, 128, 112}, {128, 128, 128, 0}, {128, 128, 128, 
+         16}, {128, 128, 128, 16}, {128, 128, 128, 143}, {128, 128, 128, 
+         239}}, {{128, 128, 128, 0}, {128, 128, 128, 64}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 112}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 32}}, {{128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 128, 175}, {
+         128, 128, 128, 255}, {128, 128, 128, 127}, {128, 128, 128, 0}, {128, 
+         128, 128, 0}}, {{128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 
+         128, 0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 0}}}, {{0, 8}, {8, 0}}, {0, 
+         255}, ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic], Selectable -> False], BaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}],GraphicsBox[
+       TagBox[
+        RasterBox[{{{229, 95, 28, 32}, {229, 95, 28, 16}, {229, 95, 28, 0}, {
+         229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+         0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 95, 28, 239}, {229,
+          95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+         16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{229, 95, 28, 0}, {
+         229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 
+         28, 112}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 28, 
+         32}}, {{229, 95, 28, 32}, {229, 95, 28, 16}, {229, 95, 28, 16}, {229,
+          95, 28, 175}, {229, 95, 28, 255}, {229, 95, 28, 127}, {229, 95, 28, 
+         0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 95, 28, 239}, {229,
+          95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 95, 28, 
+         16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{229, 95, 28, 0}, {
+         229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 
+         28, 112}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 28, 
+         32}}, {{229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 
+         95, 28, 175}, {229, 95, 28, 255}, {229, 95, 28, 127}, {229, 95, 28, 
+         0}, {229, 95, 28, 0}}, {{229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95,
+          28, 0}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 95, 28, 0}, {229,
+          95, 28, 0}, {229, 95, 28, 0}}}, {{0, 8}, {8, 0}}, {0, 255}, 
+         ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic], Selectable -> False], BaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], 
+    TemplateBox[{
+     Cell["Troubleshooting"],
+      "paclet:MaTeX/tutorial/ConfiguringMaTeX#1830783538",GraphicsBox[
+       TagBox[
+        RasterBox[{{{128, 128, 128, 32}, {128, 128, 128, 16}, {128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128,
+          128, 128, 0}, {128, 128, 128, 48}}, {{128, 128, 128, 48}, {128, 128,
+          128, 239}, {128, 128, 128, 112}, {128, 128, 128, 0}, {128, 128, 128,
+          0}, {128, 128, 128, 16}, {128, 128, 128, 143}, {128, 128, 128, 
+         239}}, {{128, 128, 128, 0}, {128, 128, 128, 64}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 112}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 32}}, {{128, 128, 128, 
+         32}, {128, 128, 128, 16}, {128, 128, 128, 16}, {128, 128, 128, 
+         175}, {128, 128, 128, 255}, {128, 128, 128, 127}, {128, 128, 128, 
+         0}, {128, 128, 128, 48}}, {{128, 128, 128, 48}, {128, 128, 128, 
+         239}, {128, 128, 128, 112}, {128, 128, 128, 0}, {128, 128, 128, 
+         16}, {128, 128, 128, 16}, {128, 128, 128, 143}, {128, 128, 128, 
+         239}}, {{128, 128, 128, 0}, {128, 128, 128, 64}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 112}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 32}}, {{128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 128, 175}, {
+         128, 128, 128, 255}, {128, 128, 128, 127}, {128, 128, 128, 0}, {128, 
+         128, 128, 0}}, {{128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 
+         128, 0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 0}}}, {{0, 8}, {8, 0}}, {0, 
+         255}, ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic], Selectable -> False], BaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}],GraphicsBox[
+       TagBox[
+        RasterBox[{{{229, 95, 28, 32}, {229, 95, 28, 16}, {229, 95, 28, 0}, {
+         229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+         0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 95, 28, 239}, {229,
+          95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+         16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{229, 95, 28, 0}, {
+         229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 
+         28, 112}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 28, 
+         32}}, {{229, 95, 28, 32}, {229, 95, 28, 16}, {229, 95, 28, 16}, {229,
+          95, 28, 175}, {229, 95, 28, 255}, {229, 95, 28, 127}, {229, 95, 28, 
+         0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 95, 28, 239}, {229,
+          95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 95, 28, 
+         16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{229, 95, 28, 0}, {
+         229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 
+         28, 112}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 28, 
+         32}}, {{229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 
+         95, 28, 175}, {229, 95, 28, 255}, {229, 95, 28, 127}, {229, 95, 28, 
+         0}, {229, 95, 28, 0}}, {{229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95,
+          28, 0}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 95, 28, 0}, {229,
+          95, 28, 0}, {229, 95, 28, 0}}}, {{0, 8}, {8, 0}}, {0, 255}, 
+         ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic], Selectable -> False], BaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}]},
+   {
+    TemplateBox[{
+     Cell["Uninstalling or upgrading MaTeX"],
+      "paclet:MaTeX/tutorial/ConfiguringMaTeX#857614431",GraphicsBox[
+       TagBox[
+        RasterBox[{{{128, 128, 128, 32}, {128, 128, 128, 16}, {128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 128, 0}, {128,
+          128, 128, 0}, {128, 128, 128, 48}}, {{128, 128, 128, 48}, {128, 128,
+          128, 239}, {128, 128, 128, 112}, {128, 128, 128, 0}, {128, 128, 128,
+          0}, {128, 128, 128, 16}, {128, 128, 128, 143}, {128, 128, 128, 
+         239}}, {{128, 128, 128, 0}, {128, 128, 128, 64}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 112}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 32}}, {{128, 128, 128, 
+         32}, {128, 128, 128, 16}, {128, 128, 128, 16}, {128, 128, 128, 
+         175}, {128, 128, 128, 255}, {128, 128, 128, 127}, {128, 128, 128, 
+         0}, {128, 128, 128, 48}}, {{128, 128, 128, 48}, {128, 128, 128, 
+         239}, {128, 128, 128, 112}, {128, 128, 128, 0}, {128, 128, 128, 
+         16}, {128, 128, 128, 16}, {128, 128, 128, 143}, {128, 128, 128, 
+         239}}, {{128, 128, 128, 0}, {128, 128, 128, 64}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 112}, {128, 128, 128, 
+         223}, {128, 128, 128, 191}, {128, 128, 128, 32}}, {{128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 128, 175}, {
+         128, 128, 128, 255}, {128, 128, 128, 127}, {128, 128, 128, 0}, {128, 
+         128, 128, 0}}, {{128, 128, 128, 0}, {128, 128, 128, 0}, {128, 128, 
+         128, 0}, {128, 128, 128, 0}, {128, 128, 128, 16}, {128, 128, 128, 
+         0}, {128, 128, 128, 0}, {128, 128, 128, 0}}}, {{0, 8}, {8, 0}}, {0, 
+         255}, ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic], Selectable -> False], BaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}],GraphicsBox[
+       TagBox[
+        RasterBox[{{{229, 95, 28, 32}, {229, 95, 28, 16}, {229, 95, 28, 0}, {
+         229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+         0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 95, 28, 239}, {229,
+          95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 
+         16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{229, 95, 28, 0}, {
+         229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 
+         28, 112}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 28, 
+         32}}, {{229, 95, 28, 32}, {229, 95, 28, 16}, {229, 95, 28, 16}, {229,
+          95, 28, 175}, {229, 95, 28, 255}, {229, 95, 28, 127}, {229, 95, 28, 
+         0}, {229, 95, 28, 48}}, {{229, 95, 28, 48}, {229, 95, 28, 239}, {229,
+          95, 28, 112}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 95, 28, 
+         16}, {229, 95, 28, 143}, {229, 95, 28, 239}}, {{229, 95, 28, 0}, {
+         229, 95, 28, 64}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 
+         28, 112}, {229, 95, 28, 223}, {229, 95, 28, 191}, {229, 95, 28, 
+         32}}, {{229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 
+         95, 28, 175}, {229, 95, 28, 255}, {229, 95, 28, 127}, {229, 95, 28, 
+         0}, {229, 95, 28, 0}}, {{229, 95, 28, 0}, {229, 95, 28, 0}, {229, 95,
+          28, 0}, {229, 95, 28, 0}, {229, 95, 28, 16}, {229, 95, 28, 0}, {229,
+          95, 28, 0}, {229, 95, 28, 0}}}, {{0, 8}, {8, 0}}, {0, 255}, 
+         ColorFunction -> RGBColor], 
+        BoxForm`ImageTag[
+        "Byte", ColorSpace -> "RGB", Interleaving -> True, Magnification -> 
+         Automatic], Selectable -> False], BaseStyle -> "ImageGraphics", 
+       ImageSizeRaw -> {8, 8}, PlotRange -> {{0, 8}, {0, 8}}, 
+       ImageSize -> {8, 9}]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], ""}
+  }]], "TutorialJumpBox"],
+
+Cell["\<\
+After installation, MaTeX requires a few additional setup steps. These are \
+detailed in this tutorial.\
+\>", "Text",
+ CellID->100371240],
+
+Cell[CellGroupData[{
+
+Cell["Prerequisites", "Section",
+ CellID->707881275],
+
+Cell[TextData[{
+ "MaTeX requires ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " 10.0 or later and:"
+}], "Text",
+ CellID->1703085124],
+
+Cell[TextData[{
+ "A ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " system that includes ",
+ Cell[BoxData["pdflatex"], "InlineFormula"],
+ " with the ",
+ Cell[BoxData["standalone"], "InlineFormula"],
+ ", ",
+ Cell[BoxData["lmodern"], "InlineFormula"],
+ " and ",
+ Cell[BoxData["exscale"], "InlineFormula"],
+ " packages. Both ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["TeX Live"]],"https://www.tug.org/texlive/"},
+   "WebLink",
+   BaseStyle->{"BulletedText"}]]],
+ " and ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["MiKTeX"]],"https://miktex.org/"},
+   "WebLink",
+   BaseStyle->{"BulletedText"}]]],
+ " should work. On OS X, use ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["MacTeX"]],"https://tug.org/mactex/"},
+   "WebLink",
+   BaseStyle->{"BulletedText"}]]],
+ "."
+}], "BulletedText",
+ CellID->1088631257],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["Ghostscript"]],"http://ghostscript.com/"},
+   "WebLink",
+   BaseStyle->{"BulletedText"}]]],
+ " 9.15 or later. On OS X, MacTeX 2015 and later include a compatible version \
+of Ghostscript. If you use an older TeX distribution on OS X, get a recent \
+Ghostscript from ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["Richard Koch's page"]],"http://pages.uoregon.edu/koch/"},
+   "WebLink",
+   BaseStyle->{"BulletedText"}]]],
+ "."
+}], "BulletedText",
+ CellID->1251784128]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["First time setup", "Section",
+ CellID->389691836],
+
+Cell["\<\
+After installing MaTeX, it is necessary to tell it the location of the \
+pdfLaTeX and Ghostscript executables. On some systems it is able to \
+automatically detect these. If it does not succeed, you will see the \
+following message after loading MaTeX:\
+\>", "Text",
+ CellID->1534169418],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"<<", "MaTeX`"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1640634666],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"The path to pdfLaTeX is not configured.\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->1884276909],
+
+Cell[BoxData["\<\"Please configure pdfLaTeX using ConfigureMaTeX[\\\"pdfLaTeX\
+\\\" -> \\\"path to pdflatex executable\[Ellipsis]\\\"]\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->100667254],
+
+Cell[BoxData["\<\"The path to Ghostscript is not configured.\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->1844907789],
+
+Cell[BoxData["\<\"Please configure Ghostscript using \
+ConfigureMaTeX[\\\"Ghostscript\\\" -> \\\"path to gs \
+executable\[Ellipsis]\\\"]\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->1996314337],
+
+Cell[BoxData[
+ InterpretationBox["\<\"\\!\\(\\*TagBox[ButtonBox[PaneSelectorBox[{False -> \
+\\\"\\\\\\\"Click here\\\\\\\"\\\", Rule[True, StyleBox[\\\"\\\\\\\"Click \
+here\\\\\\\"\\\", List[\\\"HyperlinkActive\\\"]]]}, \
+Dynamic[CurrentValue[\\\"MouseOver\\\"]], Rule[BaseStyle, \
+List[\\\"Hyperlink\\\"]], Rule[FrameMargins, 0], Rule[ImageSize, Automatic]], \
+Rule[BaseStyle, \\\"Link\\\"], Rule[ButtonData, \
+\\\"paclet:MaTeX/tutorial/ConfiguringMaTeX\\\"], Rule[ButtonNote, \
+\\\"paclet:MaTeX/tutorial/ConfiguringMaTeX\\\"]], \
+Function[Annotation[Slot[1], \\\"paclet:MaTeX/tutorial/ConfiguringMaTeX\\\", \
+\\\"Hyperlink\\\"]]]\\) for documentation on configuring MaTeX.\"\>",
+  StringForm["`` for documentation on configuring MaTeX.", 
+   Hyperlink["Click here", "paclet:MaTeX/tutorial/ConfiguringMaTeX"]],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->1918044878]
+}, Open  ]]
+}, Open  ]],
+
+Cell[TextData[{
+ "In this case, specify the path to these executables manually using ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ConfigureMaTeX"]],"paclet:MaTeX/ref/ConfigureMaTeX"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ ". For example, on OS X with MacTeX the typical locations are the \
+following:"
+}], "Text",
+ CellID->1125038529],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ConfigureMaTeX", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+   "\"\<pdfLaTeX\>\"", "\[Rule]", "\"\</Library/TeX/texbin/pdflatex\>\""}], 
+   ",", 
+   RowBox[{"\"\<Ghostscript\>\"", "\[Rule]", "\"\</usr/local/bin/gs\>\""}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1768050685],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"CacheSize\"\>", "\[Rule]", "100"}], ",", 
+   RowBox[{"\<\"WorkingDirectory\"\>", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"\<\"pdfLaTeX\"\>", 
+    "\[Rule]", "\<\"/Library/TeX/texbin/pdflatex\"\>"}], ",", 
+   RowBox[{"\<\"Ghostscript\"\>", "\[Rule]", "\<\"/usr/local/bin/gs\"\>"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1899709450]
+}, Open  ]],
+
+Cell["\<\
+Note that the paths must point to the executables, not the to directory \
+containing them. Make sure to use correct capitalization.\
+\>", "Text",
+ CellID->1411884930],
+
+Cell["The existing configuration can always be queried using", "Text",
+ CellID->1877514704],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ConfigureMaTeX", "[", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1947478611],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"CacheSize\"\>", "\[Rule]", "100"}], ",", 
+   RowBox[{"\<\"WorkingDirectory\"\>", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"\<\"pdfLaTeX\"\>", 
+    "\[Rule]", "\<\"/Library/TeX/texbin/pdflatex\"\>"}], ",", 
+   RowBox[{"\<\"Ghostscript\"\>", "\[Rule]", "\<\"/usr/local/bin/gs\"\>"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1207511615]
+}, Open  ]],
+
+Cell["Test MaTeX using a simple command:", "Text",
+ CellID->1468837617],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MaTeX", "[", "\"\<x^2\>\"", "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->1320175261],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Thickness[0.07473841554559042], 
+   FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {0,
+     1, 0}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
+    3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 
+    3, 3}, {1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {
+    1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, CompressedData["
+1:eJxdlH9IU1EUx+dmmKjT+dzae05ybqL2g0wNzKId/5DQTCUFfxGWtJlIGBiY
+MSMlEzEKKsSJZf4gFVYqYaSUGNEvUAsNDYUU9I+WGhkp/l67976dkQcuj8+9
+7557zvece7X5xWeMMolE4uYYmY4hdYzB2oHKmFkBAsruXRl214CTMxbHlurj
+NTCTkBff0CNAZLTDSjQQ9kdvayh08cKtS7VRGzzy3v7HA8ZfPFQFe4QOxYj/
+f+IhhqyPBUI68VuhZv6b90BOaJZm5JUShohZlXDS+q5dUs8h0++CApmjcSrA
+PL06GT2vQn7qf0Be8F29Y90Zh4LF9Uxg/lcVcJPMfw2CNyTfVo7Nh4ewfHID
+4KLJYXU6sBBbU8La4vzg0VY9XCN+96uRy0ReFZn+b+FxvZ6yAMrbST/dM/RA
+ZIjmeJg73zwec0iPetD8GnXIv1u6gofDXVxA4wmBl+lxWfYCHl4XmxctxhCm
+KycgU10rAnewBqYigqx2mQ6Z+u9w8Y2NuMsjHXqmQ6wAD6qrcsY0oSKrkYOJ
+jilK5LtZtalu3Rxkeaqqo7vEeOM5pssxHat/hD9E7uvkvriHgne8PKm+UI77
+afzPvZEnfKZUxhUp8kyK7dxW04ah9O2LBMuWFtn3bNp0VKmLM8n5eVowEp1M
+m4bOFdvVIdCC+Uflel3fFnJs/sETu8CO/PDj/baiJ3YD7ZsLWmibbJ89LJMA
+Pa9cCxJiIGP11OnZ/Wj1xPqyfLyRabmz/ZBpvT74Qc3xxH5Tiw7ZTszXxXRf
+TQjr4+t+4Mx3eWCpt2Dcl9XrW7DYT96iroHs/Agv1j/JaqDpm3bjfWHxyJA1
+Paom6YwUOZfcP7MEuTepO7ZxbdNA+/yUCryIf5ubeF9VYCufLfpslcIdUnc/
+NTKte7OL/5K463iWp8GN5RkmiOdvG5zM4l5HHt14P/Eoe1lkHtn5XvzP4vuQ
+vG2gefYFYL2cnDaXOHpkzAM5lTDnBeFEvxoVnKbsI+qgFvWVox6svxW4n/Zr
+CYdMdUhTIzvfT/bOCLDzff0H/muFeg==
+    "]], 
+   FilledCurveBox[{{{0, 2, 0}, {1, 3, 3}, {1, 3, 3}, {0, 1, 0}, {0, 1, 0}, {1,
+     3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
+    3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {0, 
+    1, 0}}}, CompressedData["
+1:eJxTTMoPSmVmYGBgBGI9IGYC4jmLlHf+Oa7mcOqw09pMO3WHhJAg9QWeCP6L
+LO1v023VHDaoPmme91bNYUp7a9RlGTUHU5u9QdMU1RxeFW8V/f1a1SEj/0Pr
+ySuqDqI9Xq9YYPQWVYg581TgfLB5sQj+TBDoVITz1wrp8KWvU3Yw0FopfGGJ
+ugMDCHxQdjAD2fdQ3aHm04aA7FkqDmB3p2s4bNLLW8x4R8XhUYT49osLNBxS
+Yu+4Md9Qdaj9bVVwrkPTAea/ehA/QwvOB5tzSxvOl1n+wkNvv66DzLw4zdMG
+qhBzfug5iFROKjlrogznK197FMzgowjnV9//ccuYW8Ghhdd//ZRWXTh/A8hd
+MjpwPjh8QrQh/l2pANFvoe3QbeO5K+0Rgu++5uhyBgtFOD89DQi2KUL0lyD4
+TxIXXjPh14Hz/7x9fcDysY6D84RmobRXCnD+DJB9OxF8cHgaKDq8AMUbt57D
+ym8vK844KDn8+Vb6YE6hHsR+DmU4X2LqFc6MJhU4H+xPV1VoOOnC+bDwhPFN
+jEFAC5peVCDp4J8GJPxslBz+gswTVIfyFSDxx6AKDy9IOlKB89+A3HsawU8D
+AxWHgFvSNYlBanA+enoGAPMMPec=
+    "]]},
+  AspectRatio->Automatic,
+  BaselinePosition->Scaled[0.3237956353650342],
+  ImageSize->{13.376866749688668`, 16.368856787048568`},
+  PlotRange->{{0., 13.38}, {0., 16.37}}]], "Output",
+ CellLabel->"Out[4]=",
+ CellID->162055545]
+}, Open  ]],
+
+Cell[TextData[{
+ "If everything works well, continue with the ",
+ ButtonBox["Typesetting with MaTeX",
+  BaseStyle->"Link",
+  ButtonData->"paclet:MaTeX/tutorial/TypesettingWithMaTeX"],
+ " tutorial to learn how to use MaTeX effectively."
+}], "Text",
+ CellID->330769954],
+
+Cell[TextData[StyleBox["Notes:",
+ FontWeight->"Bold"]], "Text",
+ CellID->120086388],
+
+Cell[TextData[{
+ "Any flavour of ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " that produces PDF output can be used, including pdfLaTeX, ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["XeLaTeX"]],
+    "http://tex.stackexchange.com/questions/3393/what-is-xetex-exactly-and-\
+why-should-i-use-it"},
+   "WebLink",
+   BaseStyle->{"BulletedText"}]]],
+ " and ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["LuaLaTeX"]],"http://www.luatex.org/"},
+   "WebLink",
+   BaseStyle->{"BulletedText"}]]],
+ ". Unlike pdfLaTeX, XeLaTeX and LuaLaTeX can load any installed system \
+font."
+}], "BulletedText",
+ CellID->874045736],
+
+Cell[TextData[{
+ "On Windows, use the Ghostscript executable which has a c suffix, i.e. ",
+ StyleBox["gswin64c.exe", "InlineCode"],
+ " instead of ",
+ StyleBox["gswin64.exe", "InlineCode"],
+ ". The typical Ghostscript installation location is ",
+ StyleBox["C:\\Program Files\\gs\\.", "InlineCode"]
+}], "BulletedText",
+ CellID->1638087321]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Uninstalling or upgrading MaTeX", "Section",
+ CellID->857614431],
+
+Cell[TextData[{
+ "It is safe to have multiple versions of MaTeX installed at the same time. \
+",
+ Cell[BoxData[
+  RowBox[{"Needs", "[", "\"\<MaTeX`\>\"", "]"}]], "InlineFormula"],
+ " will always load the most recent compatible version."
+}], "Text",
+ CellID->1896226899],
+
+Cell["All installed versions can be listed using", "Text",
+ CellID->1632656571],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PacletFind", "[", "\"\<MaTeX\>\"", "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->1702426077],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  InterpretationBox[
+   RowBox[{
+   "Paclet", "[", "\<\"MaTeX\"\>", ",", "\<\"1.7.3\"\>", ",", "<>", "]"}],
+   PacletManager`Paclet[
+   "Name" -> "MaTeX", "Version" -> "1.7.3", "MathematicaVersion" -> "10.0+", 
+    "Description" -> "Create LaTeX-typeset labels within Mathematica.", 
+    "Creator" -> "Szabolcs Horv\[AAcute]t <szhorvat@gmail.com>", "URL" -> 
+    "http://szhorvat.net/mathematica/MaTeX", "Thumbnail" -> "Logo.png", 
+    "Extensions" -> {{
+      "Documentation", "Language" -> All, "MainPage" -> "Guides/MaTeX"}, {
+      "Kernel", "Root" -> ".", "Context" -> "MaTeX`"}}, "Location" -> 
+    "/Users/szhorvat/Library/Mathematica/Paclets/Repository/MaTeX-1.7.3"]], 
+  "}"}]], "Output",
+ CellLabel->"Out[5]=",
+ CellID->629678081]
+}, Open  ]],
+
+Cell[TextData[{
+ "Any item in the list above can be uninstalled by applying ",
+ Cell[BoxData["PacletUninstall"], "InlineFormula"],
+ " to it. To uninstall all versions at once, use ",
+ Cell[BoxData[
+  RowBox[{"PacletUninstall", "[", "\"\<MaTeX\>\"", "]"}]], "InlineFormula"],
+ "."
+}], "Text",
+ CellID->978902278],
+
+Cell["Get more information on the active version:", "Text",
+ CellID->39858178],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PacletInformation", "[", "\"\<MaTeX\>\"", "]"}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->818926783],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"Name\"\>", "\[Rule]", "\<\"MaTeX\"\>"}], ",", 
+   RowBox[{"\<\"Version\"\>", "\[Rule]", "\<\"1.7.3\"\>"}], ",", 
+   RowBox[{"\<\"BuildNumber\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"Qualifier\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"WolframVersion\"\>", "\[Rule]", "\<\"10.0+\"\>"}], ",", 
+   RowBox[{"\<\"SystemID\"\>", "\[Rule]", "All"}], ",", 
+   RowBox[{"\<\"Description\"\>", 
+    "\[Rule]", "\<\"Create LaTeX-typeset labels within Mathematica.\"\>"}], 
+   ",", 
+   RowBox[{"\<\"Category\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"Creator\"\>", 
+    "\[Rule]", "\<\"Szabolcs Horv\[AAcute]t <szhorvat@gmail.com>\"\>"}], ",", 
+   
+   RowBox[{"\<\"Publisher\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"Support\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"Internal\"\>", "\[Rule]", "False"}], ",", 
+   RowBox[{"\<\"Location\"\>", 
+    "\[Rule]", \
+"\<\"/Users/szhorvat/Library/Mathematica/Paclets/Repository/MaTeX-1.7.3\"\>"}]\
+, ",", 
+   RowBox[{"\<\"Context\"\>", "\[Rule]", 
+    RowBox[{"{", "\<\"MaTeX`\"\>", "}"}]}], ",", 
+   RowBox[{"\<\"Enabled\"\>", "\[Rule]", "True"}], ",", 
+   RowBox[{"\<\"Loading\"\>", "\[Rule]", "Manual"}]}], "}"}]], "Output",
+ CellLabel->"Out[6]=",
+ CellID->1636294454]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Resetting the configuration", "Section",
+ CellID->378763460],
+
+Cell[TextData[{
+ "To reset the configuration to its default, and try to auto-detect the \
+location of Ghostscript and ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"L", 
+     StyleBox[
+      AdjustmentBox["A",
+       BoxBaselineShift->-0.4,
+       BoxMargins->{{-0.5, -0.3}, {0, 0}}],
+      FontSize->Smaller], "T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " again, evaluate"
+}], "Text",
+ CellID->2138547774],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MaTeX`Developer`ResetConfiguration", "[", "]"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->1892413021],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"pdfLaTeX\"\>", 
+    "\[Rule]", "\<\"/Library/TeX/texbin/pdflatex\"\>"}], ",", 
+   RowBox[{"\<\"Ghostscript\"\>", "\[Rule]", "\<\"/usr/local/bin/gs\"\>"}], 
+   ",", 
+   RowBox[{"\<\"CacheSize\"\>", "\[Rule]", "100"}], ",", 
+   RowBox[{"\<\"WorkingDirectory\"\>", "\[Rule]", "Automatic"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[7]=",
+ CellID->1986698626]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Troubleshooting", "Section",
+ CellID->1830783538],
+
+Cell[TextData[{
+ "If having difficulties with MaTeX, make sure that you have the latest \
+version. The most recent version is always available at ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["https://github.com/szhorvat/MaTeX/releases"]],
+    "https://github.com/szhorvat/MaTeX/releases"},
+   "WebLink",
+   BaseStyle->{"Text"}]]]
+}], "Text",
+ CellID->338100563],
+
+Cell["Check the loaded version:", "MathCaption",
+ CellID->1825449234],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["MaTeX`Information`$Version"], "Input",
+ CellLabel->"In[8]:=",
+ CellID->667848324],
+
+Cell[BoxData["\<\"1.7.3 (December 4, 2017)\"\>"], "Output",
+ CellLabel->"Out[8]=",
+ CellID->865779113]
+}, Open  ]],
+
+Cell[TextData[{
+ "A link to continually updated troubleshooting information can be found at \
+GitHub: ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["https://github.com/szhorvat/MaTeX"]],
+    "https://github.com/szhorvat/MaTeX"},
+   "WebLink",
+   BaseStyle->{"Text"}]]]
+}], "Text",
+ CellID->1452302517],
+
+Cell[CellGroupData[{
+
+Cell["MaTeX does not produce the output I expect", "Subsection",
+ CellID->1252792574],
+
+Cell[TextData[{
+ "Please check the Possible Issues section in the ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["MaTeX"]],"paclet:MaTeX/ref/MaTeX"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ " documentation page."
+}], "Text",
+ CellID->589084486]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "\[OpenCurlyDoubleQuote]",
+ StyleBox["MaTeX::texerr: Error while running LaTeX", "InlineCode",
+  FontWeight->"Bold"],
+ "\[CloseCurlyDoubleQuote] message"
+}], "Subsection",
+ CellID->477558058],
+
+Cell["There may be several causes for this message.", "Text",
+ CellID->2071153153],
+
+Cell[TextData[{
+ "If it only happens with certain bits of TeX code, but not others, then it \
+indicates that there is an error in your LaTeX code. MaTeX attempts to \
+extract the relevant error message from LaTeX\[CloseCurlyQuote]s console \
+output and report it, but it does not always succeed in this. To make \
+debugging such situations easier, MaTeX offers the ",
+ Cell[BoxData["\"\<LogFileFunction\>\""], "InlineFormula"],
+ " and ",
+ Cell[BoxData["\"\<TeXFileFunction\>\""], "InlineFormula"],
+ " options (since version 1.3.0). These are applied to the contents of the \
+LaTeX log file and to the generated LaTeX code, respectively."
+}], "Text",
+ CellID->304381793],
+
+Cell["Use them like this:", "Text",
+ CellID->1225851384],
+
+Cell[BoxData[
+ RowBox[{"MaTeX", "[", 
+  RowBox[{"\"\<x^\>\"", ",", " ", 
+   RowBox[{"\"\<LogFileFunction\>\"", " ", "\[Rule]", " ", "Print"}], ",", 
+   " ", 
+   RowBox[{"\"\<TeXFileFunction\>\"", " ", "\[Rule]", " ", "Print"}]}], 
+  "]"}]], "Input",
+ CellID->2084234669],
+
+Cell[TextData[{
+ "The provided functions are called only if MaTeX is not using a previously \
+cached result. To force calling them, clear the cache using ",
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{Cell[
+      TextData["ClearMaTeXCache"]],"paclet:MaTeX/ref/ClearMaTeXCache"},
+    "RefLink",
+    BaseStyle->{"InlineFormula"}], "[", "]"}]], "InlineFormula"],
+ "."
+}], "Text",
+ CellID->1288068061],
+
+Cell[TextData[{
+ StyleBox["If this error appears with any input to MaTeX,",
+  FontWeight->"Bold"],
+ " even with a simple example such as MaTeX[\"x^2\"], then there may be a \
+problem with your setup or MaTeX may be incompatible with your system. Check \
+for the following:"
+}], "Text",
+ CellID->2018525447],
+
+Cell[TextData[{
+ "Do you have all required LaTeX packages installed? MaTeX requires ",
+ StyleBox["standalone", "InlineCode"],
+ ", ",
+ StyleBox["lmodern", "InlineCode"],
+ ", ",
+ StyleBox["exscale", "InlineCode"],
+ ", ",
+ StyleBox["amsmath", "InlineCode"],
+ " and ",
+ StyleBox["amssymb", "InlineCode"],
+ ". All these are part of most TeX distributions, but may not get installed \
+if choosing the smallest installation option. The ",
+ Cell[BoxData["\"\<LogFileFunction\>\""], "InlineFormula"],
+ " option (described above) can help in diagnosing missing packages."
+}], "BulletedText",
+ CellID->982827801],
+
+Cell[TextData[{
+ "If you use OS X or Windows (with certain TeX distributions only), make sure \
+that the name of the ",
+ StyleBox["pdflatex", "InlineCode"],
+ " (or ",
+ StyleBox["xelatex", "InlineCode"],
+ ") executable is spelt in the correct case in ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ConfigureMaTeX"]],"paclet:MaTeX/ref/ConfigureMaTeX"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ ". It must be lowercase.\n\nExamples for OS X:\n\n",
+ Cell[BoxData[
+  RowBox[{"ConfigureMaTeX", "[", 
+   RowBox[{
+   "\"\<pdfLaTeX\>\"", " ", "\[Rule]", " ", 
+    "\"\</Library/TeX/texbin/pdflatex\>\""}], "]"}]], "InlineFormula"],
+ " is correct and will work provided that this is indeed the location of ",
+ StyleBox["pdflatex", "InlineCode"],
+ " on your system.\n\n",
+ Cell[BoxData[
+  RowBox[{"ConfigureMaTeX", "[", 
+   RowBox[{
+   "\"\<pdfLaTeX\>\"", " ", "\[Rule]", " ", 
+    "\"\</Library/TeX/texbin/pdfLaTeX\>\""}], "]"}]], "InlineFormula"],
+ " is wrong and will trigger the error.\n\nOS X uses a case-preserving but \
+case-insensitive file system by default. However, some programs with a UNIX \
+heritage may not work correctly unless they are invoked with the case-correct \
+spelling. ",
+ StyleBox["pdflatex", "InlineCode"],
+ " is a notable example because ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData[
+     "it determines the format file to use based on the name it is called \
+with"]],"http://tug.org/texinfohtml/web2c.html#Determining-the-memory-dump-to-\
+use"},
+   "WebLink",
+   BaseStyle->{"BulletedText"}]]],
+ ". The problem may also affect some TeX distributions on Windows, such as \
+TeX Live in Cygwin."
+}], "BulletedText",
+ CellID->2090122330],
+
+Cell[TextData[{
+ "If you use a 32-bit version of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " 10.0 for Windows, MaTeX will not work. This is due to a bug in this \
+version of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ". As a workaround, use a 64-bit version of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " or upgrade to a later 10.x version. Version 10.3.1 reportedly works \
+correctly. I have no information about 10.1 and 10.2."
+}], "BulletedText",
+ CellID->179301219]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["gswin64.exe", "InlineCode"],
+ " is either not working or is not a command line version of Ghostscript"
+}], "Subsection",
+ CellID->301027317],
+
+Cell[TextData[{
+ "On Windows, Ghostscript comes with both a graphical version, usually named \
+as ",
+ StyleBox["gswin64.exe", "InlineCode"],
+ ", and a command line version, which has a ",
+ StyleBox["c", "InlineCode"],
+ " suffix in its name: ",
+ StyleBox["gswin64c.exe", "InlineCode"],
+ ". MaTeX must be configured to use the command line version."
+}], "Text",
+ CellID->429144537]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Loading MaTeX or using the MaTeX function triggers a ",
+ Cell[BoxData[
+  RowBox[{"RunProcess", "::", "pnfd"}]], "InlineFormula"],
+ " error on Windows"
+}], "Subsection",
+ CellID->1188374091],
+
+Cell["This may happen for two reasons:", "Text",
+ CellID->40252424],
+
+Cell[TextData[{
+ "If MaTeX's working directory contains non-ASCII characters in its name \
+(such as \[EAcute], \[ODoubleAcute], \[Alpha], \:4e2d, etc.), ",
+ ButtonBox["RunProcess",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/RunProcess"],
+ " will fail in some versions of ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " for Windows. This is a bug in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ". Earlier versions of MaTeX contained a partial workaround for this issue, \
+however, that workaround had the potential to cause problems, therefore it \
+was removed. Since MaTeX 1.7.3, it is possible to set MaTeX's working \
+directory manually. Create a directory which only has ASCII characters in its \
+path, e.g. ",
+ StyleBox["C:\\temp\\MateX", "InlineCode"],
+ ", and use ",
+ Cell[BoxData[
+  RowBox[{"ConfigureMaTeX", "[", 
+   RowBox[{
+   "\"\<WorkingDirectory\>\"", "\[Rule]", " ", 
+    "\"\<C:\\\\temp\\\\MaTeX\>\""}], "]"}]], "InlineFormula"],
+ " to instruct MaTeX to use it. The setting will be saved for future \
+sessions. To revert to the default behaviour, set ",
+ Cell[BoxData[
+  RowBox[{"ConfigureMaTeX", "[", 
+   RowBox[{"\"\<WorkingDirectory\>\"", "\[Rule]", " ", "Automatic"}], "]"}]], 
+  "InlineFormula"],
+ ". See ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ConfigureMaTeX"]],"paclet:MaTeX/ref/ConfigureMaTeX"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ " for more information."
+}], "BulletedText",
+ CellID->1761711618],
+
+Cell[TextData[{
+ "The paths to pdflatex and Ghostscript use ",
+ StyleBox["/", "InlineCode"],
+ " as the path separator. Please use ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ConfigureMaTeX"]],"paclet:MaTeX/ref/ConfigureMaTeX"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula"],
+ " and change the paths to use backslashes (",
+ StyleBox["\\", "InlineCode"],
+ ") as the separator. Remember that backslashes must be escaped within \
+Mathematica strings, so a path string will look something like ",
+ StyleBox["\"C:\\\\texlive\\\\2014\\\\bin\\\\win64\\\\pdflatex.exe\"", 
+  "InlineCode"],
+ "."
+}], "BulletedText",
+ CellID->1575444036]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "MaTeX does not work when configured to use ",
+ StyleBox["lualatex", "InlineCode",
+  FontWeight->"Bold"]
+}], "Subsection",
+ CellID->817653266],
+
+Cell[TextData[{
+ "When using LuaTeX 0.85 or later, it may be necessary to use ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData[
+      StyleBox[{"the ", 
+        StyleBox["luatex85", "InlineCode"], " package"}]]],
+    "https://www.ctan.org/pkg/luatex85?lang=en"},
+   "WebLink",
+   BaseStyle->{"Text"}]]],
+ ". The package documentation explains why this is needed."
+}], "Text",
+ CellID->380896318],
+
+Cell[TextData[{
+ "Add ",
+ Cell[BoxData["\"\<\\\\usepackage{luatex85}\>\""], "InlineFormula"],
+ " to the ",
+ Cell[BoxData["\"\<BasePreamble\>\""], "InlineFormula"],
+ " or ",
+ Cell[BoxData["\"\<Preamble\>\""], "InlineFormula"],
+ " options."
+}], "Text",
+ CellID->1126609408],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Lookup", "[", 
+  RowBox[{
+   RowBox[{"ConfigureMaTeX", "[", "]"}], ",", "\"\<pdfLaTeX\>\""}], 
+  "]"}]], "Input",
+ CellLabel->"In[8]:=",
+ CellID->1252204246],
+
+Cell[BoxData["\<\"/Library/TeX/texbin/lualatex\"\>"], "Output",
+ CellLabel->"Out[8]=",
+ CellID->2108975216]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MaTeX", "[", "\"\<x\>\"", "]"}]], "Input",
+ CellLabel->"In[9]:=",
+ CellID->1328861577],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"MaTeX", "::", "texerr"}], "MessageName"], ":", 
+  " ", "\<\"Error while running LaTeX.\\n\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\
+\\\"! Undefined control sequence.\\\\\\\\n\\\\\\\\\\\\\\\\sa@placebox \
+->\\\\\\\\\\\\\\\\newpage \\\\\\\\\\\\\\\\global \\\\\\\\\\\\\\\\pdfpagewidth \
+\\\\\\\\n                                              =\\\\\\\\\\\\\\\\wd \\\
+\\\\\\\\\\\\\\sa@box \\\\\\\\\\\\\\\\global \\\\\\\\\\\\\\\\pdfpageh...\\\\\\\
+\\n\\\\\\\\\\\\\\\\MaTeX{x}\\\\\\\\n!  ==> Fatal error occurred, no output \
+PDF file produced!\\\\\\\"\\\", \\\"OutputForm\\\", Rule[StripOnInput, \
+False]]\\)\[NoBreak] \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:MaTeX/ref/message/MaTeX/texerr\\\", ButtonNote -> \
+\\\"MaTeX`MaTeX::texerr\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellLabel->"During evaluation of In[9]:=",
+ CellID->678048031],
+
+Cell[BoxData["$Failed"], "Output",
+ CellLabel->"Out[9]=",
+ CellID->1405026035]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MaTeX", "[", 
+  RowBox[{"\"\<x\>\"", ",", 
+   RowBox[{"\"\<Preamble\>\"", "\[Rule]", 
+    RowBox[{"{", "\"\<\\\\usepackage{luatex85}\>\"", "}"}]}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[10]:=",
+ CellID->542387833],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Thickness[0.11560693641618497`], 
+   FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {0,
+     1, 0}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
+    3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 
+    3, 3}, {1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {
+    1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, CompressedData["
+1:eJxdlH9IU1EUx+dmmKjT+dzae05ybqL2g0wNzKId/5DQTCUFfxGWtJlIGBiY
+MSMlEzEKKsSJZf4gFVYqYaSUGNEvUAsNDYUU9I+WGhkp/l67976dkQcuj8+9
+7557zvece7X5xWeMMolE4uYYmY4hdYzB2oHKmFkBAsruXRl214CTMxbHlurj
+NTCTkBff0CNAZLTDSjQQ9kdvayh08cKtS7VRGzzy3v7HA8ZfPFQFe4QOxYj/
+f+IhhqyPBUI68VuhZv6b90BOaJZm5JUShohZlXDS+q5dUs8h0++CApmjcSrA
+PL06GT2vQn7qf0Be8F29Y90Zh4LF9Uxg/lcVcJPMfw2CNyTfVo7Nh4ewfHID
+4KLJYXU6sBBbU8La4vzg0VY9XCN+96uRy0ReFZn+b+FxvZ6yAMrbST/dM/RA
+ZIjmeJg73zwec0iPetD8GnXIv1u6gofDXVxA4wmBl+lxWfYCHl4XmxctxhCm
+KycgU10rAnewBqYigqx2mQ6Z+u9w8Y2NuMsjHXqmQ6wAD6qrcsY0oSKrkYOJ
+jilK5LtZtalu3Rxkeaqqo7vEeOM5pssxHat/hD9E7uvkvriHgne8PKm+UI77
+afzPvZEnfKZUxhUp8kyK7dxW04ah9O2LBMuWFtn3bNp0VKmLM8n5eVowEp1M
+m4bOFdvVIdCC+Uflel3fFnJs/sETu8CO/PDj/baiJ3YD7ZsLWmibbJ89LJMA
+Pa9cCxJiIGP11OnZ/Wj1xPqyfLyRabmz/ZBpvT74Qc3xxH5Tiw7ZTszXxXRf
+TQjr4+t+4Mx3eWCpt2Dcl9XrW7DYT96iroHs/Agv1j/JaqDpm3bjfWHxyJA1
+Paom6YwUOZfcP7MEuTepO7ZxbdNA+/yUCryIf5ubeF9VYCufLfpslcIdUnc/
+NTKte7OL/5K463iWp8GN5RkmiOdvG5zM4l5HHt14P/Eoe1lkHtn5XvzP4vuQ
+vG2gefYFYL2cnDaXOHpkzAM5lTDnBeFEvxoVnKbsI+qgFvWVox6svxW4n/Zr
+CYdMdUhTIzvfT/bOCLDzff0H/muFeg==
+    "]]},
+  AspectRatio->Automatic,
+  BaselinePosition->Scaled[0.32439307852814453`],
+  ImageSize->{8.644612702366127, 16.338709838107096`},
+  PlotRange->{{0., 8.65}, {0., 16.34}}]], "Output",
+ CellLabel->"Out[10]=",
+ CellID->87599246]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+MaTeX no longer works after upgrading to OS X 10.11 El Capitan\
+\>", "Subsection",
+ CellID->495667237],
+
+Cell[TextData[{
+ "If you use MacTeX on OS X El Capitan or later, the path to ",
+ StyleBox["pdflatex", "InlineCode"],
+ " or ",
+ StyleBox["xelatex", "InlineCode"],
+ " must be set as"
+}], "Text",
+ CellID->590185546],
+
+Cell[BoxData[
+ RowBox[{"ConfigureMaTeX", "[", 
+  RowBox[{
+  "\"\<pdfLaTeX\>\"", "\[Rule]", "\"\</Library/TeX/texbin/pdflatex\>\""}], 
+  "]"}]], "Input",
+ CellID->1374779525],
+
+Cell[TextData[{
+ "If you used the path ",
+ StyleBox["/usr/texbin/pdflatex", "InlineCode"],
+ " on OS X 10.10 or earlier, it will no longer work on 10.11. You must \
+reconfigure MaTeX with the new path. ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["Please see the explanation here."]],
+    "https://tug.org/mactex/UpdatingForElCapitan.pdf"},
+   "WebLink",
+   BaseStyle->{"Text"}]]],
+ "\nThe path to Ghostscript is unchanged, ",
+ StyleBox["/usr/local/bin/gs", "InlineCode"],
+ "."
+}], "Text",
+ CellID->1939205046]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["MaTeX still doesn't work!", "Subsection",
+ CellID->1194226010],
+
+Cell[TextData[{
+ "MaTeX's GitHub page contains a link to continually updated troubleshooting \
+information. Please continue there: ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["https://github.com/szhorvat/MaTeX"]],
+    "https://github.com/szhorvat/MaTeX"},
+   "WebLink",
+   BaseStyle->{"Text"}]]]
+}], "Text",
+ CellID->128288467],
+
+Cell["", "Text",
+ CellID->2001529215]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Related Guides"
+}], "TutorialMoreAboutSection",
+ WholeCellGroupOpener->True,
+ CellID->23220180],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[TextData[ButtonBox["MaTeX",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MaTeX/guide/MaTeX"]], "TutorialMoreAbout",
+ CellID->1353603806],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Related Tutorials"
+}], "RelatedTutorialsSection",
+ WholeCellGroupOpener->True,
+ CellID->415694126],
+
+Cell["", "SectionHeaderSpacer"],
+
+Cell[TextData[ButtonBox["Typesetting with MaTeX",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:MaTeX/tutorial/TypesettingWithMaTeX"]], "RelatedTutorials",
+ CellID->250940407]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowTitle->"Configuring MaTeX",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "TutorialColor", 
+  "LinkTrails" -> GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "MaTeX", ButtonData -> "paclet:MaTeX/guide/MaTeX", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "ExampleCounter" -> 1, "NeedPlatMsgIn" -> None, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2017, 12, 4, 15, 44, 54.538438}", 
+    "history" -> {"1.6", "", "", ""}, "context" -> "MaTeX`", 
+    "keywords" -> {
+     "configuring matex", "configure matex", "matex configuration", "pdftex", 
+      "pdflatex", "xelatex", "xetex", "luatex", "lualatex", "Ghostscript", 
+      "matex", "matex error", "matex troubleshooting", "latex error", 
+      "tex error", "miktex", "tex live"}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "MaTeX Tutorial", "language" -> "en", "paclet" -> "MaTeX", "status" -> 
+    "None", "summary" -> 
+    "After installation, MaTeX requires a few additional setup steps. These \
+are detailed in this tutorial. MaTeX requires Mathematica 10.0 or later and: \
+After installing MaTeX, it is necessary to tell it the location of the \
+pdfLaTeX and Ghostscript executables. On some systems it is able to \
+automatically detect these. If it does not succeed, you will see the \
+following message after loading MaTeX:", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$11866, "title" -> 
+    "Configuring MaTeX", "titlemodifier" -> "", "windowtitle" -> 
+    "Configuring MaTeX", "type" -> "Tutorial", "uri" -> 
+    "MaTeX/tutorial/ConfiguringMaTeX"}, "SearchTextTranslated" -> ""},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
+2014)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["NotesSection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData["PrimaryExamplesSection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData["ExampleSection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData["ExampleSubsection"], ShowGroupOpener -> True], 
+   Cell[
+    StyleData[
+    "GuideTutorialsSection", StyleDefinitions -> 
+     StyleData["SeeAlsoSection"]]]}, Visible -> False, FrontEndVersion -> 
+  "10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, 2014)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[589, 21, 2570, 66, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[3184, 91, 54, 1, 70, "Title",
+ CellID->509267359],
+Cell[3241, 94, 19679, 299, 70, "TutorialJumpBox"],
+Cell[22923, 395, 147, 4, 70, "Text",
+ CellID->100371240],
+Cell[CellGroupData[{
+Cell[23095, 403, 52, 1, 70, "Section",
+ CellID->707881275],
+Cell[23150, 406, 140, 6, 70, "Text",
+ CellID->1703085124],
+Cell[23293, 414, 997, 38, 70, "BulletedText",
+ CellID->1088631257],
+Cell[24293, 454, 539, 16, 70, "BulletedText",
+ CellID->1251784128]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24869, 475, 55, 1, 70, "Section",
+ CellID->389691836],
+Cell[24927, 478, 297, 6, 70, "Text",
+ CellID->1534169418],
+Cell[CellGroupData[{
+Cell[25249, 488, 94, 3, 70, "Input",
+ CellID->1640634666],
+Cell[CellGroupData[{
+Cell[25368, 495, 138, 2, 70, "Print",
+ CellID->1884276909],
+Cell[25509, 499, 214, 3, 70, "Print",
+ CellID->100667254],
+Cell[25726, 504, 141, 2, 70, "Print",
+ CellID->1844907789],
+Cell[25870, 508, 217, 4, 70, "Print",
+ CellID->1996314337],
+Cell[26090, 514, 906, 15, 70, "Print",
+ CellID->1918044878]
+}, Open  ]]
+}, Open  ]],
+Cell[27023, 533, 373, 10, 70, "Text",
+ CellID->1125038529],
+Cell[CellGroupData[{
+Cell[27421, 547, 343, 9, 70, "Input",
+ CellID->1768050685],
+Cell[27767, 558, 406, 10, 70, "Output",
+ CellID->1899709450]
+}, Open  ]],
+Cell[28188, 571, 176, 4, 70, "Text",
+ CellID->1411884930],
+Cell[28367, 577, 91, 1, 70, "Text",
+ CellID->1877514704],
+Cell[CellGroupData[{
+Cell[28483, 582, 106, 3, 70, "Input",
+ CellID->1947478611],
+Cell[28592, 587, 406, 10, 70, "Output",
+ CellID->1207511615]
+}, Open  ]],
+Cell[29013, 600, 71, 1, 70, "Text",
+ CellID->1468837617],
+Cell[CellGroupData[{
+Cell[29109, 605, 112, 3, 70, "Input",
+ CellID->1320175261],
+Cell[29224, 610, 2675, 48, 70, "Output",
+ CellID->162055545]
+}, Open  ]],
+Cell[31914, 661, 267, 7, 70, "Text",
+ CellID->330769954],
+Cell[32184, 670, 83, 2, 70, "Text",
+ CellID->120086388],
+Cell[32270, 674, 791, 27, 70, "BulletedText",
+ CellID->874045736],
+Cell[33064, 703, 337, 8, 70, "BulletedText",
+ CellID->1638087321]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33438, 716, 70, 1, 70, "Section",
+ CellID->857614431],
+Cell[33511, 719, 269, 7, 70, "Text",
+ CellID->1896226899],
+Cell[33783, 728, 79, 1, 70, "Text",
+ CellID->1632656571],
+Cell[CellGroupData[{
+Cell[33887, 733, 119, 3, 70, "Input",
+ CellID->1702426077],
+Cell[34009, 738, 769, 16, 70, "Output",
+ CellID->629678081]
+}, Open  ]],
+Cell[34793, 757, 311, 8, 70, "Text",
+ CellID->978902278],
+Cell[35107, 767, 78, 1, 70, "Text",
+ CellID->39858178],
+Cell[CellGroupData[{
+Cell[35210, 772, 125, 3, 70, "Input",
+ CellID->818926783],
+Cell[35338, 777, 1309, 28, 70, "Output",
+ CellID->1636294454]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36696, 811, 66, 1, 70, "Section",
+ CellID->378763460],
+Cell[36765, 814, 530, 18, 70, "Text",
+ CellID->2138547774],
+Cell[CellGroupData[{
+Cell[37320, 836, 126, 3, 70, "Input",
+ CellID->1892413021],
+Cell[37449, 841, 410, 11, 70, "Output",
+ CellID->1986698626]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37908, 858, 55, 1, 70, "Section",
+ CellID->1830783538],
+Cell[37966, 861, 369, 10, 70, "Text",
+ CellID->338100563],
+Cell[38338, 873, 69, 1, 70, "MathCaption",
+ CellID->1825449234],
+Cell[CellGroupData[{
+Cell[38432, 878, 95, 2, 70, "Input",
+ CellID->667848324],
+Cell[38530, 882, 102, 2, 70, "Output",
+ CellID->865779113]
+}, Open  ]],
+Cell[38647, 887, 308, 10, 70, "Text",
+ CellID->1452302517],
+Cell[CellGroupData[{
+Cell[38980, 901, 85, 1, 70, "Subsection",
+ CellID->1252792574],
+Cell[39068, 904, 278, 9, 70, "Text",
+ CellID->589084486]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39383, 918, 208, 6, 70, "Subsection",
+ CellID->477558058],
+Cell[39594, 926, 82, 1, 70, "Text",
+ CellID->2071153153],
+Cell[39679, 929, 669, 12, 70, "Text",
+ CellID->304381793],
+Cell[40351, 943, 56, 1, 70, "Text",
+ CellID->1225851384],
+Cell[40410, 946, 270, 7, 70, "Input",
+ CellID->2084234669],
+Cell[40683, 955, 395, 11, 70, "Text",
+ CellID->1288068061],
+Cell[41081, 968, 306, 7, 70, "Text",
+ CellID->2018525447],
+Cell[41390, 977, 601, 16, 70, "BulletedText",
+ CellID->982827801],
+Cell[41994, 995, 1694, 43, 70, "BulletedText",
+ CellID->2090122330],
+Cell[43691, 1040, 501, 14, 70, "BulletedText",
+ CellID->179301219]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44229, 1059, 167, 4, 70, "Subsection",
+ CellID->301027317],
+Cell[44399, 1065, 379, 10, 70, "Text",
+ CellID->429144537]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44815, 1080, 207, 6, 70, "Subsection",
+ CellID->1188374091],
+Cell[45025, 1088, 67, 1, 70, "Text",
+ CellID->40252424],
+Cell[45095, 1091, 1486, 38, 70, "BulletedText",
+ CellID->1761711618],
+Cell[46584, 1131, 656, 17, 70, "BulletedText",
+ CellID->1575444036]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47277, 1153, 159, 5, 70, "Subsection",
+ CellID->817653266],
+Cell[47439, 1160, 399, 12, 70, "Text",
+ CellID->380896318],
+Cell[47841, 1174, 271, 9, 70, "Text",
+ CellID->1126609408],
+Cell[CellGroupData[{
+Cell[48137, 1187, 181, 6, 70, "Input",
+ CellID->1252204246],
+Cell[48321, 1195, 107, 2, 70, "Output",
+ CellID->2108975216]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48465, 1202, 110, 3, 70, "Input",
+ CellID->1328861577],
+Cell[48578, 1207, 948, 16, 70, "Message",
+ CellID->678048031],
+Cell[49529, 1225, 78, 2, 70, "Output",
+ CellID->1405026035]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49644, 1232, 237, 7, 70, "Input",
+ CellID->542387833],
+Cell[49884, 1241, 1761, 32, 70, "Output",
+ CellID->87599246]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51694, 1279, 112, 3, 70, "Subsection",
+ CellID->495667237],
+Cell[51809, 1284, 212, 7, 70, "Text",
+ CellID->590185546],
+Cell[52024, 1293, 173, 5, 70, "Input",
+ CellID->1374779525],
+Cell[52200, 1300, 517, 15, 70, "Text",
+ CellID->1939205046]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52754, 1320, 68, 1, 70, "Subsection",
+ CellID->1194226010],
+Cell[52825, 1323, 336, 10, 70, "Text",
+ CellID->128288467],
+Cell[53164, 1335, 37, 1, 70, "Text",
+ CellID->2001529215]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53250, 1342, 284, 12, 70, "TutorialMoreAboutSection",
+ CellID->23220180],
+Cell[53537, 1356, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[53571, 1358, 137, 3, 70, "TutorialMoreAbout",
+ CellID->1353603806],
+Cell[53711, 1363, 31, 0, 70, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53779, 1368, 287, 12, 70, "RelatedTutorialsSection",
+ CellID->415694126],
+Cell[54069, 1382, 31, 0, 70, "SectionHeaderSpacer"],
+Cell[54103, 1384, 173, 4, 70, "RelatedTutorials",
+ CellID->250940407]
+}, Open  ]]
+}, Open  ]],
+Cell[54303, 1392, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
