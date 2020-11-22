@@ -4,6 +4,9 @@
 
 using namespace Eigen;
 
+/*!
+@todo See how to pass a function into another function and verify NRTracker
+*/
 int main(int argc, char const *argv[]) {
   RootTracker rt;
   rt.methods();
