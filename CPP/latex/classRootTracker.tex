@@ -1,0 +1,57 @@
+\hypertarget{classRootTracker}{}\doxysection{Root\+Tracker Class Reference}
+\label{classRootTracker}\index{RootTracker@{RootTracker}}
+
+
+{\ttfamily \#include $<$root\+\_\+tracker.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector\+Xd \mbox{\hyperlink{classRootTracker_a1747f62a28f6439be32a3284670630d0}{N\+R\+Tracker}} (Vector\+Xd x, Vector\+Xd y, Vector\+Xd f, Matrix\+Xd Jfy, float eps=pow(10,-\/10))
+\item 
+int \mbox{\hyperlink{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}{methods}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} class consists of implementations of the following\+:
+\begin{DoxyItemize}
+\item Newton-\/\+Raphson method based tracking or N\+R\+Tracker
+\item Davidenkos method based tracking or D\+M\+Tracker
+\item Nearest neighbour based tracking or N\+N\+Tracker 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}\label{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}} 
+\index{RootTracker@{RootTracker}!methods@{methods}}
+\index{methods@{methods}!RootTracker@{RootTracker}}
+\doxysubsubsection{\texorpdfstring{methods()}{methods()}}
+{\footnotesize\ttfamily int Root\+Tracker\+::methods (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The methods function can be called to view names of all the implemented root tracking methods. \mbox{\Hypertarget{classRootTracker_a1747f62a28f6439be32a3284670630d0}\label{classRootTracker_a1747f62a28f6439be32a3284670630d0}} 
+\index{RootTracker@{RootTracker}!NRTracker@{NRTracker}}
+\index{NRTracker@{NRTracker}!RootTracker@{RootTracker}}
+\doxysubsubsection{\texorpdfstring{NRTracker()}{NRTracker()}}
+{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+N\+R\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{x,  }\item[{Vector\+Xd}]{y,  }\item[{Vector\+Xd}]{f,  }\item[{Matrix\+Xd}]{Jfy,  }\item[{float}]{eps = {\ttfamily pow(10,-\/10)} }\end{DoxyParamCaption})}
+
+The N\+R\+Tracker uses the Newton-\/\+Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. 
+\begin{DoxyParams}{Parameters}
+{\em x} & The set of input/known variables at each tracking step \\
+\hline
+{\em y} & The set of output/unknown variables at each step \\
+\hline
+{\em f} & The set of expressions of the non-\/linear functions relating x, y \\
+\hline
+{\em Jfy} & The expression of the Jacobian matrix of f with respect to y, the unknown variables \\
+\hline
+{\em eps} & The required tolerance to which the computed solutions are to satisfy the non-\/linear equations. Default value is set to 10$^\wedge$-\/10 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Decide to return q or y in the N\+R\+Tracker method \end{DoxyRefDesc}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{root__tracker_8h}{root\+\_\+tracker.\+h}}\item 
+\mbox{\hyperlink{root__tracker_8cpp}{root\+\_\+tracker.\+cpp}}\end{DoxyCompactItemize}

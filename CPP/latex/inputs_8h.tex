@@ -1,0 +1,47 @@
+\hypertarget{inputs_8h}{}\doxysection{inputs.\+h File Reference}
+\label{inputs_8h}\index{inputs.h@{inputs.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
+Include dependency graph for inputs.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{inputs_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector\+Xd \mbox{\hyperlink{inputs_8h_a2a996dfcd9a8b885a0aa4fb7b9b082c5}{etaext}} (Vector\+Xd q)
+\item 
+Matrix\+Xd \mbox{\hyperlink{inputs_8h_ae6bd9216fb8ab83ba8989c40d801dd3b}{Jetaextphi}} (Vector\+Xd q)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{inputs_8h_a2a996dfcd9a8b885a0aa4fb7b9b082c5}\label{inputs_8h_a2a996dfcd9a8b885a0aa4fb7b9b082c5}} 
+\index{inputs.h@{inputs.h}!etaext@{etaext}}
+\index{etaext@{etaext}!inputs.h@{inputs.h}}
+\doxysubsubsection{\texorpdfstring{etaext()}{etaext()}}
+{\footnotesize\ttfamily Vector\+Xd etaext (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{q }\end{DoxyParamCaption})}
+
+The funcion etaext is the set of constraint equations of an S\+R\+S\+PM formulated in the extended configuration space of the manipulator. This is for the example problem demosntrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily S\+R\+S\+P\+M\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{inputs_8h_ae6bd9216fb8ab83ba8989c40d801dd3b}\label{inputs_8h_ae6bd9216fb8ab83ba8989c40d801dd3b}} 
+\index{inputs.h@{inputs.h}!Jetaextphi@{Jetaextphi}}
+\index{Jetaextphi@{Jetaextphi}!inputs.h@{inputs.h}}
+\doxysubsubsection{\texorpdfstring{Jetaextphi()}{Jetaextphi()}}
+{\footnotesize\ttfamily Matrix\+Xd Jetaextphi (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{q }\end{DoxyParamCaption})}
+
+The funcion Jetaextphi is the constraint Jacobian matrix of an S\+R\+S\+PM formulated in the extended configuration space of the manipulator. This is for the example problem demosntrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily S\+R\+S\+P\+M\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
