@@ -4,14 +4,15 @@
 ## ----------------------------------------------------------------------
 # Add color and helpfile later if needed
 
-CFLAGS = -Ofast
 # Replace with clang later
 CC = g++
-SRC = main.cpp root_tracker.cpp utils.h
+CFLAGS = -Ofast # -Wall
+LIBS = -lgsl -lgslcblas -lm
+SRC = main.cpp root_tracker.cpp utils.h inputs.h
 OBJ = $(SRC:.cpp = .o)
 
 TrackedRoots: $(OBJ)	## Produces an executable for the root tracking problem formulated in main.cpp
-	$(CC) $(CFLAGS) -o TrackedRoots $(OBJ)
+	$(CC) $(CFLAGS) -o TrackedRoots $(OBJ) $(LIBS)
 
 clean:	## Removes the generated *.o files
 	rm -f core *.o

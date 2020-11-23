@@ -73,8 +73,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1747f62a28f6439be32a3284670630d0"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a1747f62a28f6439be32a3284670630d0">NRTracker</a> (VectorXd x, VectorXd y, VectorXd f, MatrixXd Jfy, float eps=pow(10,-10))</td></tr>
-<tr class="separator:a1747f62a28f6439be32a3284670630d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bb3dcb73ea58ac44ab15d7803de3d5a"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a6bb3dcb73ea58ac44ab15d7803de3d5a">NRTracker</a> (VectorXd x, VectorXd y, std::function&lt; VectorXd(VectorXd)&gt; f, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=pow(10, -10))</td></tr>
+<tr class="separator:a6bb3dcb73ea58ac44ab15d7803de3d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89ffd1af75e3bf434065b736623bbf17"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a89ffd1af75e3bf434065b736623bbf17">methods</a> ()</td></tr>
 <tr class="separator:a89ffd1af75e3bf434065b736623bbf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -103,8 +103,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1747f62a28f6439be32a3284670630d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1747f62a28f6439be32a3284670630d0">&#9670;&nbsp;</a></span>NRTracker()</h2>
+<a id="a6bb3dcb73ea58ac44ab15d7803de3d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bb3dcb73ea58ac44ab15d7803de3d5a">&#9670;&nbsp;</a></span>NRTracker()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,20 +124,20 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">VectorXd&#160;</td>
+          <td class="paramtype">std::function&lt; VectorXd(VectorXd)&gt;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">MatrixXd&#160;</td>
+          <td class="paramtype">std::function&lt; MatrixXd(VectorXd)&gt;&#160;</td>
           <td class="paramname"><em>Jfy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>eps</em> = <code>pow(10,-10)</code>&#160;</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eps</em> = <code>pow(10,&#160;-10)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -146,12 +146,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The NRTracker uses the Newton-Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>The NRTracker uses the Newton-Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The function accepts functions as arguments using the C++11 style using the functional library. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>The set of input/known variables at each tracking step </td></tr>
     <tr><td class="paramname">y</td><td>The set of output/unknown variables at each step </td></tr>
-    <tr><td class="paramname">f</td><td>The set of expressions of the non-linear functions relating x, y </td></tr>
-    <tr><td class="paramname">Jfy</td><td>The expression of the Jacobian matrix of f with respect to y, the unknown variables </td></tr>
+    <tr><td class="paramname">f</td><td>The set of expressions of the non-linear functions relating x, y. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of f. </td></tr>
+    <tr><td class="paramname">Jfy</td><td>The expression of the Jacobian matrix of f with respect to y, the unknown variables. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of Jfy. </td></tr>
     <tr><td class="paramname">eps</td><td>The required tolerance to which the computed solutions are to satisfy the non-linear equations. Default value is set to 10^-10 </td></tr>
   </table>
   </dd>

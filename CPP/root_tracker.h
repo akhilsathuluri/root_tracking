@@ -2,6 +2,7 @@
 #define RootTracker_H
 
 #include<eigen3/Eigen/Dense>
+#include<functional>
 
 using namespace Eigen;
 
@@ -14,7 +15,8 @@ The RootTracker class consists of implementations of the following:
 class RootTracker
 {
 public:
-  VectorXd NRTracker(VectorXd x, VectorXd y, VectorXd f, MatrixXd Jfy, float eps = pow(10,-10));
+  VectorXd NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (VectorXd)> f,\
+   std::function<MatrixXd (VectorXd)> Jfy, double eps = pow(10, -10));
   // void DMTracker();
   // void NNTracker();
   int methods();

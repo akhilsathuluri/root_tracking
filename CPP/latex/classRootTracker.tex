@@ -7,7 +7,7 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-Vector\+Xd \mbox{\hyperlink{classRootTracker_a1747f62a28f6439be32a3284670630d0}{N\+R\+Tracker}} (Vector\+Xd x, Vector\+Xd y, Vector\+Xd f, Matrix\+Xd Jfy, float eps=pow(10,-\/10))
+Vector\+Xd \mbox{\hyperlink{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}{N\+R\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfy, double eps=pow(10, -\/10))
 \item 
 int \mbox{\hyperlink{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}{methods}} ()
 \end{DoxyCompactItemize}
@@ -28,21 +28,21 @@ The \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} class consists of impleme
 \doxysubsubsection{\texorpdfstring{methods()}{methods()}}
 {\footnotesize\ttfamily int Root\+Tracker\+::methods (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-The methods function can be called to view names of all the implemented root tracking methods. \mbox{\Hypertarget{classRootTracker_a1747f62a28f6439be32a3284670630d0}\label{classRootTracker_a1747f62a28f6439be32a3284670630d0}} 
+The methods function can be called to view names of all the implemented root tracking methods. \mbox{\Hypertarget{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}\label{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}} 
 \index{RootTracker@{RootTracker}!NRTracker@{NRTracker}}
 \index{NRTracker@{NRTracker}!RootTracker@{RootTracker}}
 \doxysubsubsection{\texorpdfstring{NRTracker()}{NRTracker()}}
-{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+N\+R\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{x,  }\item[{Vector\+Xd}]{y,  }\item[{Vector\+Xd}]{f,  }\item[{Matrix\+Xd}]{Jfy,  }\item[{float}]{eps = {\ttfamily pow(10,-\/10)} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+N\+R\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{x,  }\item[{Vector\+Xd}]{y,  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{f,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfy,  }\item[{double}]{eps = {\ttfamily pow(10,~-\/10)} }\end{DoxyParamCaption})}
 
-The N\+R\+Tracker uses the Newton-\/\+Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. 
+The N\+R\+Tracker uses the Newton-\/\+Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The function accepts functions as arguments using the C++11 style using the functional library. 
 \begin{DoxyParams}{Parameters}
 {\em x} & The set of input/known variables at each tracking step \\
 \hline
 {\em y} & The set of output/unknown variables at each step \\
 \hline
-{\em f} & The set of expressions of the non-\/linear functions relating x, y \\
+{\em f} & The set of expressions of the non-\/linear functions relating x, y. Takes in a single argument of type {\ttfamily Vector\+Xd} consisting y, x and outputs the evaluation of f. \\
 \hline
-{\em Jfy} & The expression of the Jacobian matrix of f with respect to y, the unknown variables \\
+{\em Jfy} & The expression of the Jacobian matrix of f with respect to y, the unknown variables. Takes in a single argument of type {\ttfamily Vector\+Xd} consisting y, x and outputs the evaluation of Jfy. \\
 \hline
 {\em eps} & The required tolerance to which the computed solutions are to satisfy the non-\/linear equations. Default value is set to 10$^\wedge$-\/10 \\
 \hline
