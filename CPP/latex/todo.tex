@@ -6,9 +6,11 @@ Add assertions for square matrix verification and verification of sizes of A and
 \item[Class \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} ]\label{todo__todo000004}%
 \Hypertarget{todo__todo000004}%
 Add chrono to profile function evaluation timings  
-\item[Member \mbox{\hyperlink{classRootTracker_ad6972a32664292d78516340027947bb5}{Root\+Tracker::D\+M\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f=N\+U\+LL)]\label{todo__todo000003}%
+\item[Member \mbox{\hyperlink{classRootTracker_a9179d3bacd501c9e052aaa4a664998a5}{Root\+Tracker::D\+M\+Tracker}} (Vector\+Xd x, Vector\+Xd xnext, Vector\+Xd y, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f=N\+U\+LL)]\label{todo__todo000003}%
 \Hypertarget{todo__todo000003}%
-Provide support for different integration methods  
+Provide support for different integration methods 
+
+This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it.  
 \item[Member \mbox{\hyperlink{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}{Root\+Tracker::methods}} ()]\label{todo__todo000001}%
 \Hypertarget{todo__todo000001}%
 Give provision for an FK solver along with root trackers to use when trackers fail.  

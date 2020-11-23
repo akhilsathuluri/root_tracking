@@ -78,7 +78,7 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  VectorXd NRTracker(VectorXd x, VectorXd y, std::function&lt;VectorXd (VectorXd)&gt; f,\</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;   std::function&lt;MatrixXd (VectorXd)&gt; Jfy, <span class="keywordtype">double</span> eps = pow(10, -10));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  VectorXd DMTracker(VectorXd x, VectorXd y, std::function&lt;VectorXd (VectorXd)&gt; Jfx, \</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  VectorXd DMTracker(VectorXd x, VectorXd xnext, VectorXd y, std::function&lt;MatrixXd (VectorXd)&gt; Jfx, \</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;     std::function&lt;MatrixXd (VectorXd)&gt; Jfy, <span class="keywordtype">double</span> eps = 0, std::function&lt;VectorXd (VectorXd)&gt; f = NULL);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">// void NNTracker();</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">int</span> methods();</div>

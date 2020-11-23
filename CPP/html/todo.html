@@ -70,8 +70,10 @@ $(function() {
 <dd><a class="anchor" id="_todo000005"></a>Add assertions for square matrix verification and verification of sizes of A and b  </dd>
 <dt>Class <a class="el" href="classRootTracker.html">RootTracker</a>  </dt>
 <dd><a class="anchor" id="_todo000004"></a>Add chrono to profile function evaluation timings  </dd>
-<dt>Member <a class="el" href="classRootTracker.html#ad6972a32664292d78516340027947bb5">RootTracker::DMTracker</a>  (VectorXd x, VectorXd y, std::function&lt; VectorXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</dt>
-<dd><a class="anchor" id="_todo000003"></a>Provide support for different integration methods  </dd>
+<dt>Member <a class="el" href="classRootTracker.html#a9179d3bacd501c9e052aaa4a664998a5">RootTracker::DMTracker</a>  (VectorXd x, VectorXd xnext, VectorXd y, std::function&lt; MatrixXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</dt>
+<dd><p class="startdd"><a class="anchor" id="_todo000003"></a>Provide support for different integration methods </p>
+<p class="enddd">This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it.  </p>
+</dd>
 <dt>Member <a class="el" href="classRootTracker.html#a89ffd1af75e3bf434065b736623bbf17">RootTracker::methods</a>  ()</dt>
 <dd><a class="anchor" id="_todo000001"></a>Give provision for an FK solver along with root trackers to use when trackers fail.  </dd>
 <dt>Member <a class="el" href="classRootTracker.html#a6bb3dcb73ea58ac44ab15d7803de3d5a">RootTracker::NRTracker</a>  (VectorXd x, VectorXd y, std::function&lt; VectorXd(VectorXd)&gt; f, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=pow(10, -10))</dt>

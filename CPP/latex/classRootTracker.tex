@@ -9,7 +9,7 @@
 \item 
 Vector\+Xd \mbox{\hyperlink{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}{N\+R\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfy, double eps=pow(10, -\/10))
 \item 
-Vector\+Xd \mbox{\hyperlink{classRootTracker_ad6972a32664292d78516340027947bb5}{D\+M\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ f=N\+U\+LL)
+Vector\+Xd \mbox{\hyperlink{classRootTracker_a9179d3bacd501c9e052aaa4a664998a5}{D\+M\+Tracker}} (Vector\+Xd x, Vector\+Xd xnext, Vector\+Xd y, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ f=N\+U\+LL)
 \item 
 int \mbox{\hyperlink{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}{methods}} ()
 \end{DoxyCompactItemize}
@@ -26,11 +26,11 @@ The \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} class consists of impleme
 \end{DoxyItemize}
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classRootTracker_ad6972a32664292d78516340027947bb5}\label{classRootTracker_ad6972a32664292d78516340027947bb5}} 
+\mbox{\Hypertarget{classRootTracker_a9179d3bacd501c9e052aaa4a664998a5}\label{classRootTracker_a9179d3bacd501c9e052aaa4a664998a5}} 
 \index{RootTracker@{RootTracker}!DMTracker@{DMTracker}}
 \index{DMTracker@{DMTracker}!RootTracker@{RootTracker}}
 \doxysubsubsection{\texorpdfstring{DMTracker()}{DMTracker()}}
-{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+D\+M\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{x,  }\item[{Vector\+Xd}]{y,  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{Jfx,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfy,  }\item[{double}]{eps = {\ttfamily 0},  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{f = {\ttfamily NULL} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+D\+M\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{x,  }\item[{Vector\+Xd}]{xnext,  }\item[{Vector\+Xd}]{y,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfx,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfy,  }\item[{double}]{eps = {\ttfamily 0},  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{f = {\ttfamily NULL} }\end{DoxyParamCaption})}
 
 The D\+M\+Tracker uses the Davindenkos\textquotesingle{} integration method to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The problem of tracking is solved as an initial value problem using the first order derivative form of the constraint equations. This function accepts functions as arguments using the {\ttfamily C++11} style functional library. This method by default uses the Explicit Euler integration scheme and is the only supported scheme currently. 
 \begin{DoxyParams}{Parameters}
@@ -50,7 +50,9 @@ The D\+M\+Tracker uses the Davindenkos\textquotesingle{} integration method to f
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Provide support for different integration methods \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Provide support for different integration methods 
+
+This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. \end{DoxyRefDesc}
 \mbox{\Hypertarget{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}\label{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}} 
 \index{RootTracker@{RootTracker}!methods@{methods}}
 \index{methods@{methods}!RootTracker@{RootTracker}}
