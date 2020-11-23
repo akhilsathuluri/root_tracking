@@ -22,10 +22,9 @@ int RootTracker::methods(){
 The NRTracker uses the Newton-Raphson method iteratively to find
 the solutions satisfied by the constrain equations. The output is the
 values of the unknown variables at each tracking step.
-The function accepts functions as arguments using the C++11 style using
-the functional library.
-@param x The set of input/known variables at each tracking step
-@param y The set of output/unknown variables at each step
+This function accepts functions as arguments using the `C++11` style functional library.
+@param x The set of input/known variables at current tracking step
+@param y The set of output/unknown variables at current step
 @param f The set of expressions of the non-linear functions relating x, y.
 Takes in a single argument of type `VectorXd` consisting y, x and outputs the evaluation of f.
 @param Jfy The expression of the Jacobian matrix of f with respect to y, the unknown variables.
@@ -34,6 +33,7 @@ Takes in a single argument of type `VectorXd` consisting y, x and outputs the ev
 Default value is set to 10^-10
 @todo Decide to return q or y in the NRTracker method
 @todo fval returning nan is not being handled in the while loop
+@todo Input argument format and other relevant checks
 */
 VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (VectorXd)> f, \
   std::function<MatrixXd (VectorXd)> Jfy, double eps /*= pow(10, -10)*/){
@@ -51,10 +51,52 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
 		loopcounter++;
     Jval = Jfy(q);
 		dy = LinearSolve(Jval, fval);
-    // std::cout << dy << std::endl;
 		tempy = tempy - dy;
 		q << tempy, x;
 		fval = f(q);
 	}
 	return tempy;
+  }
+
+  /*!
+  The DMTracker uses the Davindenkos' integration method to find
+  the solutions satisfied by the constrain equations. The output is the
+  values of the unknown variables at each tracking step. The problem of tracking
+  is solved as an initial value problem using the first order derivative form of
+  the constraint equations. This function accepts functions as arguments using the `C++11` style
+  functional library. This method by default uses the Explicit Euler integration scheme and is the only
+  supported scheme currently.
+  @param x The set of input/known variables at the current tracking step
+  @param xnext The set of input/known variables at the next tracking step
+  @param y The set of output/unknown variables at current step
+  @param Jfx The expression of the Jacobian matrix of f with respect to x, the known variables.
+  Takes in a single argument of type `VectorXd` consisting y, x and outputs the evaluation of Jfx
+  @param Jfy The expression of the Jacobian matrix of f with respect to y, the unknown variables.
+  Takes in a single argument of type `VectorXd` consisting y, x and outputs the evaluation of Jfy.
+  @param eps The tolerance of `drift` to which the computed solutions are to satisfy the non-linear equations.
+  If the drift exceeds the given tolerance, a Newton-Raphson (NR) step is used to bring the
+  variables back to the constraint manifold. The default value of `eps` is set to 0, meaning the NR step correction
+  is `off` by default.
+  @param f The set of expressions of the non-linear functions relating x, y.
+  This parameter is only required if `eps` is defined.
+  @todo Provide support for different integration methods
+  @todo This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it.
+  */
+  VectorXd RootTracker::DMTracker(VectorXd x, VectorXd xnext, VectorXd y, std::function<MatrixXd (VectorXd)> Jfx, \
+     std::function<MatrixXd (VectorXd)> Jfy, double eps /*= 0*/, std::function<VectorXd (VectorXd)> f /*= NULL*/){
+    VectorXd q(x.size()+y.size()), tempy(y.size()), fval;
+    tempy = y;
+    q << y, x;
+    // Performing Euler integration step, assuming dx as x2 - x1
+    tempy += -(Jfy(q).inverse()*Jfx(q))*(xnext-x);
+    // Check to apply an NR step
+    if (eps != 0){
+      q << tempy, x;
+      VectorXd fval;
+      fval = f(q);
+      if ((fval.cwiseAbs()).maxCoeff()>=eps){
+        tempy = RootTracker::NRTracker(x, tempy, f, Jfy);
+      }
+    }
+    return tempy;
   }

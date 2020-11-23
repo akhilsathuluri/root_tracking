@@ -75,6 +75,8 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6bb3dcb73ea58ac44ab15d7803de3d5a"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a6bb3dcb73ea58ac44ab15d7803de3d5a">NRTracker</a> (VectorXd x, VectorXd y, std::function&lt; VectorXd(VectorXd)&gt; f, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=pow(10, -10))</td></tr>
 <tr class="separator:a6bb3dcb73ea58ac44ab15d7803de3d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6972a32664292d78516340027947bb5"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#ad6972a32664292d78516340027947bb5">DMTracker</a> (VectorXd x, VectorXd y, std::function&lt; VectorXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</td></tr>
+<tr class="separator:ad6972a32664292d78516340027947bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89ffd1af75e3bf434065b736623bbf17"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a89ffd1af75e3bf434065b736623bbf17">methods</a> ()</td></tr>
 <tr class="separator:a89ffd1af75e3bf434065b736623bbf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -82,9 +84,75 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>The <a class="el" href="classRootTracker.html">RootTracker</a> class consists of implementations of the following:</p><ul>
 <li>Newton-Raphson method based tracking or NRTracker</li>
 <li>Davidenkos method based tracking or DMTracker</li>
-<li>Nearest neighbour based tracking or NNTracker </li>
+<li>Nearest neighbour based tracking or NNTracker <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Add chrono to profile function evaluation timings </dd></dl>
+</li>
 </ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad6972a32664292d78516340027947bb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6972a32664292d78516340027947bb5">&#9670;&nbsp;</a></span>DMTracker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VectorXd RootTracker::DMTracker </td>
+          <td>(</td>
+          <td class="paramtype">VectorXd&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VectorXd&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; VectorXd(VectorXd)&gt;&#160;</td>
+          <td class="paramname"><em>Jfx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; MatrixXd(VectorXd)&gt;&#160;</td>
+          <td class="paramname"><em>Jfy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eps</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; VectorXd(VectorXd)&gt;&#160;</td>
+          <td class="paramname"><em>f</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The DMTracker uses the Davindenkos' integration method to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The problem of tracking is solved as an initial value problem using the first order derivative form of the constraint equations. This function accepts functions as arguments using the <code>C++11</code> style functional library. This method by default uses the Explicit Euler integration scheme and is the only supported scheme currently. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The set of input/known variables at the current tracking step </td></tr>
+    <tr><td class="paramname">xnext</td><td>The set of input/known variables at the next tracking step </td></tr>
+    <tr><td class="paramname">y</td><td>The set of output/unknown variables at current step </td></tr>
+    <tr><td class="paramname">Jfx</td><td>The expression of the Jacobian matrix of f with respect to x, the known variables. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of Jfx </td></tr>
+    <tr><td class="paramname">Jfy</td><td>The expression of the Jacobian matrix of f with respect to y, the unknown variables. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of Jfy. </td></tr>
+    <tr><td class="paramname">eps</td><td>The tolerance of <code>drift</code> to which the computed solutions are to satisfy the non-linear equations. If the drift exceeds the given tolerance, a Newton-Raphson (NR) step is used to bring the variables back to the constraint manifold. The default value of <code>eps</code> is set to 0, meaning the NR step correction is <code>off</code> by default. </td></tr>
+    <tr><td class="paramname">f</td><td>The set of expressions of the non-linear functions relating x, y. This parameter is only required if <code>eps</code> is defined. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Provide support for different integration methods </dd></dl>
+
+</div>
+</div>
 <a id="a89ffd1af75e3bf434065b736623bbf17"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89ffd1af75e3bf434065b736623bbf17">&#9670;&nbsp;</a></span>methods()</h2>
 
@@ -99,7 +167,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The methods function can be called to view names of all the implemented root tracking methods. </p>
+<p>The methods function can be called to view names of all the implemented root tracking methods. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Give provision for an FK solver along with root trackers to use when trackers fail. </dd></dl>
 
 </div>
 </div>
@@ -146,17 +214,20 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The NRTracker uses the Newton-Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The function accepts functions as arguments using the C++11 style using the functional library. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>The NRTracker uses the Newton-Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. This function accepts functions as arguments using the <code>C++11</code> style functional library. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>The set of input/known variables at each tracking step </td></tr>
-    <tr><td class="paramname">y</td><td>The set of output/unknown variables at each step </td></tr>
+    <tr><td class="paramname">x</td><td>The set of input/known variables at current tracking step </td></tr>
+    <tr><td class="paramname">y</td><td>The set of output/unknown variables at current step </td></tr>
     <tr><td class="paramname">f</td><td>The set of expressions of the non-linear functions relating x, y. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of f. </td></tr>
     <tr><td class="paramname">Jfy</td><td>The expression of the Jacobian matrix of f with respect to y, the unknown variables. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of Jfy. </td></tr>
     <tr><td class="paramname">eps</td><td>The required tolerance to which the computed solutions are to satisfy the non-linear equations. Default value is set to 10^-10 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Decide to return q or y in the NRTracker method </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd><p class="startdd">Decide to return q or y in the NRTracker method </p>
+<p class="interdd">fval returning nan is not being handled in the while loop </p>
+<p class="enddd">Input argument format and other relevant checks </p>
+</dd></dl>
 
 </div>
 </div>

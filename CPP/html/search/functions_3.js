@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main_22',['main',['../main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main.cpp']]],
-  ['methods_23',['methods',['../classRootTracker.html#a89ffd1af75e3bf434065b736623bbf17',1,'RootTracker']]]
+  ['legvals_27',['legvals',['../inputs_8h.html#a92331060d01e36c02f47859b92ee964f',1,'inputs.h']]],
+  ['linearsolve_28',['LinearSolve',['../utils_8h.html#ad2246d831bd56822936b616e92e12b76',1,'utils.h']]]
 ];

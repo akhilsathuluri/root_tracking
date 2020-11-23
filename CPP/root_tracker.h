@@ -11,13 +11,15 @@ The RootTracker class consists of implementations of the following:
 - Newton-Raphson method based tracking or NRTracker
 - Davidenkos method based tracking or DMTracker
 - Nearest neighbour based tracking or NNTracker
+@todo Add chrono to profile function evaluation timings
 */
 class RootTracker
 {
 public:
   VectorXd NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (VectorXd)> f,\
    std::function<MatrixXd (VectorXd)> Jfy, double eps = pow(10, -10));
-  // void DMTracker();
+  VectorXd DMTracker(VectorXd x, VectorXd xnext, VectorXd y, std::function<MatrixXd (VectorXd)> Jfx, \
+     std::function<MatrixXd (VectorXd)> Jfy, double eps = 0, std::function<VectorXd (VectorXd)> f = NULL);
   // void NNTracker();
   int methods();
 };

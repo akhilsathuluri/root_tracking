@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['linearsolve_3',['LinearSolve',['../utils_8h.html#ad2246d831bd56822936b616e92e12b76',1,'utils.h']]]
+  ['jetaextphi_3',['Jetaextphi',['../inputs_8h.html#ae6bd9216fb8ab83ba8989c40d801dd3b',1,'inputs.h']]],
+  ['jetaexttheta_4',['Jetaexttheta',['../inputs_8h.html#af2f0af1d02e35589e24f31852fd5f8fa',1,'inputs.h']]]
 ];

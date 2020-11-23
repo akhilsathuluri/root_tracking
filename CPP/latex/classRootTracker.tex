@@ -9,6 +9,8 @@
 \item 
 Vector\+Xd \mbox{\hyperlink{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}{N\+R\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfy, double eps=pow(10, -\/10))
 \item 
+Vector\+Xd \mbox{\hyperlink{classRootTracker_ad6972a32664292d78516340027947bb5}{D\+M\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ f=N\+U\+LL)
+\item 
 int \mbox{\hyperlink{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}{methods}} ()
 \end{DoxyCompactItemize}
 
@@ -18,27 +20,56 @@ The \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} class consists of impleme
 \begin{DoxyItemize}
 \item Newton-\/\+Raphson method based tracking or N\+R\+Tracker
 \item Davidenkos method based tracking or D\+M\+Tracker
-\item Nearest neighbour based tracking or N\+N\+Tracker 
+\item Nearest neighbour based tracking or N\+N\+Tracker \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Add chrono to profile function evaluation timings \end{DoxyRefDesc}
+
 \end{DoxyItemize}
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRootTracker_ad6972a32664292d78516340027947bb5}\label{classRootTracker_ad6972a32664292d78516340027947bb5}} 
+\index{RootTracker@{RootTracker}!DMTracker@{DMTracker}}
+\index{DMTracker@{DMTracker}!RootTracker@{RootTracker}}
+\doxysubsubsection{\texorpdfstring{DMTracker()}{DMTracker()}}
+{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+D\+M\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{x,  }\item[{Vector\+Xd}]{y,  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{Jfx,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfy,  }\item[{double}]{eps = {\ttfamily 0},  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{f = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+The D\+M\+Tracker uses the Davindenkos\textquotesingle{} integration method to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The problem of tracking is solved as an initial value problem using the first order derivative form of the constraint equations. This function accepts functions as arguments using the {\ttfamily C++11} style functional library. This method by default uses the Explicit Euler integration scheme and is the only supported scheme currently. 
+\begin{DoxyParams}{Parameters}
+{\em x} & The set of input/known variables at the current tracking step \\
+\hline
+{\em xnext} & The set of input/known variables at the next tracking step \\
+\hline
+{\em y} & The set of output/unknown variables at current step \\
+\hline
+{\em Jfx} & The expression of the Jacobian matrix of f with respect to x, the known variables. Takes in a single argument of type {\ttfamily Vector\+Xd} consisting y, x and outputs the evaluation of Jfx \\
+\hline
+{\em Jfy} & The expression of the Jacobian matrix of f with respect to y, the unknown variables. Takes in a single argument of type {\ttfamily Vector\+Xd} consisting y, x and outputs the evaluation of Jfy. \\
+\hline
+{\em eps} & The tolerance of {\ttfamily drift} to which the computed solutions are to satisfy the non-\/linear equations. If the drift exceeds the given tolerance, a Newton-\/\+Raphson (NR) step is used to bring the variables back to the constraint manifold. The default value of {\ttfamily eps} is set to 0, meaning the NR step correction is {\ttfamily off} by default. \\
+\hline
+{\em f} & The set of expressions of the non-\/linear functions relating x, y. This parameter is only required if {\ttfamily eps} is defined. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Provide support for different integration methods \end{DoxyRefDesc}
 \mbox{\Hypertarget{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}\label{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}} 
 \index{RootTracker@{RootTracker}!methods@{methods}}
 \index{methods@{methods}!RootTracker@{RootTracker}}
 \doxysubsubsection{\texorpdfstring{methods()}{methods()}}
 {\footnotesize\ttfamily int Root\+Tracker\+::methods (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-The methods function can be called to view names of all the implemented root tracking methods. \mbox{\Hypertarget{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}\label{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}} 
+The methods function can be called to view names of all the implemented root tracking methods. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Give provision for an FK solver along with root trackers to use when trackers fail. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}\label{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}} 
 \index{RootTracker@{RootTracker}!NRTracker@{NRTracker}}
 \index{NRTracker@{NRTracker}!RootTracker@{RootTracker}}
 \doxysubsubsection{\texorpdfstring{NRTracker()}{NRTracker()}}
 {\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+N\+R\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{x,  }\item[{Vector\+Xd}]{y,  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{f,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfy,  }\item[{double}]{eps = {\ttfamily pow(10,~-\/10)} }\end{DoxyParamCaption})}
 
-The N\+R\+Tracker uses the Newton-\/\+Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The function accepts functions as arguments using the C++11 style using the functional library. 
+The N\+R\+Tracker uses the Newton-\/\+Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. This function accepts functions as arguments using the {\ttfamily C++11} style functional library. 
 \begin{DoxyParams}{Parameters}
-{\em x} & The set of input/known variables at each tracking step \\
+{\em x} & The set of input/known variables at current tracking step \\
 \hline
-{\em y} & The set of output/unknown variables at each step \\
+{\em y} & The set of output/unknown variables at current step \\
 \hline
 {\em f} & The set of expressions of the non-\/linear functions relating x, y. Takes in a single argument of type {\ttfamily Vector\+Xd} consisting y, x and outputs the evaluation of f. \\
 \hline
@@ -48,7 +79,11 @@ The N\+R\+Tracker uses the Newton-\/\+Raphson method iteratively to find the sol
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Decide to return q or y in the N\+R\+Tracker method \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Decide to return q or y in the N\+R\+Tracker method 
+
+fval returning nan is not being handled in the while loop 
+
+Input argument format and other relevant checks \end{DoxyRefDesc}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jetaextphi_2',['Jetaextphi',['../inputs_8h.html#ae6bd9216fb8ab83ba8989c40d801dd3b',1,'inputs.h']]]
+  ['inputs_2eh_2',['inputs.h',['../inputs_8h.html',1,'']]]
 ];

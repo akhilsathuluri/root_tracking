@@ -1,12 +1,22 @@
 
 \begin{DoxyRefList}
-\item[Member \mbox{\hyperlink{utils_8h_ad2246d831bd56822936b616e92e12b76}{Linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)]\label{todo__todo000003}%
-\Hypertarget{todo__todo000003}%
+\item[Member \mbox{\hyperlink{utils_8h_ad2246d831bd56822936b616e92e12b76}{Linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)]\label{todo__todo000005}%
+\Hypertarget{todo__todo000005}%
 Add assertions for square matrix verification and verification of sizes of A and b  
-\item[Member \mbox{\hyperlink{main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const $\ast$argv\mbox{[}\mbox{]})]\label{todo__todo000001}%
+\item[Class \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} ]\label{todo__todo000004}%
+\Hypertarget{todo__todo000004}%
+Add chrono to profile function evaluation timings  
+\item[Member \mbox{\hyperlink{classRootTracker_ad6972a32664292d78516340027947bb5}{Root\+Tracker::D\+M\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f=N\+U\+LL)]\label{todo__todo000003}%
+\Hypertarget{todo__todo000003}%
+Provide support for different integration methods  
+\item[Member \mbox{\hyperlink{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}{Root\+Tracker::methods}} ()]\label{todo__todo000001}%
 \Hypertarget{todo__todo000001}%
-Write an example root-\/tracker for S\+R\+S\+PM  
+Give provision for an FK solver along with root trackers to use when trackers fail.  
 \item[Member \mbox{\hyperlink{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}{Root\+Tracker::N\+R\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=pow(10, -\/10))]\label{todo__todo000002}%
 \Hypertarget{todo__todo000002}%
 Decide to return q or y in the N\+R\+Tracker method 
+
+fval returning nan is not being handled in the while loop 
+
+Input argument format and other relevant checks 
 \end{DoxyRefList}

@@ -67,11 +67,18 @@ $(function() {
 <div class="contents">
 <div class="textblock"><dl class="reflist">
 <dt>Member <a class="el" href="utils_8h.html#ad2246d831bd56822936b616e92e12b76">LinearSolve</a>  (MatrixXd Amat, VectorXd bvec)</dt>
-<dd><a class="anchor" id="_todo000003"></a>Add assertions for square matrix verification and verification of sizes of A and b  </dd>
-<dt>Member <a class="el" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main</a>  (int argc, char const *argv[])</dt>
-<dd><a class="anchor" id="_todo000001"></a>Write an example root-tracker for SRSPM  </dd>
+<dd><a class="anchor" id="_todo000005"></a>Add assertions for square matrix verification and verification of sizes of A and b  </dd>
+<dt>Class <a class="el" href="classRootTracker.html">RootTracker</a>  </dt>
+<dd><a class="anchor" id="_todo000004"></a>Add chrono to profile function evaluation timings  </dd>
+<dt>Member <a class="el" href="classRootTracker.html#ad6972a32664292d78516340027947bb5">RootTracker::DMTracker</a>  (VectorXd x, VectorXd y, std::function&lt; VectorXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</dt>
+<dd><a class="anchor" id="_todo000003"></a>Provide support for different integration methods  </dd>
+<dt>Member <a class="el" href="classRootTracker.html#a89ffd1af75e3bf434065b736623bbf17">RootTracker::methods</a>  ()</dt>
+<dd><a class="anchor" id="_todo000001"></a>Give provision for an FK solver along with root trackers to use when trackers fail.  </dd>
 <dt>Member <a class="el" href="classRootTracker.html#a6bb3dcb73ea58ac44ab15d7803de3d5a">RootTracker::NRTracker</a>  (VectorXd x, VectorXd y, std::function&lt; VectorXd(VectorXd)&gt; f, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=pow(10, -10))</dt>
-<dd><a class="anchor" id="_todo000002"></a>Decide to return q or y in the NRTracker method </dd>
+<dd><p class="startdd"><a class="anchor" id="_todo000002"></a>Decide to return q or y in the NRTracker method </p>
+<p class="interdd">fval returning nan is not being handled in the while loop </p>
+<p class="enddd">Input argument format and other relevant checks </p>
+</dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

@@ -62,7 +62,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">inputs.h File Reference</div>  </div>
 </div><!--header-->
@@ -95,8 +96,17 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a2a996dfcd9a8b885a0aa4fb7b9b082c5"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inputs_8h.html#a2a996dfcd9a8b885a0aa4fb7b9b082c5">etaext</a> (VectorXd q)</td></tr>
 <tr class="separator:a2a996dfcd9a8b885a0aa4fb7b9b082c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2f0af1d02e35589e24f31852fd5f8fa"><td class="memItemLeft" align="right" valign="top">MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inputs_8h.html#af2f0af1d02e35589e24f31852fd5f8fa">Jetaexttheta</a> (VectorXd q)</td></tr>
+<tr class="separator:af2f0af1d02e35589e24f31852fd5f8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6bd9216fb8ab83ba8989c40d801dd3b"><td class="memItemLeft" align="right" valign="top">MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inputs_8h.html#ae6bd9216fb8ab83ba8989c40d801dd3b">Jetaextphi</a> (VectorXd q)</td></tr>
 <tr class="separator:ae6bd9216fb8ab83ba8989c40d801dd3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92331060d01e36c02f47859b92ee964f"><td class="memItemLeft" align="right" valign="top">Matrix&lt; double, 51, 6 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inputs_8h.html#a92331060d01e36c02f47859b92ee964f">legvals</a> (<a class="el" href="inputs_8h.html#afb79babe6cad9239e004d1a2c5f608eb">legvals_data</a>)</td></tr>
+<tr class="separator:a92331060d01e36c02f47859b92ee964f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:afb79babe6cad9239e004d1a2c5f608eb"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inputs_8h.html#afb79babe6cad9239e004d1a2c5f608eb">legvals_data</a> []</td></tr>
+<tr class="separator:afb79babe6cad9239e004d1a2c5f608eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a2a996dfcd9a8b885a0aa4fb7b9b082c5"></a>
@@ -139,13 +149,73 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The funcion Jetaextphi is the constraint Jacobian matrix of an SRSPM formulated in the extended configuration space of the manipulator. This is for the example problem demosntrating the use of the root-trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, <code>SRSPM_root_tracking.nb</code>.</p>
+<p>The funcion Jetaextphi is the constraint Jacobian matrix of an SRSPM formulated in the extended configuration space of the manipulator. This is for the example problem demonstrating the use of the root-trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, <code>SRSPM_root_tracking.nb</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">q</td><td>Takes in the 24-dimensional extended-configuration-space variables as input </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af2f0af1d02e35589e24f31852fd5f8fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2f0af1d02e35589e24f31852fd5f8fa">&#9670;&nbsp;</a></span>Jetaexttheta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MatrixXd Jetaexttheta </td>
+          <td>(</td>
+          <td class="paramtype">VectorXd&#160;</td>
+          <td class="paramname"><em>q</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The funcion Jetaexttheta is the Jacobian matrix of an SRSPM formulated in the extended configuration space of the manipulator. This is for the example problem demonstrating the use of the root-trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, <code>SRSPM_root_tracking.nb</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>Takes in the 24-dimensional extended-configuration-space variables as input </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a92331060d01e36c02f47859b92ee964f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92331060d01e36c02f47859b92ee964f">&#9670;&nbsp;</a></span>legvals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matrix&lt;double, 51, 6&gt; legvals </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="inputs_8h.html#afb79babe6cad9239e004d1a2c5f608eb">legvals_data</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Leg values corresponding to the path to be tracked in the task-space typecasted into a matrix </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="afb79babe6cad9239e004d1a2c5f608eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb79babe6cad9239e004d1a2c5f608eb">&#9670;&nbsp;</a></span>legvals_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double legvals_data[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>An array of leg values corresponding to the path to be tracked in the task-space </p>
 
 </div>
 </div>
