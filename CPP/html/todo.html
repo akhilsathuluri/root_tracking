@@ -66,13 +66,14 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt>Member <a class="el" href="utils_8h.html#ad2246d831bd56822936b616e92e12b76">LinearSolve</a>  (MatrixXd Amat, VectorXd bvec)</dt>
+<dt>Member <a class="el" href="utils_8h.html#a7ed506e6d7b8ba153e1b8b24a7b6e5c4">linearSolve</a>  (MatrixXd Amat, VectorXd bvec)</dt>
 <dd><a class="anchor" id="_todo000005"></a>Add assertions for square matrix verification and verification of sizes of A and b  </dd>
 <dt>Class <a class="el" href="classRootTracker.html">RootTracker</a>  </dt>
 <dd><a class="anchor" id="_todo000004"></a>Add chrono to profile function evaluation timings  </dd>
-<dt>Member <a class="el" href="classRootTracker.html#a9179d3bacd501c9e052aaa4a664998a5">RootTracker::DMTracker</a>  (VectorXd x, VectorXd xnext, VectorXd y, std::function&lt; MatrixXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</dt>
+<dt>Member <a class="el" href="classRootTracker.html#acc5d4b8e89ace70cee9c227f033e5a92">RootTracker::DMTracker</a>  (VectorXd xprev, VectorXd x, VectorXd y, std::function&lt; MatrixXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</dt>
 <dd><p class="startdd"><a class="anchor" id="_todo000003"></a>Provide support for different integration methods </p>
-<p class="enddd">This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it.  </p>
+<p class="interdd">This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. </p>
+<p class="enddd">The same scheme estimating dx as xnext-x is unstable  </p>
 </dd>
 <dt>Member <a class="el" href="classRootTracker.html#a89ffd1af75e3bf434065b736623bbf17">RootTracker::methods</a>  ()</dt>
 <dd><a class="anchor" id="_todo000001"></a>Give provision for an FK solver along with root trackers to use when trackers fail.  </dd>

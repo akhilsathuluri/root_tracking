@@ -1,16 +1,18 @@
 
 \begin{DoxyRefList}
-\item[Member \mbox{\hyperlink{utils_8h_ad2246d831bd56822936b616e92e12b76}{Linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)]\label{todo__todo000005}%
+\item[Member \mbox{\hyperlink{utils_8h_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}{linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)]\label{todo__todo000005}%
 \Hypertarget{todo__todo000005}%
 Add assertions for square matrix verification and verification of sizes of A and b  
 \item[Class \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} ]\label{todo__todo000004}%
 \Hypertarget{todo__todo000004}%
 Add chrono to profile function evaluation timings  
-\item[Member \mbox{\hyperlink{classRootTracker_a9179d3bacd501c9e052aaa4a664998a5}{Root\+Tracker::D\+M\+Tracker}} (Vector\+Xd x, Vector\+Xd xnext, Vector\+Xd y, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f=N\+U\+LL)]\label{todo__todo000003}%
+\item[Member \mbox{\hyperlink{classRootTracker_acc5d4b8e89ace70cee9c227f033e5a92}{Root\+Tracker::D\+M\+Tracker}} (Vector\+Xd xprev, Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f=N\+U\+LL)]\label{todo__todo000003}%
 \Hypertarget{todo__todo000003}%
 Provide support for different integration methods 
 
-This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it.  
+This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. 
+
+The same scheme estimating dx as xnext-\/x is unstable  
 \item[Member \mbox{\hyperlink{classRootTracker_a89ffd1af75e3bf434065b736623bbf17}{Root\+Tracker::methods}} ()]\label{todo__todo000001}%
 \Hypertarget{todo__todo000001}%
 Give provision for an FK solver along with root trackers to use when trackers fail.  

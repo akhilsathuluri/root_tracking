@@ -75,8 +75,8 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6bb3dcb73ea58ac44ab15d7803de3d5a"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a6bb3dcb73ea58ac44ab15d7803de3d5a">NRTracker</a> (VectorXd x, VectorXd y, std::function&lt; VectorXd(VectorXd)&gt; f, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=pow(10, -10))</td></tr>
 <tr class="separator:a6bb3dcb73ea58ac44ab15d7803de3d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9179d3bacd501c9e052aaa4a664998a5"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a9179d3bacd501c9e052aaa4a664998a5">DMTracker</a> (VectorXd x, VectorXd xnext, VectorXd y, std::function&lt; MatrixXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</td></tr>
-<tr class="separator:a9179d3bacd501c9e052aaa4a664998a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc5d4b8e89ace70cee9c227f033e5a92"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#acc5d4b8e89ace70cee9c227f033e5a92">DMTracker</a> (VectorXd xprev, VectorXd x, VectorXd y, std::function&lt; MatrixXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</td></tr>
+<tr class="separator:acc5d4b8e89ace70cee9c227f033e5a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89ffd1af75e3bf434065b736623bbf17"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a89ffd1af75e3bf434065b736623bbf17">methods</a> ()</td></tr>
 <tr class="separator:a89ffd1af75e3bf434065b736623bbf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -88,8 +88,8 @@ Public Member Functions</h2></td></tr>
 </li>
 </ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9179d3bacd501c9e052aaa4a664998a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9179d3bacd501c9e052aaa4a664998a5">&#9670;&nbsp;</a></span>DMTracker()</h2>
+<a id="acc5d4b8e89ace70cee9c227f033e5a92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5d4b8e89ace70cee9c227f033e5a92">&#9670;&nbsp;</a></span>DMTracker()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -98,13 +98,13 @@ Public Member Functions</h2></td></tr>
           <td class="memname">VectorXd RootTracker::DMTracker </td>
           <td>(</td>
           <td class="paramtype">VectorXd&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramname"><em>xprev</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VectorXd&#160;</td>
-          <td class="paramname"><em>xnext</em>, </td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -156,7 +156,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd><p class="startdd">Provide support for different integration methods </p>
-<p class="enddd">This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. </p>
+<p class="interdd">This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. </p>
+<p class="enddd">The same scheme estimating dx as xnext-x is unstable </p>
 </dd></dl>
 
 </div>
