@@ -18,7 +18,7 @@ class RootTracker
 public:
   VectorXd NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (VectorXd)> f,\
    std::function<MatrixXd (VectorXd)> Jfy, double eps = pow(10, -10));
-  VectorXd DMTracker(VectorXd x, VectorXd xnext, VectorXd y, std::function<MatrixXd (VectorXd)> Jfx, \
+  VectorXd DMTracker(VectorXd xprev, VectorXd x, VectorXd y, std::function<MatrixXd (VectorXd)> Jfx, \
      std::function<MatrixXd (VectorXd)> Jfy, double eps = 0, std::function<VectorXd (VectorXd)> f = NULL);
   // void NNTracker();
   int methods();

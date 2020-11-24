@@ -3,19 +3,19 @@
 
 #include<iostream>
 #include<eigen3/Eigen/Dense>
-#include <gsl/gsl_linalg.h>
+#include<gsl/gsl_linalg.h>
 
 using namespace Eigen;
 
 /*!
-The LinearSolve function is a simple, usable wraper around the GSLs
+The linearSolve function is a simple, usable wraper around the GSLs
 linear solver using the Eigen library.
 @param Amat Input matrix
 @param bvec Input vector
 @todo Add assertions for square matrix verification and verification of
 sizes of A and b
 */
-VectorXd LinearSolve(MatrixXd Amat, VectorXd bvec){
+VectorXd linearSolve(MatrixXd Amat, VectorXd bvec){
   // Transposing so that a_dat gets the right sequence
   int bsize = bvec.size();
   Amat.transposeInPlace();

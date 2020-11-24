@@ -50,7 +50,7 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
     }
 		loopcounter++;
     Jval = Jfy(q);
-		dy = LinearSolve(Jval, fval);
+		dy = linearSolve(Jval, fval);
 		tempy = tempy - dy;
 		q << tempy, x;
 		fval = f(q);
@@ -81,16 +81,16 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
   This parameter is only required if `eps` is defined.
   @todo Provide support for different integration methods
   @todo This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it.
+  @todo The same scheme estimating dx as xnext-x is unstable
   */
-  VectorXd RootTracker::DMTracker(VectorXd x, VectorXd xnext, VectorXd y, std::function<MatrixXd (VectorXd)> Jfx, \
+  VectorXd RootTracker::DMTracker(VectorXd xprev, VectorXd x, VectorXd y, std::function<MatrixXd (VectorXd)> Jfx, \
      std::function<MatrixXd (VectorXd)> Jfy, double eps /*= 0*/, std::function<VectorXd (VectorXd)> f /*= NULL*/){
     VectorXd q(x.size()+y.size()), tempy(y.size()), fval;
     tempy = y;
     q << y, x;
-    // Performing Euler integration step, assuming dx as x2 - x1
-    tempy += -(Jfy(q).inverse()*Jfx(q))*(xnext-x);
+    tempy += -(Jfy(q).inverse()*Jfx(q))*(x-xprev);
     // Check to apply an NR step
-    if (eps != 0){
+    if (eps > 0){
       q << tempy, x;
       VectorXd fval;
       fval = f(q);
