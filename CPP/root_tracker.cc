@@ -1,8 +1,8 @@
 #include<iostream>
 #include<math.h>
 #include<eigen3/Eigen/Dense>
-#include "root_tracker.h"
-#include "utils.h"
+#include "root_tracker.hh"
+#include "utils.hh"
 #include<functional>
 
 using namespace Eigen;
@@ -13,7 +13,7 @@ implemented root tracking methods.
 @todo Give provision for an FK solver along with root trackers
 to use when trackers fail.
 */
-int RootTracker::methods(){
+int RootTracker::Methods(){
   std::cout << "NRTracker, DMTracker, NNTracker" << std::endl;
   return 0;
 }

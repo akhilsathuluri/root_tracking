@@ -21,7 +21,7 @@ public:
   VectorXd DMTracker(VectorXd xprev, VectorXd x, VectorXd y, std::function<MatrixXd (VectorXd)> Jfx, \
      std::function<MatrixXd (VectorXd)> Jfy, double eps = 0, std::function<VectorXd (VectorXd)> f = NULL);
   // void NNTracker();
-  int methods();
+  int Methods();
 };
 
 #endif

@@ -1,7 +1,7 @@
 #include<iostream>
 #include<eigen3/Eigen/Dense>
-#include "root_tracker.h"
-#include "inputs.h"
+#include "root_tracker.hh"
+#include "inputs.hh"
 #include <fstream>
 #include<functional>
 
@@ -27,7 +27,7 @@ for solving a task space path following problem of an SRSPM.
 */
 int main(int argc, char const *argv[]) {
   RootTracker rt;
-  rt.methods();
+  rt.Methods();
 
   // Initial solution
   VectorXd phii(18), tempNR(18), tempDM(18);
