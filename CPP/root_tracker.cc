@@ -100,3 +100,43 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
     }
     return tempy;
   }
+
+
+  /*!
+  The NNTracker uses the nearest neighbour method to identify the roots
+  belonging to a required branch. The output is the
+  selected root at each tracking step. This method assumes the existance of a
+  solver method, `Solve`, which computes all the roots for given input
+  variables, `x`. This function requires the specification of the space to which
+  the variables belong to. The function expects the solutions to be ordered with all
+  the reals together and the variables belonging to S1 together.
+
+  @param ys The initiation of the known root of the required branch
+  @param ysols All the solutions obtained by `Solve`
+  @param index The index upto which the reals are present
+
+  @todo The method currently deals only with variables belonging to R and S1.
+  @todo Treating the Rodriques parameters as locally belonging to R
+  @todo Add assertions for cols of ys and ysols to be same
+  */
+VectorXd RootTracker::NNTracker(VectorXd ys, MatrixXd ysols, int index){
+  VectorXd rys, sys, rysols, sysols, dist, dmaxlist, rdist, s1dist;
+  double dmax;
+  rys = ys.head(index);
+  sys = ys.tail(ys.size()-index);
+  dmaxlist = VectorXd::Constant(ysols.rows(), std::numeric_limits<double>::infinity());
+
+  for (int i = 0; i < ysols.rows(); i++) {
+    rysols = ysols.row(i).head(index);
+    sysols = ysols.row(i).tail(ys.size()-index);
+
+    dist = (rys-rysols).cwiseAbs(), s1Dist(sys, sysols);
+
+    dmax = dist.maxCoeff();
+    dmaxlist(i) = dmax;
+  }
+
+  MatrixXf::Index minIndex;
+  dmaxlist.minCoeff(&minIndex);
+  return ysols.row(minIndex);
+}

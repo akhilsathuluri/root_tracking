@@ -5,7 +5,7 @@
 # Add color and helpfile later if needed
 
 # Replace with clang later
-CC = clang++ #g++
+CC =  clang++ # g++
 CFLAGS = -Ofast # -Wall -Werror
 LIBS = -lgsl -lgslcblas -lm
 SRC = main.cc root_tracker.cc # utils.hh inputs.hh

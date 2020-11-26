@@ -4,6 +4,7 @@
 #include<iostream>
 #include<eigen3/Eigen/Dense>
 #include<gsl/gsl_linalg.h>
+#include<math.h>
 
 using namespace Eigen;
 
@@ -44,6 +45,30 @@ VectorXd linearSolve(MatrixXd Amat, VectorXd bvec){
   gsl_permutation_free (p);
   gsl_vector_free (x);
   return xval;
+}
+
+/*!
+The s1Dist returns the distance between two elements in the S1 space.
+@param theta Element 1
+@param bvec Element 2
+
+@todo Can do more effecient computation if the angles mapping
+is saved in the memory
+@todo Assert sizes of theta1 and theta2 to be same
+*/
+VectorXd s1Dist(VectorXd theta1, VectorXd theta2){
+  for (int i = 0; i < theta1.size(); i++) {
+    theta1(i) = fmod(theta1(i), 2*M_PI);
+    theta2(i) = fmod(theta2(i), 2*M_PI);
+
+    if (theta1(i) >= M_PI){
+      theta1(i) = 2*M_PI - theta1(i);
+    }
+    if (theta2(i) >= M_PI){
+      theta2(i) = 2*M_PI - theta2(i);
+    }
+  }
+  return (theta1 - theta2).cwiseAbs();
 }
 
 #endif

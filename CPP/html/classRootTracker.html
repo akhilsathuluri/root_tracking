@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="root__tracker_8h_source.html">root_tracker.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="root__tracker_8hh_source.html">root_tracker.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -77,14 +77,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6bb3dcb73ea58ac44ab15d7803de3d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc5d4b8e89ace70cee9c227f033e5a92"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#acc5d4b8e89ace70cee9c227f033e5a92">DMTracker</a> (VectorXd xprev, VectorXd x, VectorXd y, std::function&lt; MatrixXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</td></tr>
 <tr class="separator:acc5d4b8e89ace70cee9c227f033e5a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89ffd1af75e3bf434065b736623bbf17"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a89ffd1af75e3bf434065b736623bbf17">methods</a> ()</td></tr>
-<tr class="separator:a89ffd1af75e3bf434065b736623bbf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a115ac4873425537fdeacbbdaf1f3e9fd"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a115ac4873425537fdeacbbdaf1f3e9fd">NNTracker</a> (VectorXd ys, VectorXd ysols)</td></tr>
+<tr class="separator:a115ac4873425537fdeacbbdaf1f3e9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d29be3a24392b6a864b8e471f23db6c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a0d29be3a24392b6a864b8e471f23db6c">Methods</a> ()</td></tr>
+<tr class="separator:a0d29be3a24392b6a864b8e471f23db6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classRootTracker.html">RootTracker</a> class consists of implementations of the following:</p><ul>
 <li>Newton-Raphson method based tracking or NRTracker</li>
 <li>Davidenkos method based tracking or DMTracker</li>
-<li>Nearest neighbour based tracking or NNTracker <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Add chrono to profile function evaluation timings </dd></dl>
+<li>Nearest neighbour based tracking or NNTracker <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Add chrono to profile function evaluation timings </dd></dl>
 </li>
 </ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -162,14 +164,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a89ffd1af75e3bf434065b736623bbf17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89ffd1af75e3bf434065b736623bbf17">&#9670;&nbsp;</a></span>methods()</h2>
+<a id="a0d29be3a24392b6a864b8e471f23db6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d29be3a24392b6a864b8e471f23db6c">&#9670;&nbsp;</a></span>Methods()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int RootTracker::methods </td>
+          <td class="memname">int RootTracker::Methods </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -177,6 +179,44 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The methods function can be called to view names of all the implemented root tracking methods. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Give provision for an FK solver along with root trackers to use when trackers fail. </dd></dl>
+
+</div>
+</div>
+<a id="a115ac4873425537fdeacbbdaf1f3e9fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a115ac4873425537fdeacbbdaf1f3e9fd">&#9670;&nbsp;</a></span>NNTracker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VectorXd RootTracker::NNTracker </td>
+          <td>(</td>
+          <td class="paramtype">VectorXd&#160;</td>
+          <td class="paramname"><em>ys</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VectorXd&#160;</td>
+          <td class="paramname"><em>ysols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The NNTracker uses the nearest neighbour method to identify the roots belonging to a required branch. The output is the selected root at each tracking step. This method assumes the existance of a solver method, <code>Solve</code>, which computes all the roots for given input variables, <code>x</code>. This function requires the specification of the space to which the variables belong to. The function expects the solutions to be ordered with all the reals together and the variables belonging to S1 together.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ys</td><td>The initiation of the known root of the required branch </td></tr>
+    <tr><td class="paramname">ysols</td><td>All the solutions obtained by <code>Solve</code> </td></tr>
+    <tr><td class="paramname">index</td><td>The index upto which the reals are present</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>The method currently deals only with variables belonging to R and S1. </dd></dl>
 
 </div>
 </div>
@@ -241,8 +281,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="root__tracker_8h_source.html">root_tracker.h</a></li>
-<li><a class="el" href="root__tracker_8cpp.html">root_tracker.cpp</a></li>
+<li><a class="el" href="root__tracker_8hh_source.html">root_tracker.hh</a></li>
+<li><a class="el" href="root__tracker_8cc.html">root_tracker.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

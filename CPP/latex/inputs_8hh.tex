@@ -1,0 +1,92 @@
+\hypertarget{inputs_8hh}{}\doxysection{inputs.\+hh File Reference}
+\label{inputs_8hh}\index{inputs.hh@{inputs.hh}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
+Include dependency graph for inputs.\+hh\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{inputs_8hh__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{inputs_8hh__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector\+Xd \mbox{\hyperlink{inputs_8hh_a2a996dfcd9a8b885a0aa4fb7b9b082c5}{etaext}} (Vector\+Xd q)
+\item 
+Matrix\+Xd \mbox{\hyperlink{inputs_8hh_af2f0af1d02e35589e24f31852fd5f8fa}{Jetaexttheta}} (Vector\+Xd q)
+\item 
+Matrix\+Xd \mbox{\hyperlink{inputs_8hh_ae6bd9216fb8ab83ba8989c40d801dd3b}{Jetaextphi}} (Vector\+Xd q)
+\item 
+Matrix$<$ double, 51, 6 $>$ \mbox{\hyperlink{inputs_8hh_a92331060d01e36c02f47859b92ee964f}{legvals}} (\mbox{\hyperlink{inputs_8hh_afb79babe6cad9239e004d1a2c5f608eb}{legvals\+\_\+data}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{inputs_8hh_afb79babe6cad9239e004d1a2c5f608eb}{legvals\+\_\+data}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{inputs_8hh_a2a996dfcd9a8b885a0aa4fb7b9b082c5}\label{inputs_8hh_a2a996dfcd9a8b885a0aa4fb7b9b082c5}} 
+\index{inputs.hh@{inputs.hh}!etaext@{etaext}}
+\index{etaext@{etaext}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{etaext()}{etaext()}}
+{\footnotesize\ttfamily Vector\+Xd etaext (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{q }\end{DoxyParamCaption})}
+
+The funcion etaext is the set of constraint equations of an S\+R\+S\+PM formulated in the extended configuration space of the manipulator. This is for the example problem demosntrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily S\+R\+S\+P\+M\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{inputs_8hh_ae6bd9216fb8ab83ba8989c40d801dd3b}\label{inputs_8hh_ae6bd9216fb8ab83ba8989c40d801dd3b}} 
+\index{inputs.hh@{inputs.hh}!Jetaextphi@{Jetaextphi}}
+\index{Jetaextphi@{Jetaextphi}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{Jetaextphi()}{Jetaextphi()}}
+{\footnotesize\ttfamily Matrix\+Xd Jetaextphi (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{q }\end{DoxyParamCaption})}
+
+The funcion Jetaextphi is the constraint Jacobian matrix of an S\+R\+S\+PM formulated in the extended configuration space of the manipulator. This is for the example problem demonstrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily S\+R\+S\+P\+M\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{inputs_8hh_af2f0af1d02e35589e24f31852fd5f8fa}\label{inputs_8hh_af2f0af1d02e35589e24f31852fd5f8fa}} 
+\index{inputs.hh@{inputs.hh}!Jetaexttheta@{Jetaexttheta}}
+\index{Jetaexttheta@{Jetaexttheta}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{Jetaexttheta()}{Jetaexttheta()}}
+{\footnotesize\ttfamily Matrix\+Xd Jetaexttheta (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{q }\end{DoxyParamCaption})}
+
+The funcion Jetaexttheta is the Jacobian matrix of an S\+R\+S\+PM formulated in the extended configuration space of the manipulator. This is for the example problem demonstrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily S\+R\+S\+P\+M\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{inputs_8hh_a92331060d01e36c02f47859b92ee964f}\label{inputs_8hh_a92331060d01e36c02f47859b92ee964f}} 
+\index{inputs.hh@{inputs.hh}!legvals@{legvals}}
+\index{legvals@{legvals}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{legvals()}{legvals()}}
+{\footnotesize\ttfamily Matrix$<$double, 51, 6$>$ legvals (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inputs_8hh_afb79babe6cad9239e004d1a2c5f608eb}{legvals\+\_\+data}}}]{ }\end{DoxyParamCaption})}
+
+Leg values corresponding to the path to be tracked in the task-\/space typecasted into a matrix 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{inputs_8hh_afb79babe6cad9239e004d1a2c5f608eb}\label{inputs_8hh_afb79babe6cad9239e004d1a2c5f608eb}} 
+\index{inputs.hh@{inputs.hh}!legvals\_data@{legvals\_data}}
+\index{legvals\_data@{legvals\_data}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{legvals\_data}{legvals\_data}}
+{\footnotesize\ttfamily const double legvals\+\_\+data\mbox{[}$\,$\mbox{]}}
+
+An array of leg values corresponding to the path to be tracked in the task-\/space 

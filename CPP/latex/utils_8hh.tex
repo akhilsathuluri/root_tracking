@@ -1,0 +1,57 @@
+\hypertarget{utils_8hh}{}\doxysection{utils.\+hh File Reference}
+\label{utils_8hh}\index{utils.hh@{utils.hh}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$gsl/gsl\+\_\+linalg.\+h$>$}\newline
+Include dependency graph for utils.\+hh\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8hh__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{utils_8hh__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector\+Xd \mbox{\hyperlink{utils_8hh_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}{linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)
+\item 
+Vector\+Xd \mbox{\hyperlink{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}{s1\+Dist}} (Vector\+Xd theta1, Vector\+Xd theta2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utils_8hh_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}\label{utils_8hh_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}} 
+\index{utils.hh@{utils.hh}!linearSolve@{linearSolve}}
+\index{linearSolve@{linearSolve}!utils.hh@{utils.hh}}
+\doxysubsubsection{\texorpdfstring{linearSolve()}{linearSolve()}}
+{\footnotesize\ttfamily Vector\+Xd linear\+Solve (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{Amat,  }\item[{Vector\+Xd}]{bvec }\end{DoxyParamCaption})}
+
+The linear\+Solve function is a simple, usable wraper around the G\+S\+Ls linear solver using the Eigen library. 
+\begin{DoxyParams}{Parameters}
+{\em Amat} & Input matrix \\
+\hline
+{\em bvec} & Input vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]Add assertions for square matrix verification and verification of sizes of A and b \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}\label{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}} 
+\index{utils.hh@{utils.hh}!s1Dist@{s1Dist}}
+\index{s1Dist@{s1Dist}!utils.hh@{utils.hh}}
+\doxysubsubsection{\texorpdfstring{s1Dist()}{s1Dist()}}
+{\footnotesize\ttfamily Vector\+Xd s1\+Dist (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{theta1,  }\item[{Vector\+Xd}]{theta2 }\end{DoxyParamCaption})}
+
+The S1dist returns the distance between two elements in the S1 space. 
+\begin{DoxyParams}{Parameters}
+{\em theta} & Element 1 \\
+\hline
+{\em bvec} & Element 2 \\
+\hline
+\end{DoxyParams}
