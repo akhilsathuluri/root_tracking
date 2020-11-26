@@ -3,6 +3,7 @@
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
 {\ttfamily \#include $<$gsl/gsl\+\_\+linalg.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
 Include dependency graph for utils.\+hh\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -48,10 +49,14 @@ The linear\+Solve function is a simple, usable wraper around the G\+S\+Ls linear
 \doxysubsubsection{\texorpdfstring{s1Dist()}{s1Dist()}}
 {\footnotesize\ttfamily Vector\+Xd s1\+Dist (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{theta1,  }\item[{Vector\+Xd}]{theta2 }\end{DoxyParamCaption})}
 
-The S1dist returns the distance between two elements in the S1 space. 
+The s1\+Dist returns the distance between two elements in the S1 space. 
 \begin{DoxyParams}{Parameters}
-{\em theta} & Element 1 \\
+{\em theta1} & First element \\
 \hline
-{\em bvec} & Element 2 \\
+{\em theta2} & Second element\\
 \hline
 \end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]Can do more effecient computation if the angles mapping is saved in the memory 
+
+Assert sizes of theta1 and theta2 to be same \end{DoxyRefDesc}

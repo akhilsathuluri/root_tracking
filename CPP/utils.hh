@@ -49,8 +49,8 @@ VectorXd linearSolve(MatrixXd Amat, VectorXd bvec){
 
 /*!
 The s1Dist returns the distance between two elements in the S1 space.
-@param theta Element 1
-@param bvec Element 2
+@param theta1 First element
+@param theta2 Second element
 
 @todo Can do more effecient computation if the angles mapping
 is saved in the memory

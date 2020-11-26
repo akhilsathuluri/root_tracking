@@ -12,6 +12,8 @@ The RootTracker class consists of implementations of the following:
 - Davidenkos method based tracking or DMTracker
 - Nearest neighbour based tracking or NNTracker
 @todo Add chrono to profile function evaluation timings
+@todo See how things change when openMP is enabled with Eigen
+@todo See how things change when BLAS and LAPACK are used with Eigen
 */
 class RootTracker
 {

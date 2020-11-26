@@ -23,7 +23,8 @@ void saveData(MatrixXd A, const char file_name[]){
 
 /*!
 Example problem demonstrating the usage of the root trackers
-for solving a task space path following problem of an SRSPM.
+for solving a task space path following problem of an SRSPM using
+all the discussed root-trackers.
 */
 int main(int argc, char const *argv[]) {
   RootTracker rt;
