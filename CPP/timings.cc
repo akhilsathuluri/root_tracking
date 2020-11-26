@@ -11,7 +11,7 @@ using namespace Eigen;
 /*!
 The saveData function takes in an input `MatrixXd` and saves it in a .txt file
 
-@param Amat Input matrix
+@param A Input matrix
 @param file_name Name of the file to save the input matrix in
 */
 void saveData(MatrixXd A, const char file_name[]){

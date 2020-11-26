@@ -1,4 +1,4 @@
-/*!
+/*
 This file `root_tracker.h` implements three different root-tracking methods.
 Copyright (C) 2020  Akhil Sathuluri
 
@@ -85,8 +85,8 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
   the constraint equations. This function accepts functions as arguments using the `C++11` style
   functional library. This method by default uses the Explicit Euler integration scheme and is the only
   supported scheme currently.
+  @param xprev The set of input/known variables at the previous tracking step
   @param x The set of input/known variables at the current tracking step
-  @param xnext The set of input/known variables at the next tracking step
   @param y The set of output/unknown variables at current step
   @param Jfx The expression of the Jacobian matrix of f with respect to x, the known variables.
   Takes in a single argument of type `VectorXd` consisting y, x and outputs the evaluation of Jfx

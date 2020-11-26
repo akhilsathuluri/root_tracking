@@ -40,9 +40,9 @@ See how things change when B\+L\+AS and L\+A\+P\+A\+CK are used with Eigen \end{
 
 The D\+M\+Tracker uses the Davindenkos\textquotesingle{} integration method to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The problem of tracking is solved as an initial value problem using the first order derivative form of the constraint equations. This function accepts functions as arguments using the {\ttfamily C++11} style functional library. This method by default uses the Explicit Euler integration scheme and is the only supported scheme currently. 
 \begin{DoxyParams}{Parameters}
-{\em x} & The set of input/known variables at the current tracking step \\
+{\em xprev} & The set of input/known variables at the previous tracking step \\
 \hline
-{\em xnext} & The set of input/known variables at the next tracking step \\
+{\em x} & The set of input/known variables at the current tracking step \\
 \hline
 {\em y} & The set of output/unknown variables at current step \\
 \hline

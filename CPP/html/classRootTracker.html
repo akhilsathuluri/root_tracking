@@ -150,8 +150,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>The DMTracker uses the Davindenkos' integration method to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The problem of tracking is solved as an initial value problem using the first order derivative form of the constraint equations. This function accepts functions as arguments using the <code>C++11</code> style functional library. This method by default uses the Explicit Euler integration scheme and is the only supported scheme currently. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">xprev</td><td>The set of input/known variables at the previous tracking step </td></tr>
     <tr><td class="paramname">x</td><td>The set of input/known variables at the current tracking step </td></tr>
-    <tr><td class="paramname">xnext</td><td>The set of input/known variables at the next tracking step </td></tr>
     <tr><td class="paramname">y</td><td>The set of output/unknown variables at current step </td></tr>
     <tr><td class="paramname">Jfx</td><td>The expression of the Jacobian matrix of f with respect to x, the known variables. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of Jfx </td></tr>
     <tr><td class="paramname">Jfy</td><td>The expression of the Jacobian matrix of f with respect to y, the unknown variables. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of Jfy. </td></tr>
