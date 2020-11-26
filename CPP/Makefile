@@ -9,10 +9,15 @@ CC =  clang++ # g++
 CFLAGS = -Ofast # -Wall -Werror
 LIBS = -lgsl -lgslcblas -lm
 SRC = main.cc root_tracker.cc # utils.hh inputs.hh
+TIM = timings.cc root_tracker.cc # utils.hh inputs.hh
 OBJ = $(SRC:.cpp = .o)
+OBJ_TIM = $(TIM:.cpp = .o)
 
 TrackedRoots: $(OBJ)	## Produces an executable for the root tracking problem formulated in main.cpp
 	$(CC) $(CFLAGS) -o TrackedRoots $(OBJ) $(LIBS)
+
+Timings: $(OBJ_TIM) ## Produces an executable measureing the time taken for the root tracking methods formulated in timings.cpp
+	$(CC) $(CFLAGS) -o Timings $(OBJ_TIM) $(LIBS)
 
 clean:	## Removes the generated *.o files
 	rm -f core *.o

@@ -14,6 +14,7 @@ implemented root tracking methods.
 to use when trackers fail.
 */
 int RootTracker::Methods(){
+  std::cout << "Listing available trackers:" << std::endl;
   std::cout << "NRTracker, DMTracker, NNTracker" << std::endl;
   return 0;
 }

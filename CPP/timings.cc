@@ -23,9 +23,8 @@ void saveData(MatrixXd A, const char file_name[]){
 }
 
 /*!
-Example problem demonstrating the usage of the root trackers
-for solving a task space path following problem of an SRSPM using
-all the discussed root-trackers.
+This file is the same as the `main.cc` file. But is used to compute the times
+taken by each of the methods over 1000 runs.
 */
 int main(int argc, char const *argv[]) {
   RootTracker rt;
@@ -71,23 +70,36 @@ int main(int argc, char const *argv[]) {
   solsNR << phii;
   tempNR = phii;
 
+std::cout << "Computing the average time taken by the corresponding trackers over 1000 runs" << std::endl;
+
+VectorXd times(1000);
+for (int t = 0; t < 1000; t++) {
+  auto start = std::chrono::high_resolution_clock::now();
   // Tracking using NRTracker
   for (int i = 1; i < legvals.rows(); i++){
     tempNR = rt.NRTracker(legvals.row(i), tempNR, etaext, Jetaextphi);
 
-    solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
-  	solsNR.col(solsNR.cols()-1) = tempNR;
+    // solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
+  	// solsNR.col(solsNR.cols()-1) = tempNR;
   }
-  // // Display results
+  auto stop = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+  times(t) = duration.count();
+}
+std::cout << "NRTracker: "<< times.mean() << std::endl;
+
+  // Display results
   // std::cout << solsNR.rows() << " " << solsNR.cols() << std::endl;
   // std::cout << solsNR.col(50) << std::endl;
 
-  saveData(solsNR.transpose(), "NRTracker.txt");
+  // saveData(solsNR.transpose(), "NRTracker.txt");
 
   MatrixXd solsDM(18,1);
   solsDM << phii;
   tempDM = phii;
 
+for (int t = 0; t < 1000; t++) {
+    auto start = std::chrono::high_resolution_clock::now();
   // Tracking using DMTracker
   for (int i = 1; i < legvals.rows(); i++){
     // Without NR step correction
@@ -102,11 +114,17 @@ int main(int argc, char const *argv[]) {
     // solsDM.conservativeResize(solsDM.rows(), solsDM.cols()+1);
   	// solsDM.col(solsDM.cols()-1) = tempDM;
   }
-  // // Display results
+  auto stop = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+  times(t) = duration.count();
+}
+std::cout << "DMTracker: "<< times.mean() << std::endl;
+
+  // Display results
   // std::cout << solsDM.rows() << " " << solsDM.cols() << std::endl;
   // std::cout << solsDM.col(50) << std::endl;
 
-  saveData(solsDM.transpose(), "DMTracker_NR.txt");
+  // saveData(solsDM.transpose(), "DMTracker_NR.txt");
 
   MatrixXd solsNN(18,1), tempFK(8, 18);
   solsNN << phii;
@@ -114,6 +132,8 @@ int main(int argc, char const *argv[]) {
   // Initialise all the known roots
   tempFK = initsols;
 
+for (int t = 0; t < 1000; t++) {
+      auto start = std::chrono::high_resolution_clock::now();
   // Tracking using NNTracker
   for (int i = 1; i < legvals.rows(); i++){
     for (int j = 0; j < tempFK.rows(); j++) {
@@ -122,16 +142,22 @@ int main(int argc, char const *argv[]) {
 
     tempNN = rt.NNTracker(tempNN, tempFK, 6);
 
-    solsNN.conservativeResize(solsNN.rows(), solsNN.cols()+1);
-  	solsNN.col(solsNN.cols()-1) = tempNN;
+    // solsNN.conservativeResize(solsNN.rows(), solsNN.cols()+1);
+  	// solsNN.col(solsNN.cols()-1) = tempNN;
   }
+  auto stop = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+  times(t) = duration.count();
+  }
+  std::cout << "NNTracker: "<< times.mean() << std::endl;
+
   // // Display results
   // std::cout << solsNN.rows() << " " << solsNN.cols() << std::endl;
   // std::cout << solsNN.col(50) << std::endl;
 
-  saveData(solsNN.transpose(), "NNTracker_NR.txt");
+  // saveData(solsNN.transpose(), "NNTracker_NR.txt");
 
-  // // Verifying the tracked roots with the NR roots
+// Verifying the tracked roots with the NR roots
   // std::cout << (solsNN - solsNR).maxCoeff() << std::endl;
 
   return 0;
