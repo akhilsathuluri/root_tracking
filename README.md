@@ -15,18 +15,18 @@ The repository contains example usage of the methods to solve a path following p
 Further, an implementation for a 3-3 cable driven parallel robot (CDPR) is also given. 
 
 <p float="middle">
-  <img src="/assets/animations/r1.gif" width="33%" />
-  <img src="/assets/animations/r2.gif" width="33%" /> 
-  <img src="/assets/animations/r3.gif" width="33%" />
+  <img src="/assets/animations/r1.gif" width="32%" />
+  <img src="/assets/animations/r2.gif" width="32%" /> 
+  <img src="/assets/animations/r3.gif" width="32%" />
   <em>Different branches of the SRSPM tracked using the NR method</em>
 </p>
 
-##Usage
+## Usage
 The problem formulation and execution is a two step process:
-# Mathematica
+### Mathematica
 The problem, i.e., the set of parametric non-linear equations are initially formulated in Mathematica and are stored in the file named Mathematica. These equations are then ported as `C++` expressions using the `FileTemplateApply` function. 
 
-# `C++`
+### C++
 1. To compile and launch the doxygen documentation use `make docs`
 2. To know the capabilities of the make file use `make help`
 3. To use the codes as is simply use the command `make`
