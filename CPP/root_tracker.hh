@@ -14,6 +14,8 @@ The RootTracker class consists of implementations of the following:
 @todo Add chrono to profile function evaluation timings
 @todo See how things change when openMP is enabled with Eigen
 @todo See how things change when BLAS and LAPACK are used with Eigen
+@todo Implement an event identification method that can handle or atleast
+alert when the system moves close to a singularity
 */
 class RootTracker
 {
