@@ -1,15 +1,19 @@
 
 \begin{DoxyRefList}
-\item[Member \mbox{\hyperlink{utils_8hh_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}{linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)]\label{todo__todo000006}%
-\Hypertarget{todo__todo000006}%
+\item[Member \mbox{\hyperlink{utils_8hh_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}{linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)]\label{todo__todo000008}%
+\Hypertarget{todo__todo000008}%
 Add assertions for square matrix verification and verification of sizes of A and b  
-\item[Class \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} ]\label{todo__todo000005}%
-\Hypertarget{todo__todo000005}%
-Add chrono to profile function evaluation timings 
-
+\item[Class \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} ]\label{todo__todo000006}%
+\Hypertarget{todo__todo000006}%
 See how things change when open\+MP is enabled with Eigen 
 
-See how things change when B\+L\+AS and L\+A\+P\+A\+CK are used with Eigen  
+See how things change when B\+L\+AS and L\+A\+P\+A\+CK are used with Eigen 
+
+Implement an event identification method that can handle or atleast alert when the system moves close to a singularity
+
+\label{todo__todo000007}%
+\Hypertarget{todo__todo000007}%
+modify the paper with a definition of distance as all the individual elements of the vector being within the eps radius ball. So once we define the eps, we take 2 steps, which gives us 4 solution values, i.\+e. two branches two sols. Then use a multivariable interpolation scheme to interpolate from both sides. Then find their intersection to find the location of singularity.  
 \item[Member \mbox{\hyperlink{classRootTracker_acc5d4b8e89ace70cee9c227f033e5a92}{Root\+Tracker::D\+M\+Tracker}} (Vector\+Xd xprev, Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f=N\+U\+LL)]\label{todo__todo000003}%
 \Hypertarget{todo__todo000003}%
 Provide support for different integration methods 
@@ -34,8 +38,11 @@ Decide to return q or y in the N\+R\+Tracker method
 fval returning nan is not being handled in the while loop 
 
 Input argument format and other relevant checks  
-\item[Member \mbox{\hyperlink{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}{s1\+Dist}} (Vector\+Xd theta1, Vector\+Xd theta2)]\label{todo__todo000007}%
-\Hypertarget{todo__todo000007}%
+\item[Member \mbox{\hyperlink{classRootTracker_a1d120fc9c9d777ba405a76c47dfa94e5}{Root\+Tracker::Singularity\+Event\+Identifier}} (Vector\+Xd ys, Matrix\+Xd ysols, double eps=pow(10, -\/2))]\label{todo__todo000005}%
+\Hypertarget{todo__todo000005}%
+Integrate Bertini to find all the roots  
+\item[Member \mbox{\hyperlink{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}{s1\+Dist}} (Vector\+Xd theta1, Vector\+Xd theta2)]\label{todo__todo000009}%
+\Hypertarget{todo__todo000009}%
 Can do more effecient computation if the angles mapping is saved in the memory 
 
 Assert sizes of theta1 and theta2 to be same 

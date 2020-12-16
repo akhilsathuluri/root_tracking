@@ -11,11 +11,17 @@ The RootTracker class consists of implementations of the following:
 - Newton-Raphson method based tracking or NRTracker
 - Davidenkos method based tracking or DMTracker
 - Nearest neighbour based tracking or NNTracker
-@todo Add chrono to profile function evaluation timings
+
 @todo See how things change when openMP is enabled with Eigen
 @todo See how things change when BLAS and LAPACK are used with Eigen
 @todo Implement an event identification method that can handle or atleast
 alert when the system moves close to a singularity
+
+@todo modify the paper with a definition of distance as all the individual
+elements of the vector being within the eps radius ball. So once we define the
+eps, we take 2 steps, which gives us 4 solution values, i.e. two branches two sols.
+Then use a multivariable interpolation scheme to interpolate from both sides. Then
+find their intersection  to find the location of singularity.
 */
 class RootTracker
 {
@@ -26,6 +32,8 @@ public:
      std::function<MatrixXd (VectorXd)> Jfy, double eps = 0, std::function<VectorXd (VectorXd)> f = NULL);
   VectorXd NNTracker(VectorXd ys, MatrixXd ysols, int index);
   int Methods();
+
+  VectorXd RootTracker::SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, double eps = pow(10, -2));
 };
 
 #endif

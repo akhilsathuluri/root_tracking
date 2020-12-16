@@ -81,15 +81,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae13e787a2ef083592f5c8d07ac4d08bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d29be3a24392b6a864b8e471f23db6c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a0d29be3a24392b6a864b8e471f23db6c">Methods</a> ()</td></tr>
 <tr class="separator:a0d29be3a24392b6a864b8e471f23db6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d120fc9c9d777ba405a76c47dfa94e5"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a1d120fc9c9d777ba405a76c47dfa94e5">SingularityEventIdentifier</a> (VectorXd ys, MatrixXd ysols, double eps=pow(10, -2))</td></tr>
+<tr class="separator:a1d120fc9c9d777ba405a76c47dfa94e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classRootTracker.html">RootTracker</a> class consists of implementations of the following:</p><ul>
 <li>Newton-Raphson method based tracking or NRTracker</li>
 <li>Davidenkos method based tracking or DMTracker</li>
-<li>Nearest neighbour based tracking or NNTracker <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd><p class="startdd">Add chrono to profile function evaluation timings </p>
-<p class="interdd">See how things change when openMP is enabled with Eigen </p>
-<p class="enddd">See how things change when BLAS and LAPACK are used with Eigen </p>
+<li><p class="startli">Nearest neighbour based tracking or NNTracker</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd><p class="startdd">See how things change when openMP is enabled with Eigen </p>
+<p class="interdd">See how things change when BLAS and LAPACK are used with Eigen </p>
+<p class="enddd">Implement an event identification method that can handle or atleast alert when the system moves close to a singularity</p>
 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>modify the paper with a definition of distance as all the individual elements of the vector being within the eps radius ball. So once we define the eps, we take 2 steps, which gives us 4 solution values, i.e. two branches two sols. Then use a multivariable interpolation scheme to interpolate from both sides. Then find their intersection to find the location of singularity. </dd></dl>
 </li>
 </ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -289,6 +293,50 @@ Public Member Functions</h2></td></tr>
 <p class="interdd">fval returning nan is not being handled in the while loop </p>
 <p class="enddd">Input argument format and other relevant checks </p>
 </dd></dl>
+
+</div>
+</div>
+<a id="a1d120fc9c9d777ba405a76c47dfa94e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d120fc9c9d777ba405a76c47dfa94e5">&#9670;&nbsp;</a></span>SingularityEventIdentifier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VectorXd RootTracker::SingularityEventIdentifier </td>
+          <td>(</td>
+          <td class="paramtype">VectorXd&#160;</td>
+          <td class="paramname"><em>ys</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MatrixXd&#160;</td>
+          <td class="paramname"><em>ysols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eps</em> = <code>pow(10,&#160;-2)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The SingularityEventIdentifier uses a distance metric to identify when the configuration approaches a singularity. Further, it uses a linear interpolation to estimate the singular configuration. This function needs the computation of all the roots, real or imaginary to be provided. Optionally Bertini can be used to compute all the roots.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ys</td><td>The current root of the required branch </td></tr>
+    <tr><td class="paramname">ysols</td><td>All the roots at the instant </td></tr>
+    <tr><td class="paramname">eps</td><td>The distance tolerance after which the singularity event is triggered</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Integrate Bertini to find all the roots </dd></dl>
 
 </div>
 </div>

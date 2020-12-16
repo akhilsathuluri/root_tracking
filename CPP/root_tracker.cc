@@ -158,3 +158,20 @@ VectorXd RootTracker::NNTracker(VectorXd ys, MatrixXd ysols, int index){
   dmaxlist.minCoeff(&minIndex);
   return ysols.row(minIndex);
 }
+
+/*!
+The SingularityEventIdentifier uses a distance metric to identify when the
+configuration approaches a singularity. Further, it uses a linear interpolation
+to estimate the singular configuration.
+This function needs the computation of all the roots, real or imaginary to be
+provided. Optionally Bertini can be used to compute all the roots.
+
+@param ys The current root of the required branch
+@param ysols All the roots at the instant
+@param eps The distance tolerance after which the singularity event is triggered
+
+@todo Integrate Bertini to find all the roots
+*/
+VectorXd RootTracker::SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, double eps = pow(10, -2)){
+
+}

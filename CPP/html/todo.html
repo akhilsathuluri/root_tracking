@@ -67,11 +67,12 @@ $(function() {
 <div class="contents">
 <div class="textblock"><dl class="reflist">
 <dt>Member <a class="el" href="utils_8hh.html#a7ed506e6d7b8ba153e1b8b24a7b6e5c4">linearSolve</a>  (MatrixXd Amat, VectorXd bvec)</dt>
-<dd><a class="anchor" id="_todo000006"></a>Add assertions for square matrix verification and verification of sizes of A and b  </dd>
+<dd><a class="anchor" id="_todo000008"></a>Add assertions for square matrix verification and verification of sizes of A and b  </dd>
 <dt>Class <a class="el" href="classRootTracker.html">RootTracker</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000005"></a>Add chrono to profile function evaluation timings </p>
-<p class="interdd">See how things change when openMP is enabled with Eigen </p>
-<p class="enddd">See how things change when BLAS and LAPACK are used with Eigen  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000006"></a>See how things change when openMP is enabled with Eigen </p>
+<p class="interdd">See how things change when BLAS and LAPACK are used with Eigen </p>
+<p class="interdd">Implement an event identification method that can handle or atleast alert when the system moves close to a singularity</p>
+<p class="enddd"><a class="anchor" id="_todo000007"></a>modify the paper with a definition of distance as all the individual elements of the vector being within the eps radius ball. So once we define the eps, we take 2 steps, which gives us 4 solution values, i.e. two branches two sols. Then use a multivariable interpolation scheme to interpolate from both sides. Then find their intersection to find the location of singularity.  </p>
 </dd>
 <dt>Member <a class="el" href="classRootTracker.html#acc5d4b8e89ace70cee9c227f033e5a92">RootTracker::DMTracker</a>  (VectorXd xprev, VectorXd x, VectorXd y, std::function&lt; MatrixXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</dt>
 <dd><p class="startdd"><a class="anchor" id="_todo000003"></a>Provide support for different integration methods </p>
@@ -90,8 +91,10 @@ $(function() {
 <p class="interdd">fval returning nan is not being handled in the while loop </p>
 <p class="enddd">Input argument format and other relevant checks  </p>
 </dd>
+<dt>Member <a class="el" href="classRootTracker.html#a1d120fc9c9d777ba405a76c47dfa94e5">RootTracker::SingularityEventIdentifier</a>  (VectorXd ys, MatrixXd ysols, double eps=pow(10, -2))</dt>
+<dd><a class="anchor" id="_todo000005"></a>Integrate Bertini to find all the roots  </dd>
 <dt>Member <a class="el" href="utils_8hh.html#aa55cfeada673b3ce1ce1e504925e117c">s1Dist</a>  (VectorXd theta1, VectorXd theta2)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000007"></a>Can do more effecient computation if the angles mapping is saved in the memory </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000009"></a>Can do more effecient computation if the angles mapping is saved in the memory </p>
 <p class="enddd">Assert sizes of theta1 and theta2 to be same </p>
 </dd>
 </dl>
