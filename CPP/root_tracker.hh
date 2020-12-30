@@ -33,7 +33,7 @@ public:
   VectorXd NNTracker(VectorXd ys, MatrixXd ysols, int index);
   int Methods();
 
-  VectorXd RootTracker::SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, double eps = pow(10, -2));
+  VectorXd SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, int index, double eps = pow(10, -2));
 };
 
 #endif

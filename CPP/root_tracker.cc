@@ -172,6 +172,17 @@ provided. Optionally Bertini can be used to compute all the roots.
 
 @todo Integrate Bertini to find all the roots
 */
-VectorXd RootTracker::SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, double eps = pow(10, -2)){
+VectorXd RootTracker::SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, int index, double eps /*= pow(10, -2)*/){
+  MatrixXd sol;
+  sol = NNTracker(ys, ysols, index);
+  return sol;
+
+// 1. Find distance betwwen all the solutions
+// 2. Check one or more pairs are within the eps distance
+// 3. If yes, take 6 more steps or the size of the y steps into the future only for the corresponding solutions
+// 4. Fit a hyperplane to the points
+// 6. Solve the hyperplane from both the sides and find the singular location and inform the same
+
+// For 1 we'll need to iteratively use the nearest neighbout method
 
 }

@@ -67,72 +67,78 @@ int main(int argc, char const *argv[]) {
    2.8117960495019982,0.2758192040473777,0.26974569330836556,-0.13921668983029753,-0.3564442780964989,
    -1.0169800563674098,-0.6281098269592473;
 
-  MatrixXd solsNR(18,1);
-  solsNR << phii;
-  tempNR = phii;
+// Testing the SingularityEventIdentifier
 
-  // Tracking using NRTracker
-  for (int i = 1; i < legvals.rows(); i++){
-    tempNR = rt.NRTracker(legvals.row(i), tempNR, etaext, Jetaextphi);
+  VectorXd sol;
+  sol = rt.SingularityEventIdentifier(phii, initsols, 6);
+  std::cout << sol << '\n';
 
-    solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
-  	solsNR.col(solsNR.cols()-1) = tempNR;
-  }
-  // // Display results
-  // std::cout << solsNR.rows() << " " << solsNR.cols() << std::endl;
-  // std::cout << solsNR.col(50) << std::endl;
-
-  saveData(solsNR.transpose(), "NRTracker.txt");
-
-  MatrixXd solsDM(18,1);
-  solsDM << phii;
-  tempDM = phii;
-
-  // Tracking using DMTracker
-  for (int i = 1; i < legvals.rows(); i++){
-    // Without NR step correction
-    // tempDM = rt.DMTracker(legvals.row(i-1), legvals.row(i), tempDM, Jetaexttheta, Jetaextphi);
-
-    // With NR step correction
-    /*!
-    Choosing small enough `eps` makes DMTracker work like an NRTracker
-    */
-    tempDM = rt.DMTracker(legvals.row(i-1), legvals.row(i), tempDM, Jetaexttheta, Jetaextphi, 0.05, etaext);
-
-    // solsDM.conservativeResize(solsDM.rows(), solsDM.cols()+1);
-  	// solsDM.col(solsDM.cols()-1) = tempDM;
-  }
-  // // Display results
-  // std::cout << solsDM.rows() << " " << solsDM.cols() << std::endl;
-  // std::cout << solsDM.col(50) << std::endl;
-
-  saveData(solsDM.transpose(), "DMTracker_NR.txt");
-
-  MatrixXd solsNN(18,1), tempFK(8, 18);
-  solsNN << phii;
-  tempNN = phii;
-  // Initialise all the known roots
-  tempFK = initsols;
-
-  // Tracking using NNTracker
-  for (int i = 1; i < legvals.rows(); i++){
-    for (int j = 0; j < tempFK.rows(); j++) {
-      tempFK.row(j) = rt.NRTracker(legvals.row(i), tempFK.row(j), etaext, Jetaextphi);
-    }
-
-    tempNN = rt.NNTracker(tempNN, tempFK, 6);
-
-    solsNN.conservativeResize(solsNN.rows(), solsNN.cols()+1);
-  	solsNN.col(solsNN.cols()-1) = tempNN;
-  }
-  // // Display results
-  // std::cout << solsNN.rows() << " " << solsNN.cols() << std::endl;
-  // std::cout << solsNN.col(50) << std::endl;
-
-  saveData(solsNN.transpose(), "NNTracker_NR.txt");
-
-  // // Verifying the tracked roots with the NR roots
-  // std::cout << (solsNN - solsNR).maxCoeff() << std::endl;
+  // MatrixXd solsNR(18,1);
+  // solsNR << phii;
+  // tempNR = phii;
+  //
+  // // Tracking using NRTracker
+  // for (int i = 1; i < legvals.rows(); i++){
+  //   tempNR = rt.NRTracker(legvals.row(i), tempNR, etaext, Jetaextphi);
+  //
+  //   solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
+  // 	solsNR.col(solsNR.cols()-1) = tempNR;
+  // }
+  // // // Display results
+  // // std::cout << solsNR.rows() << " " << solsNR.cols() << std::endl;
+  // // std::cout << solsNR.col(50) << std::endl;
+  //
+  // saveData(solsNR.transpose(), "NRTracker.txt");
+  //
+  // MatrixXd solsDM(18,1);
+  // solsDM << phii;
+  // tempDM = phii;
+  //
+  // // Tracking using DMTracker
+  // for (int i = 1; i < legvals.rows(); i++){
+  //   // Without NR step correction
+  //   // tempDM = rt.DMTracker(legvals.row(i-1), legvals.row(i), tempDM, Jetaexttheta, Jetaextphi);
+  //
+  //   // With NR step correction
+  //   /*!
+  //   Choosing small enough `eps` makes DMTracker work like an NRTracker
+  //   */
+  //   tempDM = rt.DMTracker(legvals.row(i-1), legvals.row(i), tempDM, Jetaexttheta, Jetaextphi, 0.05, etaext);
+  //
+  //   // solsDM.conservativeResize(solsDM.rows(), solsDM.cols()+1);
+  // 	// solsDM.col(solsDM.cols()-1) = tempDM;
+  // }
+  // // // Display results
+  // // std::cout << solsDM.rows() << " " << solsDM.cols() << std::endl;
+  // // std::cout << solsDM.col(50) << std::endl;
+  //
+  // saveData(solsDM.transpose(), "DMTracker_NR.txt");
+  //
+  // MatrixXd solsNN(18,1), tempFK(8, 18);
+  // solsNN << phii;
+  // tempNN = phii;
+  // // Initialise all the known roots
+  // tempFK = initsols;
+  //
+  // // Tracking using NNTracker
+  // for (int i = 1; i < legvals.rows(); i++){
+  //   for (int j = 0; j < tempFK.rows(); j++) {
+  //     tempFK.row(j) = rt.NRTracker(legvals.row(i), tempFK.row(j), etaext, Jetaextphi);
+  //   }
+  //
+  //   tempNN = rt.NNTracker(tempNN, tempFK, 6);
+  //
+  //   solsNN.conservativeResize(solsNN.rows(), solsNN.cols()+1);
+  // 	solsNN.col(solsNN.cols()-1) = tempNN;
+  // }
+  // // // Display results
+  // // std::cout << solsNN.rows() << " " << solsNN.cols() << std::endl;
+  // // std::cout << solsNN.col(50) << std::endl;
+  //
+  // saveData(solsNN.transpose(), "NNTracker_NR.txt");
+  //
+  // // // Verifying the tracked roots with the NR roots
+  // // std::cout << (solsNN - solsNR).maxCoeff() << std::endl;
 
   return 0;
 }
