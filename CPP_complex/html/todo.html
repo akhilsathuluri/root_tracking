@@ -67,24 +67,29 @@ $(function() {
 <div class="contents">
 <div class="textblock"><dl class="reflist">
 <dt>Member <a class="el" href="utils_8hh.html#a7ed506e6d7b8ba153e1b8b24a7b6e5c4">linearSolve</a>  (MatrixXd Amat, VectorXd bvec)</dt>
-<dd><a class="anchor" id="_todo000008"></a>Add assertions for square matrix verification and verification of sizes of A and b  </dd>
+<dd><a class="anchor" id="_todo000009"></a>Add assertions for square matrix verification and verification of sizes of A and b  </dd>
 <dt>Class <a class="el" href="classRootTracker.html">RootTracker</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000006"></a>See how things change when openMP is enabled with Eigen </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000007"></a>See how things change when openMP is enabled with Eigen </p>
 <p class="interdd">See how things change when BLAS and LAPACK are used with Eigen </p>
 <p class="interdd">Implement an event identification method that can handle or atleast alert when the system moves close to a singularity</p>
-<p class="enddd"><a class="anchor" id="_todo000007"></a>modify the paper with a definition of distance as all the individual elements of the vector being within the eps radius ball. So once we define the eps, we take 2 steps, which gives us 4 solution values, i.e. two branches two sols. Then use a multivariable interpolation scheme to interpolate from both sides. Then find their intersection to find the location of singularity.  </p>
+<p class="enddd"><a class="anchor" id="_todo000008"></a>modify the paper with a definition of distance as all the individual elements of the vector being within the eps radius ball. So once we define the eps, we take 2 steps, which gives us 4 solution values, i.e. two branches two sols. Then use a multivariable interpolation scheme to interpolate from both sides. Then find their intersection to find the location of singularity.  </p>
 </dd>
 <dt>Member <a class="el" href="classRootTracker.html#acc5d4b8e89ace70cee9c227f033e5a92">RootTracker::DMTracker</a>  (VectorXd xprev, VectorXd x, VectorXd y, std::function&lt; MatrixXd(VectorXd)&gt; Jfx, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=0, std::function&lt; VectorXd(VectorXd)&gt; f=NULL)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000003"></a>Provide support for different integration methods </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000004"></a>Provide support for different integration methods </p>
 <p class="interdd">This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. </p>
 <p class="enddd">The same scheme estimating dx as xnext-x is unstable  </p>
 </dd>
 <dt>Member <a class="el" href="classRootTracker.html#a0d29be3a24392b6a864b8e471f23db6c">RootTracker::Methods</a>  ()</dt>
 <dd><a class="anchor" id="_todo000001"></a>Give provision for an FK solver along with root trackers to use when trackers fail.  </dd>
 <dt>Member <a class="el" href="classRootTracker.html#ae13e787a2ef083592f5c8d07ac4d08bc">RootTracker::NNTracker</a>  (VectorXd ys, MatrixXd ysols, int index)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000004"></a>The method currently deals only with variables belonging to R and S1. </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000005"></a>The method currently deals only with variables belonging to R and S1. </p>
 <p class="interdd">Treating the Rodriques parameters as locally belonging to R. </p>
 <p class="enddd">Add assertions for cols of ys and ysols to be same.  </p>
+</dd>
+<dt>Member <a class="el" href="classRootTracker.html#a81f1227c2436cf1a84a7b8608b683bdd">RootTracker::NRCTracker</a>  (VectorXcd x, VectorXcd y, std::function&lt; VectorXcd(VectorXcd)&gt; f, std::function&lt; MatrixXcd(VectorXcd)&gt; Jfy, double eps=pow(10, -10))</dt>
+<dd><p class="startdd"><a class="anchor" id="_todo000003"></a>Write overloaded function for saveDate </p>
+<p class="interdd">Write overloaded function for eta and J </p>
+<p class="enddd">Make the tracker itself overloaded  </p>
 </dd>
 <dt>Member <a class="el" href="classRootTracker.html#a6bb3dcb73ea58ac44ab15d7803de3d5a">RootTracker::NRTracker</a>  (VectorXd x, VectorXd y, std::function&lt; VectorXd(VectorXd)&gt; f, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=pow(10, -10))</dt>
 <dd><p class="startdd"><a class="anchor" id="_todo000002"></a>Decide to return q or y in the NRTracker method </p>
@@ -92,9 +97,11 @@ $(function() {
 <p class="enddd">Input argument format and other relevant checks  </p>
 </dd>
 <dt>Member <a class="el" href="classRootTracker.html#ada1cf0e1ae31392f075fe5f92972f17f">RootTracker::SingularityEventIdentifier</a>  (VectorXd ys, MatrixXd ysols, int index, double eps=pow(10, -2))</dt>
-<dd><a class="anchor" id="_todo000005"></a>Integrate Bertini to find all the roots  </dd>
+<dd><a class="anchor" id="_todo000006"></a>Integrate Bertini to find all the roots  </dd>
+<dt>Member <a class="el" href="utils_8hh.html#a5d8b5ec8d7d9f33e2b89dbd54a9dfbd6">s1CDist</a>  (VectorXcd theta1, VectorXcd theta2)</dt>
+<dd><a class="anchor" id="_todo000011"></a>Inrtoduce a complex modulo operator  </dd>
 <dt>Member <a class="el" href="utils_8hh.html#aa55cfeada673b3ce1ce1e504925e117c">s1Dist</a>  (VectorXd theta1, VectorXd theta2)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000009"></a>Can do more effecient computation if the angles mapping is saved in the memory </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000010"></a>Can do more effecient computation if the angles mapping is saved in the memory </p>
 <p class="enddd">Assert sizes of theta1 and theta2 to be same </p>
 </dd>
 </dl>

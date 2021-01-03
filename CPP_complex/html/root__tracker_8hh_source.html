@@ -83,13 +83,16 @@ $(function() {
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  VectorXd NNTracker(VectorXd ys, MatrixXd ysols, <span class="keywordtype">int</span> index);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">int</span> Methods();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  VectorXd NRCTracker(VectorXd x, VectorXd y, std::function&lt;VectorXd (VectorXd)&gt; f,\</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;   std::function&lt;MatrixXd (VectorXd)&gt; Jfy, <span class="keywordtype">double</span> eps = pow(10, -10));</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  VectorXd SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, <span class="keywordtype">int</span> index, <span class="keywordtype">double</span> eps = pow(10, -2));</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  VectorXcd NRCTracker(VectorXcd x, VectorXcd y, std::function&lt;VectorXcd (VectorXcd)&gt; f,\</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;   std::function&lt;MatrixXcd (VectorXcd)&gt; Jfy, <span class="keywordtype">double</span> eps = pow(10, -10));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  VectorXcd DMCTracker(VectorXcd xprev, VectorXcd x, VectorXcd y, std::function&lt;MatrixXcd (VectorXcd)&gt; Jfx, \</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;   std::function&lt;MatrixXcd (VectorXcd)&gt; Jfy, <span class="keywordtype">double</span> eps = 0, std::function&lt;VectorXcd (VectorXcd)&gt; f = NULL);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;   VectorXcd NNCTracker(VectorXcd ys, MatrixXcd ysols, <span class="keywordtype">int</span> index);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  VectorXd SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, <span class="keywordtype">int</span> index, <span class="keywordtype">double</span> eps = pow(10, -2));</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassRootTracker_html"><div class="ttname"><a href="classRootTracker.html">RootTracker</a></div><div class="ttdef"><b>Definition:</b> root_tracker.hh:26</div></div>
 <!-- start footer part -->

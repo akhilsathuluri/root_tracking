@@ -81,8 +81,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae13e787a2ef083592f5c8d07ac4d08bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d29be3a24392b6a864b8e471f23db6c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a0d29be3a24392b6a864b8e471f23db6c">Methods</a> ()</td></tr>
 <tr class="separator:a0d29be3a24392b6a864b8e471f23db6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca24a688ebd0b5c1bc30e2d5b0a317f1"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#aca24a688ebd0b5c1bc30e2d5b0a317f1">NRCTracker</a> (VectorXd x, VectorXd y, std::function&lt; VectorXd(VectorXd)&gt; f, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, double eps=pow(10, -10))</td></tr>
-<tr class="separator:aca24a688ebd0b5c1bc30e2d5b0a317f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81f1227c2436cf1a84a7b8608b683bdd"><td class="memItemLeft" align="right" valign="top">VectorXcd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a81f1227c2436cf1a84a7b8608b683bdd">NRCTracker</a> (VectorXcd x, VectorXcd y, std::function&lt; VectorXcd(VectorXcd)&gt; f, std::function&lt; MatrixXcd(VectorXcd)&gt; Jfy, double eps=pow(10, -10))</td></tr>
+<tr class="separator:a81f1227c2436cf1a84a7b8608b683bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6467ae384a2333b03f7432da49513a0"><td class="memItemLeft" align="right" valign="top">VectorXcd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#aa6467ae384a2333b03f7432da49513a0">DMCTracker</a> (VectorXcd xprev, VectorXcd x, VectorXcd y, std::function&lt; MatrixXcd(VectorXcd)&gt; Jfx, std::function&lt; MatrixXcd(VectorXcd)&gt; Jfy, double eps=0, std::function&lt; VectorXcd(VectorXcd)&gt; f=NULL)</td></tr>
+<tr class="separator:aa6467ae384a2333b03f7432da49513a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73c068967c8f4403f9a0ec1c703c2be8"><td class="memItemLeft" align="right" valign="top">VectorXcd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a73c068967c8f4403f9a0ec1c703c2be8">NNCTracker</a> (VectorXcd ys, MatrixXcd ysols, int index)</td></tr>
+<tr class="separator:a73c068967c8f4403f9a0ec1c703c2be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada1cf0e1ae31392f075fe5f92972f17f"><td class="memItemLeft" align="right" valign="top">VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#ada1cf0e1ae31392f075fe5f92972f17f">SingularityEventIdentifier</a> (VectorXd ys, MatrixXd ysols, int index, double eps=pow(10, -2))</td></tr>
 <tr class="separator:ada1cf0e1ae31392f075fe5f92972f17f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -91,14 +95,73 @@ Public Member Functions</h2></td></tr>
 <li>Newton-Raphson method based tracking or NRTracker</li>
 <li>Davidenkos method based tracking or DMTracker</li>
 <li><p class="startli">Nearest neighbour based tracking or NNTracker</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd><p class="startdd">See how things change when openMP is enabled with Eigen </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd><p class="startdd">See how things change when openMP is enabled with Eigen </p>
 <p class="interdd">See how things change when BLAS and LAPACK are used with Eigen </p>
 <p class="enddd">Implement an event identification method that can handle or atleast alert when the system moves close to a singularity</p>
 </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>modify the paper with a definition of distance as all the individual elements of the vector being within the eps radius ball. So once we define the eps, we take 2 steps, which gives us 4 solution values, i.e. two branches two sols. Then use a multivariable interpolation scheme to interpolate from both sides. Then find their intersection to find the location of singularity. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>modify the paper with a definition of distance as all the individual elements of the vector being within the eps radius ball. So once we define the eps, we take 2 steps, which gives us 4 solution values, i.e. two branches two sols. Then use a multivariable interpolation scheme to interpolate from both sides. Then find their intersection to find the location of singularity. </dd></dl>
 </li>
 </ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa6467ae384a2333b03f7432da49513a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6467ae384a2333b03f7432da49513a0">&#9670;&nbsp;</a></span>DMCTracker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VectorXcd RootTracker::DMCTracker </td>
+          <td>(</td>
+          <td class="paramtype">VectorXcd&#160;</td>
+          <td class="paramname"><em>xprev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VectorXcd&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VectorXcd&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; MatrixXcd(VectorXcd)&gt;&#160;</td>
+          <td class="paramname"><em>Jfx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; MatrixXcd(VectorXcd)&gt;&#160;</td>
+          <td class="paramname"><em>Jfy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eps</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; VectorXcd(VectorXcd)&gt;&#160;</td>
+          <td class="paramname"><em>f</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The DMCTracker uses the Davindenkos' integration method to find the solutions satisfied by the constrain equations. </p>
+
+</div>
+</div>
 <a id="acc5d4b8e89ace70cee9c227f033e5a92"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc5d4b8e89ace70cee9c227f033e5a92">&#9670;&nbsp;</a></span>DMTracker()</h2>
 
@@ -166,7 +229,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd><p class="startdd">Provide support for different integration methods </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd><p class="startdd">Provide support for different integration methods </p>
 <p class="interdd">This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. </p>
 <p class="enddd">The same scheme estimating dx as xnext-x is unstable </p>
 </dd></dl>
@@ -188,6 +251,41 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The methods function can be called to view names of all the implemented root tracking methods. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Give provision for an FK solver along with root trackers to use when trackers fail. </dd></dl>
+
+</div>
+</div>
+<a id="a73c068967c8f4403f9a0ec1c703c2be8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73c068967c8f4403f9a0ec1c703c2be8">&#9670;&nbsp;</a></span>NNCTracker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VectorXcd RootTracker::NNCTracker </td>
+          <td>(</td>
+          <td class="paramtype">VectorXcd&#160;</td>
+          <td class="paramname"><em>ys</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MatrixXcd&#160;</td>
+          <td class="paramname"><em>ysols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The NNCTracker uses the nearest neighbour method to identify the roots belonging to a required branch. </p>
 
 </div>
 </div>
@@ -231,41 +329,41 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd><p class="startdd">The method currently deals only with variables belonging to R and S1. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd><p class="startdd">The method currently deals only with variables belonging to R and S1. </p>
 <p class="interdd">Treating the Rodriques parameters as locally belonging to R. </p>
 <p class="enddd">Add assertions for cols of ys and ysols to be same. </p>
 </dd></dl>
 
 </div>
 </div>
-<a id="aca24a688ebd0b5c1bc30e2d5b0a317f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca24a688ebd0b5c1bc30e2d5b0a317f1">&#9670;&nbsp;</a></span>NRCTracker()</h2>
+<a id="a81f1227c2436cf1a84a7b8608b683bdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81f1227c2436cf1a84a7b8608b683bdd">&#9670;&nbsp;</a></span>NRCTracker()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">VectorXd RootTracker::NRCTracker </td>
+          <td class="memname">VectorXcd RootTracker::NRCTracker </td>
           <td>(</td>
-          <td class="paramtype">VectorXd&#160;</td>
+          <td class="paramtype">VectorXcd&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">VectorXd&#160;</td>
+          <td class="paramtype">VectorXcd&#160;</td>
           <td class="paramname"><em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; VectorXd(VectorXd)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; VectorXcd(VectorXcd)&gt;&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; MatrixXd(VectorXd)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; MatrixXcd(VectorXcd)&gt;&#160;</td>
           <td class="paramname"><em>Jfy</em>, </td>
         </tr>
         <tr>
@@ -281,7 +379,10 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The NRCTracker uses the Newton-Raphson method iteratively to find the solutions satisfied by the constrain equations. </p>
+<p>The NRCTracker uses the Newton-Raphson method iteratively to find the solutions satisfied by the constrain equations. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd><p class="startdd">Write overloaded function for saveDate </p>
+<p class="interdd">Write overloaded function for eta and J </p>
+<p class="enddd">Make the tracker itself overloaded </p>
+</dd></dl>
 
 </div>
 </div>
@@ -391,7 +492,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Integrate Bertini to find all the roots </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Integrate Bertini to find all the roots </dd></dl>
 
 </div>
 </div>

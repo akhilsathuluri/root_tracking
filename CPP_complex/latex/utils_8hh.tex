@@ -3,8 +3,10 @@
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
 {\ttfamily \#include $<$gsl/gsl\+\_\+linalg.\+h$>$}\newline
+{\ttfamily \#include $<$gsl/gsl\+\_\+complex\+\_\+math.\+h$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
-Include dependency graph for utils.\+hh\+:\nopagebreak
+Include dependency graph for utils.\+hh\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,6 +26,8 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 Vector\+Xd \mbox{\hyperlink{utils_8hh_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}{linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)
 \item 
 Vector\+Xd \mbox{\hyperlink{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}{s1\+Dist}} (Vector\+Xd theta1, Vector\+Xd theta2)
+\item 
+Vector\+Xcd \mbox{\hyperlink{utils_8hh_a5d8b5ec8d7d9f33e2b89dbd54a9dfbd6}{s1\+C\+Dist}} (Vector\+Xcd theta1, Vector\+Xcd theta2)
 \end{DoxyCompactItemize}
 
 
@@ -42,7 +46,15 @@ The linear\+Solve function is a simple, usable wraper around the G\+S\+Ls linear
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]Add assertions for square matrix verification and verification of sizes of A and b \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]Add assertions for square matrix verification and verification of sizes of A and b \end{DoxyRefDesc}
+\mbox{\Hypertarget{utils_8hh_a5d8b5ec8d7d9f33e2b89dbd54a9dfbd6}\label{utils_8hh_a5d8b5ec8d7d9f33e2b89dbd54a9dfbd6}} 
+\index{utils.hh@{utils.hh}!s1CDist@{s1CDist}}
+\index{s1CDist@{s1CDist}!utils.hh@{utils.hh}}
+\doxysubsubsection{\texorpdfstring{s1CDist()}{s1CDist()}}
+{\footnotesize\ttfamily Vector\+Xcd s1\+C\+Dist (\begin{DoxyParamCaption}\item[{Vector\+Xcd}]{theta1,  }\item[{Vector\+Xcd}]{theta2 }\end{DoxyParamCaption})}
+
+The s1\+C\+Dist returns the distance between two elements in the S1 space. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000011}{Todo}}]Inrtoduce a complex modulo operator \end{DoxyRefDesc}
 \mbox{\Hypertarget{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}\label{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}} 
 \index{utils.hh@{utils.hh}!s1Dist@{s1Dist}}
 \index{s1Dist@{s1Dist}!utils.hh@{utils.hh}}
@@ -57,6 +69,6 @@ The s1\+Dist returns the distance between two elements in the S1 space.
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]Can do more effecient computation if the angles mapping is saved in the memory 
+\item[\mbox{\hyperlink{todo__todo000010}{Todo}}]Can do more effecient computation if the angles mapping is saved in the memory 
 
 Assert sizes of theta1 and theta2 to be same \end{DoxyRefDesc}

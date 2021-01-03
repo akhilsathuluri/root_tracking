@@ -1,21 +1,21 @@
 
 \begin{DoxyRefList}
-\item[Member \mbox{\hyperlink{utils_8hh_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}{linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)]\label{todo__todo000008}%
-\Hypertarget{todo__todo000008}%
+\item[Member \mbox{\hyperlink{utils_8hh_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}{linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)]\label{todo__todo000009}%
+\Hypertarget{todo__todo000009}%
 Add assertions for square matrix verification and verification of sizes of A and b  
-\item[Class \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} ]\label{todo__todo000006}%
-\Hypertarget{todo__todo000006}%
+\item[Class \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} ]\label{todo__todo000007}%
+\Hypertarget{todo__todo000007}%
 See how things change when open\+MP is enabled with Eigen 
 
 See how things change when B\+L\+AS and L\+A\+P\+A\+CK are used with Eigen 
 
 Implement an event identification method that can handle or atleast alert when the system moves close to a singularity
 
-\label{todo__todo000007}%
-\Hypertarget{todo__todo000007}%
+\label{todo__todo000008}%
+\Hypertarget{todo__todo000008}%
 modify the paper with a definition of distance as all the individual elements of the vector being within the eps radius ball. So once we define the eps, we take 2 steps, which gives us 4 solution values, i.\+e. two branches two sols. Then use a multivariable interpolation scheme to interpolate from both sides. Then find their intersection to find the location of singularity.  
-\item[Member \mbox{\hyperlink{classRootTracker_acc5d4b8e89ace70cee9c227f033e5a92}{Root\+Tracker::D\+M\+Tracker}} (Vector\+Xd xprev, Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f=N\+U\+LL)]\label{todo__todo000003}%
-\Hypertarget{todo__todo000003}%
+\item[Member \mbox{\hyperlink{classRootTracker_acc5d4b8e89ace70cee9c227f033e5a92}{Root\+Tracker::D\+M\+Tracker}} (Vector\+Xd xprev, Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f=N\+U\+LL)]\label{todo__todo000004}%
+\Hypertarget{todo__todo000004}%
 Provide support for different integration methods 
 
 This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. 
@@ -24,13 +24,20 @@ The same scheme estimating dx as xnext-\/x is unstable
 \item[Member \mbox{\hyperlink{classRootTracker_a0d29be3a24392b6a864b8e471f23db6c}{Root\+Tracker::Methods}} ()]\label{todo__todo000001}%
 \Hypertarget{todo__todo000001}%
 Give provision for an FK solver along with root trackers to use when trackers fail.  
-\item[Member \mbox{\hyperlink{classRootTracker_ae13e787a2ef083592f5c8d07ac4d08bc}{Root\+Tracker::N\+N\+Tracker}} (Vector\+Xd ys, Matrix\+Xd ysols, int index)]\label{todo__todo000004}%
-\Hypertarget{todo__todo000004}%
+\item[Member \mbox{\hyperlink{classRootTracker_ae13e787a2ef083592f5c8d07ac4d08bc}{Root\+Tracker::N\+N\+Tracker}} (Vector\+Xd ys, Matrix\+Xd ysols, int index)]\label{todo__todo000005}%
+\Hypertarget{todo__todo000005}%
 The method currently deals only with variables belonging to R and S1. 
 
 Treating the Rodriques parameters as locally belonging to R. 
 
 Add assertions for cols of ys and ysols to be same.  
+\item[Member \mbox{\hyperlink{classRootTracker_a81f1227c2436cf1a84a7b8608b683bdd}{Root\+Tracker::N\+R\+C\+Tracker}} (Vector\+Xcd x, Vector\+Xcd y, std\+::function$<$ Vector\+Xcd(\+Vector\+Xcd)$>$ f, std\+::function$<$ Matrix\+Xcd(\+Vector\+Xcd)$>$ Jfy, double eps=pow(10, -\/10))]\label{todo__todo000003}%
+\Hypertarget{todo__todo000003}%
+Write overloaded function for save\+Date 
+
+Write overloaded function for eta and J 
+
+Make the tracker itself overloaded  
 \item[Member \mbox{\hyperlink{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}{Root\+Tracker::N\+R\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=pow(10, -\/10))]\label{todo__todo000002}%
 \Hypertarget{todo__todo000002}%
 Decide to return q or y in the N\+R\+Tracker method 
@@ -38,11 +45,14 @@ Decide to return q or y in the N\+R\+Tracker method
 fval returning nan is not being handled in the while loop 
 
 Input argument format and other relevant checks  
-\item[Member \mbox{\hyperlink{classRootTracker_ada1cf0e1ae31392f075fe5f92972f17f}{Root\+Tracker::Singularity\+Event\+Identifier}} (Vector\+Xd ys, Matrix\+Xd ysols, int index, double eps=pow(10, -\/2))]\label{todo__todo000005}%
-\Hypertarget{todo__todo000005}%
+\item[Member \mbox{\hyperlink{classRootTracker_ada1cf0e1ae31392f075fe5f92972f17f}{Root\+Tracker::Singularity\+Event\+Identifier}} (Vector\+Xd ys, Matrix\+Xd ysols, int index, double eps=pow(10, -\/2))]\label{todo__todo000006}%
+\Hypertarget{todo__todo000006}%
 Integrate Bertini to find all the roots  
-\item[Member \mbox{\hyperlink{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}{s1\+Dist}} (Vector\+Xd theta1, Vector\+Xd theta2)]\label{todo__todo000009}%
-\Hypertarget{todo__todo000009}%
+\item[Member \mbox{\hyperlink{utils_8hh_a5d8b5ec8d7d9f33e2b89dbd54a9dfbd6}{s1\+C\+Dist}} (Vector\+Xcd theta1, Vector\+Xcd theta2)]\label{todo__todo000011}%
+\Hypertarget{todo__todo000011}%
+Inrtoduce a complex modulo operator  
+\item[Member \mbox{\hyperlink{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}{s1\+Dist}} (Vector\+Xd theta1, Vector\+Xd theta2)]\label{todo__todo000010}%
+\Hypertarget{todo__todo000010}%
 Can do more effecient computation if the angles mapping is saved in the memory 
 
 Assert sizes of theta1 and theta2 to be same 

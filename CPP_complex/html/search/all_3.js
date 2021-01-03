@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['jetaextphi_5',['Jetaextphi',['../inputs_8hh.html#ae6bd9216fb8ab83ba8989c40d801dd3b',1,'inputs.hh']]],
-  ['jetaexttheta_6',['Jetaexttheta',['../inputs_8hh.html#af2f0af1d02e35589e24f31852fd5f8fa',1,'inputs.hh']]]
+  ['jetaextphi_9',['Jetaextphi',['../inputs_8hh.html#ade0dd58ec0019ed726f3642fdd674c47',1,'inputs.hh']]],
+  ['jetaexttheta_10',['Jetaexttheta',['../inputs_8hh.html#abb54cf24560be05deaf2d5069966b50a',1,'inputs.hh']]]
 ];
