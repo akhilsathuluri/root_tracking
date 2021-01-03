@@ -1,0 +1,160 @@
+\hypertarget{classRootTracker}{}\doxysection{Root\+Tracker Class Reference}
+\label{classRootTracker}\index{RootTracker@{RootTracker}}
+
+
+{\ttfamily \#include $<$root\+\_\+tracker.\+hh$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector\+Xd \mbox{\hyperlink{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}{N\+R\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfy, double eps=pow(10, -\/10))
+\item 
+Vector\+Xd \mbox{\hyperlink{classRootTracker_acc5d4b8e89ace70cee9c227f033e5a92}{D\+M\+Tracker}} (Vector\+Xd xprev, Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfx, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfy, double eps=0, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ f=N\+U\+LL)
+\item 
+Vector\+Xd \mbox{\hyperlink{classRootTracker_ae13e787a2ef083592f5c8d07ac4d08bc}{N\+N\+Tracker}} (Vector\+Xd ys, Matrix\+Xd ysols, int index)
+\item 
+int \mbox{\hyperlink{classRootTracker_a0d29be3a24392b6a864b8e471f23db6c}{Methods}} ()
+\item 
+Vector\+Xd \mbox{\hyperlink{classRootTracker_aca24a688ebd0b5c1bc30e2d5b0a317f1}{N\+R\+C\+Tracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfy, double eps=pow(10, -\/10))
+\item 
+Vector\+Xd \mbox{\hyperlink{classRootTracker_ada1cf0e1ae31392f075fe5f92972f17f}{Singularity\+Event\+Identifier}} (Vector\+Xd ys, Matrix\+Xd ysols, int index, double eps=pow(10, -\/2))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} class consists of implementations of the following\+:
+\begin{DoxyItemize}
+\item Newton-\/\+Raphson method based tracking or N\+R\+Tracker
+\item Davidenkos method based tracking or D\+M\+Tracker
+\item Nearest neighbour based tracking or N\+N\+Tracker
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]See how things change when open\+MP is enabled with Eigen 
+
+See how things change when B\+L\+AS and L\+A\+P\+A\+CK are used with Eigen 
+
+Implement an event identification method that can handle or atleast alert when the system moves close to a singularity\end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]modify the paper with a definition of distance as all the individual elements of the vector being within the eps radius ball. So once we define the eps, we take 2 steps, which gives us 4 solution values, i.\+e. two branches two sols. Then use a multivariable interpolation scheme to interpolate from both sides. Then find their intersection to find the location of singularity. \end{DoxyRefDesc}
+
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRootTracker_acc5d4b8e89ace70cee9c227f033e5a92}\label{classRootTracker_acc5d4b8e89ace70cee9c227f033e5a92}} 
+\index{RootTracker@{RootTracker}!DMTracker@{DMTracker}}
+\index{DMTracker@{DMTracker}!RootTracker@{RootTracker}}
+\doxysubsubsection{\texorpdfstring{DMTracker()}{DMTracker()}}
+{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+D\+M\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{xprev,  }\item[{Vector\+Xd}]{x,  }\item[{Vector\+Xd}]{y,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfx,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfy,  }\item[{double}]{eps = {\ttfamily 0},  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{f = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+The D\+M\+Tracker uses the Davindenkos\textquotesingle{} integration method to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The problem of tracking is solved as an initial value problem using the first order derivative form of the constraint equations. This function accepts functions as arguments using the {\ttfamily C++11} style functional library. This method by default uses the Explicit Euler integration scheme and is the only supported scheme currently. 
+\begin{DoxyParams}{Parameters}
+{\em xprev} & The set of input/known variables at the previous tracking step \\
+\hline
+{\em x} & The set of input/known variables at the current tracking step \\
+\hline
+{\em y} & The set of output/unknown variables at current step \\
+\hline
+{\em Jfx} & The expression of the Jacobian matrix of f with respect to x, the known variables. Takes in a single argument of type {\ttfamily Vector\+Xd} consisting y, x and outputs the evaluation of Jfx \\
+\hline
+{\em Jfy} & The expression of the Jacobian matrix of f with respect to y, the unknown variables. Takes in a single argument of type {\ttfamily Vector\+Xd} consisting y, x and outputs the evaluation of Jfy. \\
+\hline
+{\em eps} & The tolerance of {\ttfamily drift} to which the computed solutions are to satisfy the non-\/linear equations. If the drift exceeds the given tolerance, a Newton-\/\+Raphson (NR) step is used to bring the variables back to the constraint manifold. The default value of {\ttfamily eps} is set to 0, meaning the NR step correction is {\ttfamily off} by default. \\
+\hline
+{\em f} & The set of expressions of the non-\/linear functions relating x, y. This parameter is only required if {\ttfamily eps} is defined. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Provide support for different integration methods 
+
+This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. 
+
+The same scheme estimating dx as xnext-\/x is unstable \end{DoxyRefDesc}
+\mbox{\Hypertarget{classRootTracker_a0d29be3a24392b6a864b8e471f23db6c}\label{classRootTracker_a0d29be3a24392b6a864b8e471f23db6c}} 
+\index{RootTracker@{RootTracker}!Methods@{Methods}}
+\index{Methods@{Methods}!RootTracker@{RootTracker}}
+\doxysubsubsection{\texorpdfstring{Methods()}{Methods()}}
+{\footnotesize\ttfamily int Root\+Tracker\+::\+Methods (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The methods function can be called to view names of all the implemented root tracking methods. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Give provision for an FK solver along with root trackers to use when trackers fail. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classRootTracker_ae13e787a2ef083592f5c8d07ac4d08bc}\label{classRootTracker_ae13e787a2ef083592f5c8d07ac4d08bc}} 
+\index{RootTracker@{RootTracker}!NNTracker@{NNTracker}}
+\index{NNTracker@{NNTracker}!RootTracker@{RootTracker}}
+\doxysubsubsection{\texorpdfstring{NNTracker()}{NNTracker()}}
+{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+N\+N\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{ys,  }\item[{Matrix\+Xd}]{ysols,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+The N\+N\+Tracker uses the nearest neighbour method to identify the roots belonging to a required branch. The output is the selected root at each tracking step. This method assumes the existance of a solver method, {\ttfamily Solve}, which computes all the roots for given input variables, {\ttfamily x}. The function expects the solutions to be ordered with all the reals together and the variables belonging to S1 together.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ys} & The initiation of the known root of the required branch \\
+\hline
+{\em ysols} & All the solutions obtained by the {\ttfamily Solve} method used \\
+\hline
+{\em index} & The index upto which the reals are present.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]The method currently deals only with variables belonging to R and S1. 
+
+Treating the Rodriques parameters as locally belonging to R. 
+
+Add assertions for cols of ys and ysols to be same. \end{DoxyRefDesc}
+\mbox{\Hypertarget{classRootTracker_aca24a688ebd0b5c1bc30e2d5b0a317f1}\label{classRootTracker_aca24a688ebd0b5c1bc30e2d5b0a317f1}} 
+\index{RootTracker@{RootTracker}!NRCTracker@{NRCTracker}}
+\index{NRCTracker@{NRCTracker}!RootTracker@{RootTracker}}
+\doxysubsubsection{\texorpdfstring{NRCTracker()}{NRCTracker()}}
+{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+N\+R\+C\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{x,  }\item[{Vector\+Xd}]{y,  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{f,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfy,  }\item[{double}]{eps = {\ttfamily pow(10,~-\/10)} }\end{DoxyParamCaption})}
+
+The N\+R\+C\+Tracker uses the Newton-\/\+Raphson method iteratively to find the solutions satisfied by the constrain equations. \mbox{\Hypertarget{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}\label{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}} 
+\index{RootTracker@{RootTracker}!NRTracker@{NRTracker}}
+\index{NRTracker@{NRTracker}!RootTracker@{RootTracker}}
+\doxysubsubsection{\texorpdfstring{NRTracker()}{NRTracker()}}
+{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+N\+R\+Tracker (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{x,  }\item[{Vector\+Xd}]{y,  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{f,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfy,  }\item[{double}]{eps = {\ttfamily pow(10,~-\/10)} }\end{DoxyParamCaption})}
+
+The N\+R\+Tracker uses the Newton-\/\+Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. This function accepts functions as arguments using the {\ttfamily C++11} style functional library. 
+\begin{DoxyParams}{Parameters}
+{\em x} & The set of input/known variables at current tracking step \\
+\hline
+{\em y} & The set of output/unknown variables at current step \\
+\hline
+{\em f} & The set of expressions of the non-\/linear functions relating x, y. Takes in a single argument of type {\ttfamily Vector\+Xd} consisting y, x and outputs the evaluation of f. \\
+\hline
+{\em Jfy} & The expression of the Jacobian matrix of f with respect to y, the unknown variables. Takes in a single argument of type {\ttfamily Vector\+Xd} consisting y, x and outputs the evaluation of Jfy. \\
+\hline
+{\em eps} & The required tolerance to which the computed solutions are to satisfy the non-\/linear equations. Default value is set to 10$^\wedge$-\/10 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Decide to return q or y in the N\+R\+Tracker method 
+
+fval returning nan is not being handled in the while loop 
+
+Input argument format and other relevant checks \end{DoxyRefDesc}
+\mbox{\Hypertarget{classRootTracker_ada1cf0e1ae31392f075fe5f92972f17f}\label{classRootTracker_ada1cf0e1ae31392f075fe5f92972f17f}} 
+\index{RootTracker@{RootTracker}!SingularityEventIdentifier@{SingularityEventIdentifier}}
+\index{SingularityEventIdentifier@{SingularityEventIdentifier}!RootTracker@{RootTracker}}
+\doxysubsubsection{\texorpdfstring{SingularityEventIdentifier()}{SingularityEventIdentifier()}}
+{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+Singularity\+Event\+Identifier (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{ys,  }\item[{Matrix\+Xd}]{ysols,  }\item[{int}]{index,  }\item[{double}]{eps = {\ttfamily pow(10,~-\/2)} }\end{DoxyParamCaption})}
+
+The Singularity\+Event\+Identifier uses a distance metric to identify when the configuration approaches a singularity. Further, it uses a linear interpolation to estimate the singular configuration. This function needs the computation of all the roots, real or imaginary to be provided. Optionally Bertini can be used to compute all the roots.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ys} & The current root of the required branch \\
+\hline
+{\em ysols} & All the roots at the instant \\
+\hline
+{\em eps} & The distance tolerance after which the singularity event is triggered\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Integrate Bertini to find all the roots \end{DoxyRefDesc}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{root__tracker_8hh}{root\+\_\+tracker.\+hh}}\item 
+\mbox{\hyperlink{root__tracker_8cc}{root\+\_\+tracker.\+cc}}\end{DoxyCompactItemize}
