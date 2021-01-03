@@ -42,10 +42,20 @@ int main(int argc, char const *argv[]) {
   Clegvals = legvals.cast<std::complex<double>>();
   // Initial solution
   VectorXd phii(18), tempNR(18), tempDM(18), tempNN(18);
+  VectorXcd phii2(18);
   phii << 0.2,0,1.28,0.2,0,0,
    0.003056244705087313,-0.06688548576654774,0.45696277640159066,0.5469562635040984,
    -0.09469005512919006,0.0034901115067618653,0.3362762851850709,0.2868906143657115,
    -0.021027360477035077,0.024784412575612605,-0.3953833637520812,-0.37979521343323663;
+
+   phii2 << std::complex<double>(1.8700438348728161,0),std::complex<double>(-0.5235870043873335,0),std::complex<double>(0.,-0.926898973258719),std::complex<double>(0.,-0.10569096861540776),
+      std::complex<double>(0.,0.7154784037290103),0,std::complex<double>(1.5707963267948966,1.5262959577414468),
+      std::complex<double>(1.5707963267948966,0.6913993396133373),std::complex<double>(1.5707963267948966,-0.1997919002830573),
+      std::complex<double>(1.5707963267948966,-0.5230490884925065),std::complex<double>(1.5707963267948966,0.37718441615032156),
+      std::complex<double>(1.5707963267948966,1.3985097660833001),std::complex<double>(0.5889695511742916,-1.7974114210661284e-16),
+      std::complex<double>(0.6273584382908439,-9.456869853007833e-17),std::complex<double>(0.3845316700324741,8.803289786100487e-17),
+      std::complex<double>(0.5910427650086764,-9.488696919310518e-17),std::complex<double>(0.1527945222318842,-1.6367096645383268e-17),
+      std::complex<double>(-0.07498723590723597,2.5098272394581245e-17);
 
    MatrixXd initsols(8, 18);
    initsols << 0.21833808165665786,-0.7906213868033382,0.7240859710802774,-0.7154994439464201,-0.6452575011458942,0,
@@ -81,8 +91,11 @@ int main(int argc, char const *argv[]) {
   MatrixXcd solsNNC(18,1), solsDMC(18,1), solsNRC(18,1), initsolsc(8, 18), tempFKC(8, 18);
   initsolsc = initsols.cast<std::complex<double>>();
 
-  solsNRC << phiic;
-  tempNRC = phiic;
+  // solsNRC << phiic;
+  // tempNRC = phiic;
+
+  solsNRC << phii2;
+  tempNRC = phii2;
 
   // Tracking using NRTracker
   for (int i = 1; i < legvals.rows(); i++){
@@ -97,7 +110,7 @@ int main(int argc, char const *argv[]) {
   // std::cout << solsNRC.col(50) << std::endl;
 
   // ToDo: Make saveData an overloaded function
-  saveCData(solsNRC.transpose(), "NRCTracker.txt");
+  saveCData(solsNRC.transpose(), "NRCTracker_2.txt");
 
   // MatrixXd solsNR(18,1);
   // solsNR << phii;
@@ -117,8 +130,11 @@ int main(int argc, char const *argv[]) {
   // saveData(solsNR.transpose(), "NRTracker_new.txt");
   //
 
-  solsDMC << phiic;
-  tempDMC = phiic;
+  // solsDMC << phiic;
+  // tempDMC = phiic;
+
+  solsDMC << phii2;
+  tempDMC = phii2;
 
   // Tracking using DMTracker
   for (int i = 1; i < Clegvals.rows(); i++){
@@ -138,7 +154,7 @@ int main(int argc, char const *argv[]) {
   // std::cout << solsDM.rows() << " " << solsDM.cols() << std::endl;
   // std::cout << solsDM.col(50) << std::endl;
 
-  saveCData(solsDMC.transpose(), "DMCTracker_NRC.txt");
+  saveCData(solsDMC.transpose(), "DMCTracker_NRC_2.txt");
 
   // MatrixXd solsDM(18,1);
   // solsDM << phii;
