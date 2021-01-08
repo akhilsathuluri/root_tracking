@@ -20,7 +20,7 @@ int main(int argc, char const *argv[]) {
   VectorXcd test(2);
   test << x, y;
 
-  std::cout << test(1).imag()  << '\n';
+  std::cout << test.norm()  << '\n';
 
   return 0;
 }

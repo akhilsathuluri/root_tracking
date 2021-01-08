@@ -86,6 +86,8 @@ int main(int argc, char const *argv[]) {
    2.8117960495019982,0.2758192040473777,0.26974569330836556,-0.13921668983029753,-0.3564442780964989,
    -1.0169800563674098,-0.6281098269592473;
 
+   int singular_iter = 18;
+
   VectorXcd phiic(18), tempNRC(18), tempDMC(18), tempNNC(18);
   phiic = phii.cast<std::complex<double>>();
   MatrixXcd solsNNC(18,1), solsDMC(18,1), solsNRC(18,1), initsolsc(8, 18), tempFKC(8, 18);
@@ -98,7 +100,7 @@ int main(int argc, char const *argv[]) {
   tempNRC = phii2;
 
   // Tracking using NRTracker
-  for (int i = 1; i < legvals.rows(); i++){
+  for (int i = 1; i < singular_iter; i++){
     tempNRC = rt.NRCTracker(Clegvals.row(i), tempNRC, etaext, Jetaextphi);
     std::cout << tempNRC << '\n';
 
@@ -137,7 +139,7 @@ int main(int argc, char const *argv[]) {
   tempDMC = phii2;
 
   // Tracking using DMTracker
-  for (int i = 1; i < Clegvals.rows(); i++){
+  for (int i = 1; i < singular_iter; i++){
     // Without NR step correction
     // tempDMC = rt.DMCTracker(Clegvals.row(i-1), Clegvals.row(i), tempDMC, Jetaexttheta, Jetaextphi);
 
@@ -212,8 +214,8 @@ int main(int argc, char const *argv[]) {
   tempFKC = initsolsc;
 
   // Tracking using NNCTracker
-  for (int i = 1; i < Clegvals.rows(); i++){
-    for (int j = 0; j < tempFKC.rows(); j++) {
+  for (int i = 1; i < singular_iter; i++){
+    for (int j = 0; j < tempFKC.rows(); j++){
       tempFKC.row(j) = rt.NRCTracker(Clegvals.row(i), tempFKC.row(j), etaext, Jetaextphi);
     }
 

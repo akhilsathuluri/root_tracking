@@ -62,7 +62,7 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
   q << y, x;
   fval = f(q);
   tempy = y;
-  while ((fval.cwiseAbs()).maxCoeff()>=eps) {
+  while (fval.norm()>=eps) {
 		if (loopcounter>=100){
       std::cout << "Warning::Max iterations reached. Convergence not achived for the input tolerance, eps" << std::endl;
       return tempy;
@@ -92,7 +92,7 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
     q << y, x;
     fval = f(q);
     tempy = y;
-    while ((fval.cwiseAbs()).maxCoeff()>=eps) {
+    while (fval.norm()>=eps) {
   		if (loopcounter>=100){
         std::cout << "Warning::Max iterations reached. Convergence not achived for the input tolerance, eps" << std::endl;
         return tempy;
@@ -147,7 +147,7 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
       q << tempy, x;
       VectorXd fval;
       fval = f(q);
-      if ((fval.cwiseAbs()).maxCoeff()>=eps){
+      if (fval.norm()>=eps){
         tempy = RootTracker::NRTracker(x, tempy, f, Jfy);
       }
     }
@@ -170,7 +170,7 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
       q << tempy, x;
       VectorXcd fval;
       fval = f(q);
-      if ((fval.cwiseAbs()).maxCoeff()>=eps){
+      if (fval.norm()>=eps){
         tempy = RootTracker::NRCTracker(x, tempy, f, Jfy);
       }
     }
