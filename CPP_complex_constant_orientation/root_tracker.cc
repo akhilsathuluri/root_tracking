@@ -64,7 +64,7 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
   tempy = y;
   while (fval.norm()>=eps) {
 		if (loopcounter>=100){
-      std::cout << "NRTracker::Warning::Max iterations reached. Convergence not achived for the input tolerance, eps" << std::endl;
+      std::cout << "Warning::Max iterations reached. Convergence not achived for the input tolerance, eps" << std::endl;
       return tempy;
     }
 		loopcounter++;
@@ -94,7 +94,7 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
     tempy = y;
     while (fval.norm()>=eps) {
   		if (loopcounter>=100){
-        std::cout << "NRCTracker::Warning::Max iterations reached. Convergence not achived for the input tolerance, eps" << std::endl;
+        std::cout << "Warning::Max iterations reached. Convergence not achived for the input tolerance, eps" << std::endl;
         return tempy;
       }
   		loopcounter++;
