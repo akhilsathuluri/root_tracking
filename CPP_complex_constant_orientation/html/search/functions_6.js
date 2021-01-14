@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['s1cdist_71',['s1CDist',['../utils_8hh.html#a5d8b5ec8d7d9f33e2b89dbd54a9dfbd6',1,'utils.hh']]],
-  ['s1dist_72',['s1Dist',['../utils_8hh.html#aa55cfeada673b3ce1ce1e504925e117c',1,'utils.hh']]],
-  ['savecdata_73',['saveCData',['../main_8cc.html#ada06aa60e0faf582ae01132ccbe8b065',1,'main.cc']]],
-  ['savedata_74',['saveData',['../main_8cc.html#ade24902e309127c75974d1e24d715e51',1,'saveData(MatrixXd A, const char file_name[]):&#160;main.cc'],['../timings_8cc.html#ade24902e309127c75974d1e24d715e51',1,'saveData(MatrixXd A, const char file_name[]):&#160;timings.cc']]],
-  ['singularityeventidentifier_75',['SingularityEventIdentifier',['../classRootTracker.html#ada1cf0e1ae31392f075fe5f92972f17f',1,'RootTracker']]]
+  ['s1cdist_75',['s1CDist',['../utils_8hh.html#a5d8b5ec8d7d9f33e2b89dbd54a9dfbd6',1,'utils.hh']]],
+  ['s1dist_76',['s1Dist',['../utils_8hh.html#aa55cfeada673b3ce1ce1e504925e117c',1,'utils.hh']]],
+  ['savecdata_77',['saveCData',['../main_8cc.html#ada06aa60e0faf582ae01132ccbe8b065',1,'saveCData(MatrixXcd A, const char file_name[]):&#160;main.cc'],['../timings_8cc.html#ada06aa60e0faf582ae01132ccbe8b065',1,'saveCData(MatrixXcd A, const char file_name[]):&#160;timings.cc']]],
+  ['savedata_78',['saveData',['../main_8cc.html#ade24902e309127c75974d1e24d715e51',1,'saveData(MatrixXd A, const char file_name[]):&#160;main.cc'],['../timings_8cc.html#ade24902e309127c75974d1e24d715e51',1,'saveData(MatrixXd A, const char file_name[]):&#160;timings.cc']]],
+  ['singularityeventidentifier_79',['SingularityEventIdentifier',['../classRootTracker.html#ada1cf0e1ae31392f075fe5f92972f17f',1,'RootTracker']]]
 ];
