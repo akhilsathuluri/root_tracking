@@ -1,0 +1,91 @@
+\begin{theindex}
+
+  \item {DMTracker}
+    \subitem {RootTracker}, \hyperpage{8}
+  \item {DMTracker\_noNR.txt}, \hyperpage{11}
+  \item {DMTracker\_NR.txt}, \hyperpage{11}
+
+  \indexspace
+
+  \item {etaext}
+    \subitem {inputs.hh}, \hyperpage{12}
+
+  \indexspace
+
+  \item {inputs.hh}, \hyperpage{11}
+    \subitem {etaext}, \hyperpage{12}
+    \subitem {Jetaextphi}, \hyperpage{12}
+    \subitem {Jetaexttheta}, \hyperpage{13}
+    \subitem {legvals}, \hyperpage{13}
+    \subitem {legvals\_data}, \hyperpage{13}
+
+  \indexspace
+
+  \item {Jetaextphi}
+    \subitem {inputs.hh}, \hyperpage{12}
+  \item {Jetaexttheta}
+    \subitem {inputs.hh}, \hyperpage{13}
+
+  \indexspace
+
+  \item {legvals}
+    \subitem {inputs.hh}, \hyperpage{13}
+  \item {legvals\_data}
+    \subitem {inputs.hh}, \hyperpage{13}
+  \item {linearSolve}
+    \subitem {utils.hh}, \hyperpage{18}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cc}, \hyperpage{14}
+    \subitem {timings.cc}, \hyperpage{17}
+  \item {main.cc}, \hyperpage{14}
+    \subitem {main}, \hyperpage{14}
+    \subitem {saveData}, \hyperpage{14}
+  \item {Methods}
+    \subitem {RootTracker}, \hyperpage{8}
+
+  \indexspace
+
+  \item {NNTracker}
+    \subitem {RootTracker}, \hyperpage{8}
+  \item {NNTracker\_NR.txt}, \hyperpage{15}
+  \item {NRTracker}
+    \subitem {RootTracker}, \hyperpage{9}
+  \item {NRTracker.txt}, \hyperpage{15}
+
+  \indexspace
+
+  \item {root\_tracker.cc}, \hyperpage{15}
+  \item {root\_tracker.hh}, \hyperpage{15}
+  \item {RootTracker}, \hyperpage{7}
+    \subitem {DMTracker}, \hyperpage{8}
+    \subitem {Methods}, \hyperpage{8}
+    \subitem {NNTracker}, \hyperpage{8}
+    \subitem {NRTracker}, \hyperpage{9}
+    \subitem {SingularityEventIdentifier}, \hyperpage{10}
+
+  \indexspace
+
+  \item {s1Dist}
+    \subitem {utils.hh}, \hyperpage{18}
+  \item {saveData}
+    \subitem {main.cc}, \hyperpage{14}
+    \subitem {timings.cc}, \hyperpage{17}
+  \item {SingularityEventIdentifier}
+    \subitem {RootTracker}, \hyperpage{10}
+
+  \indexspace
+
+  \item {timings.cc}, \hyperpage{16}
+    \subitem {main}, \hyperpage{17}
+    \subitem {saveData}, \hyperpage{17}
+
+  \indexspace
+
+  \item {utils.hh}, \hyperpage{17}
+    \subitem {linearSolve}, \hyperpage{18}
+    \subitem {s1Dist}, \hyperpage{18}
+
+\end{theindex}

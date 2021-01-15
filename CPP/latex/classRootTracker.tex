@@ -15,7 +15,7 @@ Vector\+Xd \mbox{\hyperlink{classRootTracker_ae13e787a2ef083592f5c8d07ac4d08bc}{
 \item 
 int \mbox{\hyperlink{classRootTracker_a0d29be3a24392b6a864b8e471f23db6c}{Methods}} ()
 \item 
-Vector\+Xd \mbox{\hyperlink{classRootTracker_a1d120fc9c9d777ba405a76c47dfa94e5}{Singularity\+Event\+Identifier}} (Vector\+Xd ys, Matrix\+Xd ysols, double eps=pow(10, -\/2))
+Vector\+Xd \mbox{\hyperlink{classRootTracker_ada1cf0e1ae31392f075fe5f92972f17f}{Singularity\+Event\+Identifier}} (Vector\+Xd ys, Matrix\+Xd ysols, int index, double eps=pow(10, -\/2))
 \end{DoxyCompactItemize}
 
 
@@ -125,11 +125,11 @@ The N\+R\+Tracker uses the Newton-\/\+Raphson method iteratively to find the sol
 fval returning nan is not being handled in the while loop 
 
 Input argument format and other relevant checks \end{DoxyRefDesc}
-\mbox{\Hypertarget{classRootTracker_a1d120fc9c9d777ba405a76c47dfa94e5}\label{classRootTracker_a1d120fc9c9d777ba405a76c47dfa94e5}} 
+\mbox{\Hypertarget{classRootTracker_ada1cf0e1ae31392f075fe5f92972f17f}\label{classRootTracker_ada1cf0e1ae31392f075fe5f92972f17f}} 
 \index{RootTracker@{RootTracker}!SingularityEventIdentifier@{SingularityEventIdentifier}}
 \index{SingularityEventIdentifier@{SingularityEventIdentifier}!RootTracker@{RootTracker}}
 \doxysubsubsection{\texorpdfstring{SingularityEventIdentifier()}{SingularityEventIdentifier()}}
-{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+Singularity\+Event\+Identifier (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{ys,  }\item[{Matrix\+Xd}]{ysols,  }\item[{double}]{eps = {\ttfamily pow(10,~-\/2)} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+Singularity\+Event\+Identifier (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{ys,  }\item[{Matrix\+Xd}]{ysols,  }\item[{int}]{index,  }\item[{double}]{eps = {\ttfamily pow(10,~-\/2)} }\end{DoxyParamCaption})}
 
 The Singularity\+Event\+Identifier uses a distance metric to identify when the configuration approaches a singularity. Further, it uses a linear interpolation to estimate the singular configuration. This function needs the computation of all the roots, real or imaginary to be provided. Optionally Bertini can be used to compute all the roots.
 
