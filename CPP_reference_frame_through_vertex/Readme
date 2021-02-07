@@ -1,3 +1,0 @@
-To use the codes as is simply use command make 
-To know the capabilities of the make file use make help
-To compile and launch the doxygen documentation use make docs

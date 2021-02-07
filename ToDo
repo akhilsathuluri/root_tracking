@@ -1,2 +1,3 @@
 1. Add SRSPM and all of its roots to the same plot as the SFS
 2. Complete the SingularityEventIdentifier code
+3. Look into what is happening when complex roots merge to produce real roots.
