@@ -22,6 +22,10 @@ Further, an implementation for a 3-3 cable driven parallel robot (CDPR) is also 
 </p>
 
 ## Usage
+### Dependencies to be installed to run the codes:
+1. Eigen library (copy files from the Eigen folder to /usr/local/include/eigen3)
+2. GSL library
+3. clang (sudo apt install clang)
 The problem formulation and execution is a two step process:
 ### Mathematica
 The problem, i.e., the set of parametric non-linear equations are initially formulated in Mathematica and are stored in the file named Mathematica. These equations are then ported as `C++` expressions using the `FileTemplateApply` function. 
