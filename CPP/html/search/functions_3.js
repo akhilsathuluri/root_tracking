@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['legvals_41',['legvals',['../inputs_8hh.html#a92331060d01e36c02f47859b92ee964f',1,'inputs.hh']]],
-  ['linearsolve_42',['linearSolve',['../utils_8hh.html#a7ed506e6d7b8ba153e1b8b24a7b6e5c4',1,'utils.hh']]]
+  ['jetaextphi_46',['Jetaextphi',['../inputs_8hh.html#ae6bd9216fb8ab83ba8989c40d801dd3b',1,'inputs.hh']]],
+  ['jetaexttheta_47',['Jetaexttheta',['../inputs_8hh.html#af2f0af1d02e35589e24f31852fd5f8fa',1,'inputs.hh']]]
 ];

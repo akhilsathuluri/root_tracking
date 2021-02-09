@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['main_43',['main',['../main_8cc.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main(int argc, char const *argv[]):&#160;main.cc'],['../timings_8cc.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main(int argc, char const *argv[]):&#160;timings.cc']]],
-  ['methods_44',['Methods',['../classRootTracker.html#a0d29be3a24392b6a864b8e471f23db6c',1,'RootTracker']]]
+  ['legvals_48',['legvals',['../inputs_8hh.html#a92331060d01e36c02f47859b92ee964f',1,'inputs.hh']]],
+  ['linearsolve_49',['linearSolve',['../utils_8hh.html#a7ed506e6d7b8ba153e1b8b24a7b6e5c4',1,'utils.hh']]]
 ];

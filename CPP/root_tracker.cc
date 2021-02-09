@@ -161,10 +161,10 @@ VectorXd RootTracker::NNTracker(VectorXd ys, MatrixXd ysols, int index){
 
 /*!
 The SingularityEventIdentifier uses a distance metric to identify when the
-configuration approaches a singularity. Further, it uses a linear interpolation
-to estimate the singular configuration.
+manipulator approaches a singularity. Further, it uses a quadratic extrapolation
+scheme to estimate the singular configuration.
 This function needs the computation of all the roots, real or imaginary to be
-provided. Optionally Bertini can be used to compute all the roots.
+provided.
 
 @param ys The current root of the required branch
 @param ysols All the roots at the instant
@@ -178,10 +178,9 @@ VectorXd RootTracker::SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, in
   return sol;
 
 // 1. Find distance betwwen all the solutions
-// 2. Check one or more pairs are within the eps distance
-// 3. If yes, take 6 more steps or the size of the y steps into the future only for the corresponding solutions
-// 4. Fit a hyperplane to the points
-// 6. Solve the hyperplane from both the sides and find the singular location and inform the same
+// 2. Check if the distance between one or more pairs are within the expected gradient from the previous steps (dist - 2*prev_grad > 0)
+// 3. If yes, fit a quadratic interpolation between the previous 3 steps and find the corresponding path parameter where the distance goes to 0
+// 4. Solve the quadratic equation to find the location and estimate the singular configuration
 
 // For 1 we'll need to iteratively use the nearest neighbout method
 
