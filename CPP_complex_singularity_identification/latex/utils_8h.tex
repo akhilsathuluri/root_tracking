@@ -1,0 +1,42 @@
+\hypertarget{utils_8h}{}\doxysection{utils.\+h File Reference}
+\label{utils_8h}\index{utils.h@{utils.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$gsl/gsl\+\_\+linalg.\+h$>$}\newline
+Include dependency graph for utils.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector\+Xd \mbox{\hyperlink{utils_8h_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}{linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utils_8h_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}\label{utils_8h_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}} 
+\index{utils.h@{utils.h}!linearSolve@{linearSolve}}
+\index{linearSolve@{linearSolve}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{linearSolve()}{linearSolve()}}
+{\footnotesize\ttfamily Vector\+Xd linear\+Solve (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{Amat,  }\item[{Vector\+Xd}]{bvec }\end{DoxyParamCaption})}
+
+The linear\+Solve function is a simple, usable wraper around the G\+S\+Ls linear solver using the Eigen library. 
+\begin{DoxyParams}{Parameters}
+{\em Amat} & Input matrix \\
+\hline
+{\em bvec} & Input vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Add assertions for square matrix verification and verification of sizes of A and b \end{DoxyRefDesc}

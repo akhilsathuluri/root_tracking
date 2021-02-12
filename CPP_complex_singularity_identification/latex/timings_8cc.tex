@@ -1,0 +1,47 @@
+\hypertarget{timings_8cc}{}\doxysection{timings.\+cc File Reference}
+\label{timings_8cc}\index{timings.cc@{timings.cc}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
+{\ttfamily \#include \char`\"{}root\+\_\+tracker.\+hh\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inputs.\+hh\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+Include dependency graph for timings.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{timings_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{timings_8cc_ade24902e309127c75974d1e24d715e51}{save\+Data}} (Matrix\+Xd A, const char file\+\_\+name\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{timings_8cc_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{timings_8cc_abf9e6b7e6f15df4b525a2e7705ba3089}\label{timings_8cc_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{timings.cc@{timings.cc}!main@{main}}
+\index{main@{main}!timings.cc@{timings.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+This file is the same as the {\ttfamily \mbox{\hyperlink{main_8cc}{main.\+cc}}} file. But is used to compute the times taken by each of the methods over 1000 runs. Choosing small enough {\ttfamily eps} makes D\+M\+Tracker work like an N\+R\+Tracker\mbox{\Hypertarget{timings_8cc_ade24902e309127c75974d1e24d715e51}\label{timings_8cc_ade24902e309127c75974d1e24d715e51}} 
+\index{timings.cc@{timings.cc}!saveData@{saveData}}
+\index{saveData@{saveData}!timings.cc@{timings.cc}}
+\doxysubsubsection{\texorpdfstring{saveData()}{saveData()}}
+{\footnotesize\ttfamily void save\+Data (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{A,  }\item[{const char}]{file\+\_\+name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The save\+Data function takes in an input {\ttfamily Matrix\+Xd} and saves it in a .txt file
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & Input matrix \\
+\hline
+{\em file\+\_\+name} & Name of the file to save the input matrix in \\
+\hline
+\end{DoxyParams}

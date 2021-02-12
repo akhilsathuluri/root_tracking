@@ -200,7 +200,7 @@ Input argument format and other relevant checks \end{DoxyRefDesc}
 \doxysubsubsection{\texorpdfstring{SingularityEventIdentifier()}{SingularityEventIdentifier()}}
 {\footnotesize\ttfamily Vector\+Xd Root\+Tracker\+::\+Singularity\+Event\+Identifier (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{ys,  }\item[{Matrix\+Xd}]{ysols,  }\item[{int}]{index,  }\item[{double}]{eps = {\ttfamily pow(10,~-\/2)} }\end{DoxyParamCaption})}
 
-The Singularity\+Event\+Identifier uses a distance metric to identify when the configuration approaches a singularity. Further, it uses a linear interpolation to estimate the singular configuration. This function needs the computation of all the roots, real or imaginary to be provided. Optionally Bertini can be used to compute all the roots.
+The Singularity\+Event\+Identifier uses a distance metric to identify when the manipulator approaches a singularity. Further, it uses a quadratic extrapolation scheme to estimate the singular configuration. This function needs the computation of all the roots, real or imaginary to be provided.
 
 
 \begin{DoxyParams}{Parameters}

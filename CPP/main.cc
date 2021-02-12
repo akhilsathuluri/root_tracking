@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]) {
   rt.Methods();
 
   // Initial solution
-  VectorXd phii(18), tempNR(18), tempDM(18), tempNN(18);
+  VectorXd tempNR(18), tempDM(18), tempNN(18);
   // phii << 0.2,0,1.28,0.2,0,0,
   //  0.003056244705087313,-0.06688548576654774,0.45696277640159066,0.5469562635040984,
   //  -0.09469005512919006,0.0034901115067618653,0.3362762851850709,0.2868906143657115,
