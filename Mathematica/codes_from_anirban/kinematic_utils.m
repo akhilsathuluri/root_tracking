@@ -3,9 +3,9 @@
 BeginPackage["`kinematicutils`"]
 
 
-rotx::usage = " rotation matrix corresponding to x  axis "
+(*rotx::usage = " rotation matrix corresponding to x  axis "
 roty::usage = " rotation matrix corresponding to y  axis ";
-rotz::usage = " rotation matrix corresponding to z  axis ";
+rotz::usage = " rotation matrix corresponding to z  axis ";*)
 axis2skew::usage = " converts the vector c1, c2, c3 to a skew symmetric matrix ";
 cayley2r::usage = "takes as input, the elements of the skew symmetric matrix c1, c2 , c3 and returns the corresponding rotation matrix";
 bezoutmatrix::usage = "bezoutmatrix[poly1,poly2,x] returns the bezout matrix formed from the coefficients of polynomial1 and polynomial2 expressed in the variable x";
@@ -54,22 +54,22 @@ Print["CPU time consumed: ",t2," seconds."];
 Begin["`Private`"]
 
 
-rotx[\[Alpha]_]:=Module[{temp},
+(*rotx[\[Alpha]_]:=Module[{temp},
 temp={{1,0,0},{0,Cos[\[Alpha]],-Sin[\[Alpha]]},{0,Sin[\[Alpha]],Cos[\[Alpha]]}};
 Return[temp];
-];
+];*)
 
 
-roty[\[Beta]_]:=Module[{temp},
+(*roty[\[Beta]_]:=Module[{temp},
 temp={{Cos[\[Beta]],0,Sin[\[Beta]]},{0,1,0},{-Sin[\[Beta]],0,Cos[\[Beta]]}};
 Return[temp];
-];
+];*)
 
 
-rotz[\[Gamma]_]:=Module[{temp},
+(*rotz[\[Gamma]_]:=Module[{temp},
 temp={{Cos[\[Gamma]],-Sin[\[Gamma]],0},{Sin[\[Gamma]],Cos[\[Gamma]],0},{0,0,1}};
 Return[temp];
-];
+];*)
 
 
 axis2skew[x_] := Module[{},
