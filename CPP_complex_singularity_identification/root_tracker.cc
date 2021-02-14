@@ -275,4 +275,4 @@ provided. Optionally Bertini can be used to compute all the roots.
 
 // For 1 we'll need to iteratively use the nearest neighbout method
 
-}
+// }

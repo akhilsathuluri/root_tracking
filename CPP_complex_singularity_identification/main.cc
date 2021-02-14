@@ -2,7 +2,7 @@
 #include<eigen3/Eigen/Dense>
 #include "root_tracker.hh"
 #include "inputs.hh"
-#include "constraints.hh"
+#include "manipulator.hh"
 #include<fstream>
 #include<functional>
 #include<chrono>
@@ -152,6 +152,10 @@ int main(int argc, char const *argv[])
   //
   // // ToDo: Make saveData an overloaded function
   // saveCData(solsNRC.transpose(), "NRCTracker_2.txt");
+
+  VectorXd qx(6);
+  qx << 0.2, 0, 1.28, 0.2, 0, 0;
+  std::cout << computeIK(qx) << std::endl;
 
   return 0;
 }
