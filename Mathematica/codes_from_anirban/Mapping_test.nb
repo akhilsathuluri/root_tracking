@@ -1,0 +1,76 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2087,         66]
+NotebookOptionsPosition[      1801,         53]
+NotebookOutlinePosition[      2134,         68]
+CellTagsIndexPosition[      2091,         65]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "\"\<rotationtools.wl\>\""}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "\"\<kinematic_utils.m\>\""}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Arp", " ", "=", " ", 
+   RowBox[{"vec2SkewMat", "[", 
+    RowBox[{"{", 
+     RowBox[{"c1", ",", " ", "c2", ",", " ", "c3"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Rtp2", " ", "=", " ", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{
+     RowBox[{"Inverse", "[", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"IdentityMatrix", "[", "3", "]"}], "-", "Arp"}], ")"}], "]"}],
+      ".", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"IdentityMatrix", "[", "3", "]"}], "+", "Arp"}], ")"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.763099539015448*^9, 3.7630995440016108`*^9}, {
+   3.7630996134857244`*^9, 3.7630997154613967`*^9}, {3.7630997578886747`*^9, 
+   3.763099766438777*^9}, {3.76310024568347*^9, 3.7631002496891747`*^9}, 
+   3.8229771753142223`*^9, {3.822977218522189*^9, 
+   3.8229772196419783`*^9}},ExpressionUUID->"a8909fb8-31d5-42ad-8c6e-\
+853a1deb047f"]
+},
+WindowSize->{960, 962},
+WindowMargins->{{Automatic, 0}, {54, Automatic}},
+FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1239, 31, 147, "Input",ExpressionUUID->"a8909fb8-31d5-42ad-8c6e-853a1deb047f"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
