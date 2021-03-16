@@ -120,4 +120,48 @@ VectorXcd s1CDist(VectorXcd theta1, VectorXcd theta2){
   return (theta1 - theta2).cwiseAbs();
 }
 
+/*!
+The computeDist returns the distance between a selected root from all the other roots.
+Can handle only real roots for now.
+*/
+
+VectorXd computeDist(MatrixXd allroots, int selectedroot, int qx=1){
+  VectorXd dist((allroots.rows())-1);
+  int j = 0;
+  for (size_t i = 0; i < allroots.rows(); i++) {
+    if (i!=selectedroot) {
+      if (qx == 1) {
+        dist(j) = (((allroots.row(selectedroot)).head(6)) - ((allroots.row(i)).head(6))).norm();
+        j++;
+      }
+    }
+  }
+  return dist;
+}
+
+/*!
+The findExtrapCoeffs returns the coefficients of an nth degree polynomial given xlist and ylist
+*/
+
+VectorXd findExtrapCoeffs(VectorXd xlist, VectorXd ylist, int degree = 2){
+  MatrixXd Amat(xlist.size(), degree+1);
+  VectorXd coeff(degree+1);
+  for (size_t i = 0; i < xlist.size(); i++) {
+    for (size_t j = 0; j <= degree; j++) {
+      Amat(i, j) = pow(xlist(i), degree-j);
+    }
+  }
+  if (xlist.size()==degree+1) {
+    coeff = Amat.inverse()*ylist;
+  }
+  else {
+    coeff = (Amat.transpose()*Amat).inverse()*Amat.transpose()*ylist;
+  }
+  return coeff;
+}
+
+
+
+
+
 #endif

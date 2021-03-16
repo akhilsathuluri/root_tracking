@@ -26,12 +26,15 @@ find their intersection  to find the location of singularity.
 class RootTracker
 {
 public:
+  int Methods();
   VectorXd NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (VectorXd)> f,\
    std::function<MatrixXd (VectorXd)> Jfy, double eps = pow(10, -10));
   VectorXd DMTracker(VectorXd xprev, VectorXd x, VectorXd y, std::function<MatrixXd (VectorXd)> Jfx, \
      std::function<MatrixXd (VectorXd)> Jfy, double eps = 0, std::function<VectorXd (VectorXd)> f = NULL);
   VectorXd NNTracker(VectorXd ys, MatrixXd ysols, int index);
-  int Methods();
+
+  MatrixXd trackAllBranches(VectorXd x, MatrixXd y, std::function<VectorXd (VectorXd)> f, \
+    std::function<MatrixXd (VectorXd)> Jfy);
 
   VectorXcd NRCTracker(VectorXcd x, VectorXcd y, std::function<VectorXcd (VectorXcd)> f,\
    std::function<MatrixXcd (VectorXcd)> Jfy, double eps = pow(10, -10));

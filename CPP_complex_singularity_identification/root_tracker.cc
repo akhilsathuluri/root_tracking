@@ -247,6 +247,19 @@ VectorXcd RootTracker::NNCTracker(VectorXcd ys, MatrixXcd ysols, int index){
 }
 
 
+/*!
+The trackAllBranches routine tracks one step in all the branches given the next steps input variable
+and an initial guess of the unknown variables using the relating function f and its Jacobian Jfy.
+*/
+
+MatrixXd RootTracker::trackAllBranches(VectorXd x, MatrixXd y, std::function<VectorXd (VectorXd)> f, \
+  std::function<MatrixXd (VectorXd)> Jfy){
+    MatrixXd roots(y.rows(), y.cols());
+    for (size_t i = 0; i < y.rows(); i++) {
+      roots.row(i) = RootTracker::NRTracker(x, y.row(i), f, Jfy);
+    }
+    return roots;
+  }
 
 
 /*!

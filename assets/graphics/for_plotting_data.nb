@@ -1,0 +1,150 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5452,        140]
+NotebookOptionsPosition[      5105,        126]
+NotebookOutlinePosition[      5498,        142]
+CellTagsIndexPosition[      5455,        139]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"plot", " ", "=", " ", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"tracktensions", "[", 
+       RowBox[{"[", 
+        RowBox[{";;", ",", " ", "1"}], "]"}], "]"}], ",", " ", 
+      RowBox[{"tracktensions", "[", 
+       RowBox[{"[", 
+        RowBox[{";;", ",", " ", "2"}], "]"}], "]"}], ",", 
+      RowBox[{"tracktensions", "[", 
+       RowBox[{"[", 
+        RowBox[{";;", ",", " ", "3"}], "]"}], "]"}]}], "}"}], ",", " ", 
+    RowBox[{"PlotMarkers", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<OpenMarkers\>\"", ",", " ", "10"}], "}"}]}], ",", " ", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", " ", 
+    RowBox[{"PlotRange", "\[Rule]", "All"}], ",", " ", 
+    RowBox[{"BaseStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"FontFamily", "\[Rule]", "\"\<Latin Modern Roman\>\""}], 
+      "}"}]}], ",", " ", 
+    RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Directive", "[", 
+        RowBox[{"Black", ",", "40"}], "]"}], ",", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"Black", ",", "40"}], "]"}]}], "}"}]}], ",", " ", 
+    RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Directive", "[", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"0", ",", "0", ",", "1"}], "]"}], "]"}], ",", 
+       RowBox[{"Directive", "[", "Orange", "]"}], ",", 
+       RowBox[{"Directive", "[", "Red", "]"}], ",", 
+       RowBox[{"Directive", "[", "Brown", "]"}], ",", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"0.5", ",", "0.5", ",", "0"}], "]"}], "]"}], ",", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"0", ",", "0.6", ",", "0"}], "]"}], "]"}]}], "}"}]}], ",", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"MaTeX", "[", 
+        RowBox[{
+         RowBox[{"ToString", "[", 
+          RowBox[{
+          "\"\<\\\\text{\>\"", "<>", "\"\<Discretisation step\>\"", "<>", 
+           "\"\<}\>\""}], "]"}], ",", 
+         RowBox[{"Magnification", "\[Rule]", "3"}]}], "]"}], ",", 
+       RowBox[{"MaTeX", "[", 
+        RowBox[{
+         RowBox[{"ToString", "[", "\"\<\\\\text{Cable tensions}\>\"", "]"}], 
+         ",", 
+         RowBox[{"Magnification", "\[Rule]", "3"}]}], "]"}]}], "}"}]}], ",", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", " ", 
+    RowBox[{"ImageSize", "\[Rule]", "800"}], ",", " ", 
+    RowBox[{"PlotLegends", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Placed", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"MaTeX", "[", 
+           RowBox[{"\"\<\\\\tau_1\>\"", ",", " ", 
+            RowBox[{"Magnification", "\[Rule]", "3"}]}], "]"}], ",", 
+          RowBox[{"MaTeX", "[", 
+           RowBox[{"\"\<\\\\tau_2\>\"", ",", " ", 
+            RowBox[{"Magnification", "\[Rule]", "3"}]}], "]"}], ",", 
+          RowBox[{"MaTeX", "[", 
+           RowBox[{"\"\<\\\\tau_3\>\"", ",", " ", 
+            RowBox[{"Magnification", "\[Rule]", "3"}]}], "]"}]}], "}"}], ",", 
+        
+        RowBox[{"{", 
+         RowBox[{"Top", ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"0.5", ",", " ", "0.9"}], "}"}]}], "}"}]}], "]"}], "}"}]}],
+     ",", " ", 
+    RowBox[{"DataRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "1000"}], "}"}]}], ",", " ", 
+    RowBox[{"ImageSize", "\[Rule]", "800"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8248220396651278`*^9, 3.824822265057075*^9}, {
+  3.8248223106522827`*^9, 3.824822388566576*^9}, {3.8248224723665047`*^9, 
+  3.824822484046391*^9}, {3.82482452458572*^9, 3.824824550314052*^9}, {
+  3.824824737773596*^9, 3.8248247478209476`*^9}, {3.824826351398355*^9, 
+  3.824826488802827*^9}, {3.824826525620265*^9, 3.824826529652042*^9}, {
+  3.824826599505474*^9, 3.824826672508895*^9}, {3.8248267063356667`*^9, 
+  3.824826808474369*^9}, {3.8248268406512527`*^9, 3.824826873443475*^9}, {
+  3.824827197560965*^9, 3.824827204627969*^9}, {3.8248273591223993`*^9, 
+  3.82482740577523*^9}, {3.824827443387917*^9, 3.824827444560985*^9}, {
+  3.82482753212568*^9, 3.824827535120325*^9}, {3.824827572653716*^9, 
+  3.824827605155532*^9}, {3.824827641307056*^9, 3.8248277503039103`*^9}, {
+  3.824827818041205*^9, 3.8248278870695972`*^9}, {3.824828028824428*^9, 
+  3.8248280533098707`*^9}},
+ CellLabel->
+  "In[411]:=",ExpressionUUID->"c624edaa-558f-4449-b00d-3d007f294acb"]
+},
+WindowSize->{1386, 762},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.2 for Linux x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"cced3277-c89c-4065-ac56-1a6aa5a9aacc"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4543, 104, 174, "Input",ExpressionUUID->"c624edaa-558f-4449-b00d-3d007f294acb"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
