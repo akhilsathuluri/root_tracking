@@ -54,15 +54,10 @@ int main(int argc, char const *argv[])
   // +++++++++++++++++++ trackAllBranches check ++++++++++++++++++++++++++++++++++
   // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  // MatrixXd allRoots(initsols.rows(), initsols.cols());
-  // allRoots = rt.trackAllBranches(legvals.row(2), initsols, etaext, Jetaextphi);
+  MatrixXd allRoots(initsols.rows(), initsols.cols());
+  allRoots = rt.trackAllBranches(legvals.row(2), initsols, etaext, Jetaextphi);
 
-  std::cout << rt.NRTracker((legvals.row(2)).transpose(), (initsols.row(3)).transpose(), etaext, Jetaextphi) << std::endl;
-
-  VectorXd test(24);
-  test << (legvals.row(2)).transpose(), (initsols.row(3)).transpose();
-  std::cout << test << '\n';
-
+std::cout << allRoots<< '\n';
 
   return 0;
 }
