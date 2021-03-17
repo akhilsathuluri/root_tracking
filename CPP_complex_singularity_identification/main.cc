@@ -16,7 +16,7 @@ The saveData function takes in an input `MatrixXd` and saves it in a .txt file
 @param file_name Name of the file to save the input matrix in
 */
 
-// Define all teh constants so that for a new problem everything can be setup from here
+// Define all the constants so that for a new problem everything can be setup from here
 #define ySize 18
 #define iters 51
 #define xSize 6

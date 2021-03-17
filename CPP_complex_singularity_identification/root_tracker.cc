@@ -35,6 +35,8 @@ to use when trackers fail.
 int RootTracker::Methods(){
   std::cout << "Listing available trackers:" << std::endl;
   std::cout << "NRTracker, DMTracker, NNTracker" << std::endl;
+  std::cout << "NRCTracker, DMCTracker, NNCTracker" << std::endl;
+  std::cout << "trackAllBranches and SEI" << std::endl;
   return 0;
 }
 
@@ -63,9 +65,6 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
   q << y, x;
   fval = f(q);
   tempy = y;
-  // Jval = Jfy(q);
-  // dy = linearSolve(Jval, fval);
-  // std::cout << tempy - dy << '\n';
   while (fval.norm()>=eps) {
 		if (loopcounter>=100){
       std::cout << "NRTracker::Warning::Max iterations reached. Convergence not achived for the input tolerance, eps" << std::endl;
@@ -74,6 +73,7 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
 		loopcounter++;
     Jval = Jfy(q);
 		dy = linearSolve(Jval, fval);
+    // std::cout << "Completed linearSolve" << '\n';
 		tempy = tempy - dy;
 		q << tempy, x;
 		fval = f(q);
