@@ -50,49 +50,97 @@ int main(int argc, char const *argv[])
   RootTracker rt;
   rt.Methods();
 
-  VectorXd tempNR(ySize);
+  // Add the input dimensions of your input vector
+  MatrixXcd Clegvals(iters,xSize);
+  Clegvals = legvals.cast<std::complex<double>>();
+  // Declare input Variables
+  MatrixXcd inputVars;
+  inputVars = Clegvals;
+  // Initial solution
+  VectorXd tempNR(ySize), tempDM(ySize), tempNN(ySize);
 
-  // int singular_iter = simIters;
-  VectorXd tempNRC(ySize);
+  int singular_iter = simIters;
+  VectorXcd phiic(ySize), tempNRC(ySize), tempDMC(ySize), tempNNC(ySize);
+  phiic = phii.cast<std::complex<double>>();
+  MatrixXcd solsNNC(ySize,1), solsDMC(ySize,1), solsNRC(ySize,1), tempFKC(branchesSize, ySize);
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++NEWTON RAPHSON METHOD+++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  solsNRC << phii2;
+  tempNRC = phii2;
+
+  // Tracking using NRTracker
+  for (int i = 1; i < singular_iter; i++){
+    tempNRC = rt.NRCTracker(Clegvals.row(i), tempNRC, etaextC, JetaextphiC);
+    std::cout << tempNRC << '\n';
+
+    solsNRC.conservativeResize(solsNRC.rows(), solsNRC.cols()+1);
+  	solsNRC.col(solsNRC.cols()-1) = tempNRC;
+  }
+
+  // ToDo: Make saveData an overloaded function
+  saveCData(solsNRC.transpose(), "NRCTracker_2.txt");
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++DAVIDENKOS METHOD+++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  solsDMC << phii2;
+  tempDMC = phii2;
+
+  // Tracking using DMTracker
+  for (int i = 1; i < singular_iter; i++){
+    // Without NR step correction
+    // tempDMC = rt.DMCTracker(Clegvals.row(i-1), Clegvals.row(i), tempDMC, Jetaexttheta, Jetaextphi);
+
+    // With NR step correction
+    /*!
+    Choosing small enough `eps` makes DMTracker work like an NRTracker
+    */
+    tempDMC = rt.DMCTracker(Clegvals.row(i-1), Clegvals.row(i), tempDMC, JetaextthetaC, JetaextphiC, epsval, etaextC);
+
+    solsDMC.conservativeResize(solsDMC.rows(), solsDMC.cols()+1);
+  	solsDMC.col(solsDMC.cols()-1) = tempDMC;
+  }
+
+
+  saveCData(solsDMC.transpose(), "DMCTracker_NRC_2.txt");
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++NEAREST NEIGHBOUR METHOD++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  solsNNC << phii2;
+  tempNNC = phii2;
+  // Initialise all the known roots including the complex root
+  tempFKC = initsols2;
+
+  // Tracking using NNCTracker
+  for (int i = 1; i < singular_iter; i++){
+    for (int j = 0; j < tempFKC.rows(); j++){
+      tempFKC.row(j) = rt.NRCTracker(Clegvals.row(i), tempFKC.row(j), etaextC, JetaextphiC);
+    }
+
+    tempNNC = rt.NNCTracker(tempNNC, tempFKC, 6);
+
+    solsNNC.conservativeResize(solsNNC.rows(), solsNNC.cols()+1);
+  	solsNNC.col(solsNNC.cols()-1) = tempNNC;
+  }
+
+  saveCData(solsNNC.transpose(), "NNCTracker_NRC.txt");
+
+  // Verifying the tracked roots with the NR roots
+  // std::cout << (solsNNC - solsNRC).maxCoeff() << std::endl;
+
+  // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // +++++++++++++++++++SINGULARITY EVENT IDENTIFICATION++++++++++++++++++++++++
+  // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
   MatrixXd solsNR(ySize,1);
 
-  // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // +++++++++++++++++++ trackAllBranches check ++++++++++++++++++++++++++++++++++
-  // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//
-//   MatrixXd allRoots(initsols.rows(), initsols.cols());
-//   allRoots = rt.trackAllBranches(legvals.row(2), initsols, etaext, Jetaextphi);
-//
-// std::cout << allRoots<< '\n';
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// +++++++++++++++++++ NEWTON RAPHSON METHOD +++++++++++++++++++++++++++++++++++
-// ++++++++++++++++++++++++ WITH SEI +++++++++++++++++++++++++++++++++++++++++++
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-  VectorXd ys(ySize);
-  ys << 0.2, 0., 1.28, 0.2, 0., 0., 0.00305624, -0.0668855, 0.456963, \
-0.546956, -0.0946901, 0.00349011, 0.336276, 0.286891, -0.0210274, \
-0.0247844, -0.395383, -0.379795;
-  // solsNR << ys;
-  // tempNR = ys;
   tempNR = (initsols.row(3)).transpose();
-
-  // // Tracking using NRTracker
-  // for (int i = 1; i < legvals.rows(); i++){
-  //   tempNR = rt.NRTracker(legvals.row(i), tempNR, etaext, Jetaextphi);
-  //   std::cout << tempNR << '\n';
-  //
-  //   solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
-  // 	solsNR.col(solsNR.cols()-1) = tempNR;
-  // }
-  //
-  // // ToDo: Make saveData an overloaded function
-  // saveCData(solsNR.transpose(), "NRCTracker_SEI.txt");
-
-  // Tracking using NRTracker with a parametric path
-  // stepsize of pi/150 shows that the NRTracker doesnt converge at two points
-  // but doesnt encounter any singularity
 
   double stepsize = M_PI/150, alpha = 0;
   // Declare variables to save the distance and alpha histories
@@ -101,7 +149,6 @@ int main(int argc, char const *argv[])
   // Initialise history Variables
   alphahist << 0,0,0;
   disthist = MatrixXd::Zero(3, initsols.rows());
-  // std::cout << initsols.row(1) << '\n';
   currentroots = initsols;
   for (alpha = stepsize; alpha <= M_PI/3; alpha = alpha+stepsize){
     currentroots = rt.trackAllBranches(computeXfromParam(alpha), currentroots, etaext, Jetaextphi);
@@ -110,16 +157,15 @@ int main(int argc, char const *argv[])
       break;
     }
     else{
-      // tempNR = rt.NRTracker(computeXfromParam(alpha), tempNR, etaext, Jetaextphi);
+      tempNR = rt.NRTracker(computeXfromParam(alpha), tempNR, etaext, Jetaextphi);
 
-      // solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
-      // solsNR.col(solsNR.cols()-1) = tempNR;
+      solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
+      solsNR.col(solsNR.cols()-1) = tempNR;
     }
-    // std::cout << tempNR.transpose() << '\n';
   }
 
   // ToDo: Make saveData an overloaded function
-  // saveCData(solsNR.transpose(), "NRCTracker_SEI.txt");
+  saveCData(solsNR.transpose(), "NRCTracker_SEI.txt");
 
   return 0;
 }
