@@ -1,49 +1,48 @@
 #include<iostream>
 #include<eigen3/Eigen/Dense>
 #include<math.h>
-#include"inputs.hh"
+#include"manipulator.hh"
+#include"utils.hh"
+#include<cassert>
 
 using namespace Eigen;
 
-VectorXd computeDist(MatrixXd allroots, int selectedroot, int qx=1){
-  VectorXd dist((allroots.rows())-1);
-  int j = 0;
-  for (size_t i = 0; i < allroots.rows(); i++) {
-    if (i!=selectedroot) {
-      if (qx == 1) {
-        dist(j) = (((allroots.row(selectedroot)).head(6)) - ((allroots.row(i)).head(6))).norm();
-        j++;
-      }
+int SEI(MatrixXd allroots, double alpha, int selectedroot, function computefromalpha, Ref<VectorXd> alphahist, Ref<MatrixXd> disthist, \
+  std::function<VectorXd (VectorXd)> f, std::function<MatrixXd (VectorXd)> Jfy){
+  VectorXd x(6), dist(allroots.rows()), graddist(allroots.rows()), preddist(allroots.rows());
+  double stepsize;
+  assert(pushHist(alphahist, alpha) && "Pushing alpha to history unsuccessful");
+  // Edit the required path parametrisation in the computeXfromParam function
+  x = computeXfromParam(alpha);
+  allroots = RootTracker::trackAllBranches(x, allroots, f, Jfy);
+  // Compute the distance between the selected root and the rest
+  // Returns the distance with itself too, size = nuber of branches
+  dist = computeDist(allroots, selectedroot);
+  assert(pushHist(disthist, dist) && "Pushing alpha to history unsuccessful");
+  stepsize = (alphahist(0)-alphahist(1));
+  graddist = (disthist.row(0)-disthist.row(1))/stepsize;
+  preddist = ((disthist.row(0)).transpose())+graddist*stepsize;
+  for (size_t i = 0; i < preddist.size(); i++) {
+    if (preddist(i) < 0 &&  i!= selectedroot){
+      std::cout << "Singularity approaching. Branches " << selectedroot << " and " << i << " are going to merge!" << '\n';
+      // quad = findExtrapCoeffs(alpha, dist.col(i));
+      // x = computealphasandxfromcoeff(quad);
+      // std::cout << "The estimated singular configuration is "<< x << '\n';
+      return 1;
     }
   }
-  return dist;
-}
-
-VectorXd findExtrapCoeffs(VectorXd xlist, VectorXd ylist, int degree = 2){
-  MatrixXd Amat(xlist.size(), degree+1);
-  VectorXd coeff(degree+1);
-  for (size_t i = 0; i < xlist.size(); i++) {
-    for (size_t j = 0; j <= degree; j++) {
-      Amat(i, j) = pow(xlist(i), degree-j);
-    }
-  }
-  if (xlist.size()==degree+1) {
-    coeff = Amat.inverse()*ylist;
-  }
-  else {
-    coeff = (Amat.transpose()*Amat).inverse()*Amat.transpose()*ylist;
-  }
-  return coeff;
+  return 0;
 }
 
 int main(int argc, char const *argv[]) {
-  VectorXd xlist(4), ylist(4), coeffs(3);
-  xlist << -1, 0, 1, 1;
-  ylist << 0, -1, 0, 1;
+  MatrixXd distvec(3, 2);
+  VectorXd alpha(3), grad(2);
+  distvec << 1, 2, 3, 4, 5, 6;
+  alpha << 1, 2, 3;
+  double stepsize = alpha(0) - alpha(1);
+  grad = (distvec.row(0) - distvec.row(1))/stepsize;
+  std::cout << ((distvec.row(0)).transpose())+grad*stepsize << '\n';
+  // std::cout << (distvec.row(0) - distvec.row(1))/alpha(1) << '\n';
 
-  coeffs = findExtrapCoeffs(xlist, ylist);
-  // VectorXd dist(1);
-  // dist(0) = (((initsols.row(1)).head(6)) - ((initsols.row(2)).head(6))).norm();
-  std::cout << coeffs << '\n';
   return 0;
 }

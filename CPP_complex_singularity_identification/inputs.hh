@@ -605,4 +605,5 @@ const std::complex<double> initsols_data2[] = {
 };
 Matrix<std::complex<double>, 14, 18>initsols2(initsols_data2);
 
-#endif
+// #endif INPUTS_H
+#endif 

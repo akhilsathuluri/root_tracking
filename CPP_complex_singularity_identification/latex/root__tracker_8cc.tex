@@ -14,3 +14,45 @@ Include dependency graph for root\+\_\+tracker.\+cc\+:
 \includegraphics[width=350pt]{root__tracker_8cc__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{root__tracker_8cc_a42a0ca2bc65ca9d6f2c126d8bb319d49}{SEI}} (Matrix\+Xd allroots, double alpha, int selectedroot, std\+::function$<$ Vector\+Xd(double)$>$ \mbox{\hyperlink{utils_8hh_a617dcde540c04aa64274710efb425bb7}{compute\+Xfrom\+Param}}, Ref$<$ Vector\+Xd $>$ alphahist, Ref$<$ Matrix\+Xd $>$ disthist, std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$ Jfy)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{root__tracker_8cc_a42a0ca2bc65ca9d6f2c126d8bb319d49}\label{root__tracker_8cc_a42a0ca2bc65ca9d6f2c126d8bb319d49}} 
+\index{root\_tracker.cc@{root\_tracker.cc}!SEI@{SEI}}
+\index{SEI@{SEI}!root\_tracker.cc@{root\_tracker.cc}}
+\doxysubsubsection{\texorpdfstring{SEI()}{SEI()}}
+{\footnotesize\ttfamily int SEI (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{allroots,  }\item[{double}]{alpha,  }\item[{int}]{selectedroot,  }\item[{std\+::function$<$ Vector\+Xd(double)$>$}]{compute\+Xfrom\+Param,  }\item[{Ref$<$ Vector\+Xd $>$}]{alphahist,  }\item[{Ref$<$ Matrix\+Xd $>$}]{disthist,  }\item[{std\+::function$<$ Vector\+Xd(Vector\+Xd)$>$}]{f,  }\item[{std\+::function$<$ Matrix\+Xd(Vector\+Xd)$>$}]{Jfy }\end{DoxyParamCaption})}
+
+TODO\+: (text) The Singularity\+Event\+Identifier uses a distance metric to identify when the configuration approaches a singularity. Further, it uses a linear interpolation to estimate the singular configuration. This function needs the computation of all the roots, real or imaginary to be provided. Optionally Bertini can be used to compute all the roots.
+
+
+\begin{DoxyEnumerate}
+\item Find distance betwwen all the solutions
+\item Check one or more pairs are within the eps distance
+\item If yes, take 6 more steps or the size of the y steps into the future only for the corresponding solutions
+\item Fit a hyperplane to the points
+\item Solve the hyperplane from both the sides and find the singular location and inform the same
+\end{DoxyEnumerate}
+
+For 1 we\textquotesingle{}ll need to iteratively use the nearest neighbout method
+
+Needs the declaration of a global variable to store the history of
+
+
+\begin{DoxyParams}{Parameters}
+{\em ys} & The current root of the required branch \\
+\hline
+{\em ysols} & All the roots at the instant \\
+\hline
+{\em eps} & The distance tolerance after which the singularity event is triggered\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]Integrate Bertini to find all the roots 
+
+Need a way to eliminate the declaration of a global Vector\+Xd for dist and alpha \end{DoxyRefDesc}

@@ -897,6 +897,27 @@ VectorXd computeLvals(VectorXd qx){
   return lvals;
 }
 
+
+/*!
+The computeXfromParam returns input values x from the path parametrisation.
+Edit this function to suite the required path paramterisation and the mapping
+between the parametrisation and the actual input values. In the case of an SRSPM,
+we use the IK mapping to find the leg lengths from the task space parametrisation
+*/
+
+VectorXd computeXfromParam(double alpha){
+  // The first example is for the SRSPM so using the parametrisation of the SRSPM path
+  VectorXd qx(6), l(6);
+  double scale = 0.2;
+  qx << scale-alpha, alpha, 1.28-alpha, scale, 0, 0;
+  // std::cout << qx << '\n';
+  // Now since the NRTracker needs the legvals for the simulation we use the
+  // IKsolver to compute legvals from qx
+  l = computeLvals(qx);
+  return l;
+}
+
+
 VectorXd computeIK(VectorXd qx){
   VectorXd iksol(18), lvals(6), phivals(6), psivals(6);
   double x = qx(0), y = qx(1), z = qx(2), c1 = qx(3), c2 = qx(4), c3 = qx(5);
@@ -1152,4 +1173,5 @@ VectorXd computeIK(VectorXd qx){
 }
 
 
+// #endif CONSTRAINTS_H
 #endif

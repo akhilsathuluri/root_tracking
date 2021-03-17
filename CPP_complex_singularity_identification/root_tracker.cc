@@ -22,6 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "root_tracker.hh"
 #include "utils.hh"
 #include<functional>
+#include<cassert>
 
 using namespace Eigen;
 
@@ -62,6 +63,9 @@ VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (
   q << y, x;
   fval = f(q);
   tempy = y;
+  // Jval = Jfy(q);
+  // dy = linearSolve(Jval, fval);
+  // std::cout << tempy - dy << '\n';
   while (fval.norm()>=eps) {
 		if (loopcounter>=100){
       std::cout << "NRTracker::Warning::Max iterations reached. Convergence not achived for the input tolerance, eps" << std::endl;
@@ -255,39 +259,125 @@ and an initial guess of the unknown variables using the relating function f and 
 MatrixXd RootTracker::trackAllBranches(VectorXd x, MatrixXd y, std::function<VectorXd (VectorXd)> f, \
   std::function<MatrixXd (VectorXd)> Jfy){
     MatrixXd roots(y.rows(), y.cols());
+    // roots = MatrixXd::Zero(y.rows(), y.cols());
+    roots = y;
+    // std::cout << "Input y to trackAllBranches" << y << '\n';
     for (size_t i = 0; i < y.rows(); i++) {
       roots.row(i) = RootTracker::NRTracker(x, y.row(i), f, Jfy);
     }
+    // std::cout << roots << '\n';
+    // std::cout << " " << '\n';
     return roots;
   }
 
 
-  /*!
-TODO: (text) The SingularityEventIdentifier uses a distance metric to identify when the
-configuration approaches a singularity. Further, it uses a linear interpolation
-to estimate the singular configuration.
-This function needs the computation of all the roots, real or imaginary to be
-provided. Optionally Bertini can be used to compute all the roots.
+//   /*!
+// TODO: (text) The SingularityEventIdentifier uses a distance metric to identify when the
+// configuration approaches a singularity. Further, it uses a linear interpolation
+// to estimate the singular configuration.
+// This function needs the computation of all the roots, real or imaginary to be
+// provided. Optionally Bertini can be used to compute all the roots.
+//
+// 1. Find distance betwwen all the solutions
+// 2. Check one or more pairs are within the eps distance
+// 3. If yes, take 6 more steps or the size of the y steps into the future only for the corresponding solutions
+// 4. Fit a hyperplane to the points
+// 6. Solve the hyperplane from both the sides and find the singular location and inform the same
+//
+// For 1 we'll need to iteratively use the nearest neighbout method
+//
+// Needs the declaration of a global variable to store the history of
+//
+// @param ys The current root of the required branch
+// @param ysols All the roots at the instant
+// @param eps The distance tolerance after which the singularity event is triggered
+//
+// @todo Integrate Bertini to find all the roots
+// @todo Need a way to eliminate the declaration of a global VectorXd for dist and alpha
+// */
+// int RootTracker::SEI(MatrixXd allroots, double alpha, int selectedroot, \
+//   std::function<VectorXd (double)> computeXfromParam, Ref<VectorXd> alphahist, \
+//   Ref<MatrixXd> disthist, std::function<VectorXd (VectorXd)> f, \
+//   std::function<MatrixXd (VectorXd)> Jfy){
+//   // Convert branch number to solution index
+//   selectedroot = selectedroot-1;
+//   VectorXd x(6), dist(allroots.rows()), graddist(allroots.rows()), preddist(allroots.rows());
+//   MatrixXd currentroots(allroots.rows(), allroots.cols());
+//   currentroots = allroots;
+//   double stepsize;
+//   // std::cout << "Entered SEI successful" << '\n';
+//   assert(pushHist(alphahist, alpha) && "Pushing alpha to history unsuccessful");
+//   // std::cout << "Push alpha successful" << '\n';
+//   // Edit the required path parametrisation in the computeXfromParam function
+//   x = computeXfromParam(alpha);
+//   // std::cout << "x compute" << x << '\n';
+//   currentroots = RootTracker::trackAllBranches(x, currentroots, f, Jfy);
+//   // std::cout << "Tracking all branches successful" << '\n';
+//   // Compute the distance between the selected root and the rest
+//   // Returns the distance with itself too, size = nuber of branches
+//   dist = computeDist(currentroots, selectedroot);
+//   // std::cout << "Computing distance successful" << '\n';
+//   assert(pushHist(disthist, dist) && "Pushing alpha to history unsuccessful");
+//   // std::cout << "Push dist successful" << '\n';
+//   stepsize = (alphahist(0)-alphahist(1));
+//   graddist = (disthist.row(0)-disthist.row(1))/stepsize;
+//   preddist = ((disthist.row(0)).transpose())+graddist*stepsize;
+//   // std::cout << "Predstep successful" << '\n';
+//   // std::cout << "The corresponding dist is " << disthist.row(0) << '\n';
+//   for (size_t i = 0; i < preddist.size(); i++) {
+//     if (preddist(i) < 0 &&  i!= selectedroot){
+//       std::cout << "Approaching singularity. Branches " << selectedroot+1 << " and " << i+1 << " are going to merge!" << '\n';
+//       std::cout << "The corresponding alpha is " << alphahist(0) << '\n';
+//       // std::cout << "The corresponding dist is " << disthist.row(0) << '\n';
+//       // quad = findExtrapCoeffs(alpha, dist.col(i));
+//       // x = computealphasandxfromcoeff(quad);
+//       // std::cout << "The estimated singular configuration is "<< x << '\n';
+//       return 1;
+//     }
+//   }
+//   return 0;
+// }
 
-1. Find distance betwwen all the solutions
-2. Check one or more pairs are within the eps distance
-3. If yes, take 6 more steps or the size of the y steps into the future only for the corresponding solutions
-4. Fit a hyperplane to the points
-6. Solve the hyperplane from both the sides and find the singular location and inform the same
 
-For 1 we'll need to iteratively use the nearest neighbout method
-
-@param ys The current root of the required branch
-@param ysols All the roots at the instant
-@param eps The distance tolerance after which the singularity event is triggered
-
-@todo Integrate Bertini to find all the roots
-
-*/
-VectorXd RootTracker::SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, int index, double eps /*= pow(10, -2)*/){
-  MatrixXd sol;
-  sol = NNTracker(ys, ysols, index);
-  return sol;
-
-
+int RootTracker::SEI(MatrixXd allroots, double alpha, int selectedroot, \
+  std::function<VectorXd (double)> computeXfromParam, Ref<VectorXd> alphahist, \
+  Ref<MatrixXd> disthist, std::function<VectorXd (VectorXd)> f, \
+  std::function<MatrixXd (VectorXd)> Jfy){
+  // Convert branch number to solution index
+  selectedroot = selectedroot-1;
+  VectorXd x(6), dist(allroots.rows()), graddist(allroots.rows()), preddist(allroots.rows());
+  MatrixXd currentroots(allroots.rows(), allroots.cols());
+  currentroots = allroots;
+  double stepsize;
+  // std::cout << "Entered SEI successful" << '\n';
+  assert(pushHist(alphahist, alpha) && "Pushing alpha to history unsuccessful");
+  // std::cout << "Push alpha successful" << '\n';
+  // Edit the required path parametrisation in the computeXfromParam function
+  // x = computeXfromParam(alpha);
+  // // std::cout << "x compute" << x << '\n';
+  // currentroots = RootTracker::trackAllBranches(x, currentroots, f, Jfy);
+  // std::cout << "Tracking all branches successful" << '\n';
+  // Compute the distance between the selected root and the rest
+  // Returns the distance with itself too, size = nuber of branches
+  dist = computeDist(currentroots, selectedroot);
+  // std::cout << "Computing distance successful" << '\n';
+  assert(pushHist(disthist, dist) && "Pushing alpha to history unsuccessful");
+  // std::cout << "Push dist successful" << '\n';
+  stepsize = (alphahist(0)-alphahist(1));
+  graddist = (disthist.row(0)-disthist.row(1))/stepsize;
+  preddist = ((disthist.row(0)).transpose())+graddist*stepsize;
+  // std::cout << "Predstep successful" << '\n';
+  // std::cout << "The corresponding dist is " << disthist.row(0) << '\n';
+  for (size_t i = 0; i < preddist.size(); i++) {
+    if (preddist(i) < 0 &&  i!= selectedroot){
+      std::cout << "Approaching singularity. Branches " << selectedroot+1 << " and " << i+1 << " are going to merge!" << '\n';
+      std::cout << "The corresponding alpha is " << alphahist(0) << '\n';
+      // std::cout << "The corresponding dist is " << disthist.row(0) << '\n';
+      // quad = findExtrapCoeffs(alpha, dist.col(i));
+      // x = computealphasandxfromcoeff(quad);
+      // std::cout << "The estimated singular configuration is "<< x << '\n';
+      return 1;
+    }
+  }
+  return 0;
 }

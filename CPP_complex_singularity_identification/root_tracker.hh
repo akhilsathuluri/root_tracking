@@ -32,7 +32,6 @@ public:
   VectorXd DMTracker(VectorXd xprev, VectorXd x, VectorXd y, std::function<MatrixXd (VectorXd)> Jfx, \
      std::function<MatrixXd (VectorXd)> Jfy, double eps = 0, std::function<VectorXd (VectorXd)> f = NULL);
   VectorXd NNTracker(VectorXd ys, MatrixXd ysols, int index);
-
   MatrixXd trackAllBranches(VectorXd x, MatrixXd y, std::function<VectorXd (VectorXd)> f, \
     std::function<MatrixXd (VectorXd)> Jfy);
 
@@ -40,9 +39,12 @@ public:
    std::function<MatrixXcd (VectorXcd)> Jfy, double eps = pow(10, -10));
   VectorXcd DMCTracker(VectorXcd xprev, VectorXcd x, VectorXcd y, std::function<MatrixXcd (VectorXcd)> Jfx, \
    std::function<MatrixXcd (VectorXcd)> Jfy, double eps = 0, std::function<VectorXcd (VectorXcd)> f = NULL);
-   VectorXcd NNCTracker(VectorXcd ys, MatrixXcd ysols, int index);
+  VectorXcd NNCTracker(VectorXcd ys, MatrixXcd ysols, int index);
 
-  VectorXd SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, int index, double eps = pow(10, -2));
+  int SEI(MatrixXd allroots, double alpha, int selectedroot, std::function<VectorXd (double)> computeXfromParam, Ref<VectorXd> alphahist, Ref<MatrixXd> disthist, \
+     std::function<VectorXd (VectorXd)> f, std::function<MatrixXd (VectorXd)> Jfy);
+
 };
 
-#endif
+// #endif RootTracker_H
+#endif 

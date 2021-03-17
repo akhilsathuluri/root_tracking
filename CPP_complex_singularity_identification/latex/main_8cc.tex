@@ -4,45 +4,80 @@
 {\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
 {\ttfamily \#include \char`\"{}root\+\_\+tracker.\+hh\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}inputs.\+hh\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}manipulator.\+hh\char`\"{}}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$functional$>$}\newline
 {\ttfamily \#include $<$chrono$>$}\newline
-Include dependency graph for main.\+cc\+:\nopagebreak
+Include dependency graph for main.\+cc\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{main_8cc__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cc_a288fdfe11840d4d476f9866a6165dedf}{y\+Size}}~18
+\item 
+\#define \mbox{\hyperlink{main_8cc_a860ae6708445fb511c4bde6be73d0f80}{iters}}~51
+\item 
+\#define \mbox{\hyperlink{main_8cc_a628d40728a531d2a2d02ccddaaa07679}{x\+Size}}~6
+\item 
+\#define \mbox{\hyperlink{main_8cc_ac03e3a20340ccf7037434a4827513499}{sim\+Iters}}~18
+\item 
+\#define \mbox{\hyperlink{main_8cc_a69963adce693b9d09409a618bf21729a}{branches\+Size}}~14
+\item 
+\#define \mbox{\hyperlink{main_8cc_ac946221d7c779218d55b99d850b505c0}{epsval}}~0.\+05
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{main_8cc_ade24902e309127c75974d1e24d715e51}{save\+Data}} (Matrix\+Xd A, const char file\+\_\+name\mbox{[}$\,$\mbox{]})
 \item 
-void \mbox{\hyperlink{main_8cc_ada06aa60e0faf582ae01132ccbe8b065}{save\+C\+Data}} (Matrix\+Xcd A, const char file\+\_\+name\mbox{[}$\,$\mbox{]})
+void \mbox{\hyperlink{main_8cc_ada06aa60e0faf582ae01132ccbe8b065}{save\+CData}} (Matrix\+Xcd A, const char file\+\_\+name\mbox{[}$\,$\mbox{]})
 \item 
 int \mbox{\hyperlink{main_8cc_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Function Documentation}
-\mbox{\Hypertarget{main_8cc_abf9e6b7e6f15df4b525a2e7705ba3089}\label{main_8cc_abf9e6b7e6f15df4b525a2e7705ba3089}} 
-\index{main.cc@{main.cc}!main@{main}}
-\index{main@{main}!main.cc@{main.cc}}
-\doxysubsubsection{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8cc_a69963adce693b9d09409a618bf21729a}\label{main_8cc_a69963adce693b9d09409a618bf21729a}} 
+\index{main.cc@{main.cc}!branchesSize@{branchesSize}}
+\index{branchesSize@{branchesSize}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{branchesSize}{branchesSize}}
+{\footnotesize\ttfamily \#define branches\+Size~14}
 
-Example problem demonstrating the usage of the root trackers for solving a task space path following problem of an S\+R\+S\+PM using all the discussed root-\/trackers. Choosing small enough {\ttfamily eps} makes D\+M\+Tracker work like an N\+R\+Tracker\mbox{\Hypertarget{main_8cc_ada06aa60e0faf582ae01132ccbe8b065}\label{main_8cc_ada06aa60e0faf582ae01132ccbe8b065}} 
-\index{main.cc@{main.cc}!saveCData@{saveCData}}
-\index{saveCData@{saveCData}!main.cc@{main.cc}}
-\doxysubsubsection{\texorpdfstring{saveCData()}{saveCData()}}
-{\footnotesize\ttfamily void save\+C\+Data (\begin{DoxyParamCaption}\item[{Matrix\+Xcd}]{A,  }\item[{const char}]{file\+\_\+name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{main_8cc_ac946221d7c779218d55b99d850b505c0}\label{main_8cc_ac946221d7c779218d55b99d850b505c0}} 
+\index{main.cc@{main.cc}!epsval@{epsval}}
+\index{epsval@{epsval}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{epsval}{epsval}}
+{\footnotesize\ttfamily \#define epsval~0.\+05}
 
-\mbox{\Hypertarget{main_8cc_ade24902e309127c75974d1e24d715e51}\label{main_8cc_ade24902e309127c75974d1e24d715e51}} 
-\index{main.cc@{main.cc}!saveData@{saveData}}
-\index{saveData@{saveData}!main.cc@{main.cc}}
-\doxysubsubsection{\texorpdfstring{saveData()}{saveData()}}
-{\footnotesize\ttfamily void save\+Data (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{A,  }\item[{const char}]{file\+\_\+name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{main_8cc_a860ae6708445fb511c4bde6be73d0f80}\label{main_8cc_a860ae6708445fb511c4bde6be73d0f80}} 
+\index{main.cc@{main.cc}!iters@{iters}}
+\index{iters@{iters}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{iters}{iters}}
+{\footnotesize\ttfamily \#define iters~51}
+
+\mbox{\Hypertarget{main_8cc_ac03e3a20340ccf7037434a4827513499}\label{main_8cc_ac03e3a20340ccf7037434a4827513499}} 
+\index{main.cc@{main.cc}!simIters@{simIters}}
+\index{simIters@{simIters}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{simIters}{simIters}}
+{\footnotesize\ttfamily \#define sim\+Iters~18}
+
+\mbox{\Hypertarget{main_8cc_a628d40728a531d2a2d02ccddaaa07679}\label{main_8cc_a628d40728a531d2a2d02ccddaaa07679}} 
+\index{main.cc@{main.cc}!xSize@{xSize}}
+\index{xSize@{xSize}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{xSize}{xSize}}
+{\footnotesize\ttfamily \#define x\+Size~6}
+
+\mbox{\Hypertarget{main_8cc_a288fdfe11840d4d476f9866a6165dedf}\label{main_8cc_a288fdfe11840d4d476f9866a6165dedf}} 
+\index{main.cc@{main.cc}!ySize@{ySize}}
+\index{ySize@{ySize}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{ySize}{ySize}}
+{\footnotesize\ttfamily \#define y\+Size~18}
 
 The save\+Data function takes in an input {\ttfamily Matrix\+Xd} and saves it in a .txt file
 
@@ -53,3 +88,24 @@ The save\+Data function takes in an input {\ttfamily Matrix\+Xd} and saves it in
 {\em file\+\_\+name} & Name of the file to save the input matrix in \\
 \hline
 \end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cc_abf9e6b7e6f15df4b525a2e7705ba3089}\label{main_8cc_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{main.cc@{main.cc}!main@{main}}
+\index{main@{main}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Example problem demonstrating the usage of the root trackers for solving a task space path following problem of an SRSPM using all the discussed root-\/trackers. \mbox{\Hypertarget{main_8cc_ada06aa60e0faf582ae01132ccbe8b065}\label{main_8cc_ada06aa60e0faf582ae01132ccbe8b065}} 
+\index{main.cc@{main.cc}!saveCData@{saveCData}}
+\index{saveCData@{saveCData}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{saveCData()}{saveCData()}}
+{\footnotesize\ttfamily void save\+CData (\begin{DoxyParamCaption}\item[{Matrix\+Xcd}]{A,  }\item[{const char}]{file\+\_\+name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cc_ade24902e309127c75974d1e24d715e51}\label{main_8cc_ade24902e309127c75974d1e24d715e51}} 
+\index{main.cc@{main.cc}!saveData@{saveData}}
+\index{saveData@{saveData}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{saveData()}{saveData()}}
+{\footnotesize\ttfamily void save\+Data (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{A,  }\item[{const char}]{file\+\_\+name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+

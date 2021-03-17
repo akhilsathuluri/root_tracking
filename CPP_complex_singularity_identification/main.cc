@@ -50,14 +50,76 @@ int main(int argc, char const *argv[])
   RootTracker rt;
   rt.Methods();
 
+  VectorXd tempNR(ySize);
+
+  // int singular_iter = simIters;
+  VectorXd tempNRC(ySize);
+  MatrixXd solsNR(ySize,1);
+
   // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // +++++++++++++++++++ trackAllBranches check ++++++++++++++++++++++++++++++++++
   // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//
+//   MatrixXd allRoots(initsols.rows(), initsols.cols());
+//   allRoots = rt.trackAllBranches(legvals.row(2), initsols, etaext, Jetaextphi);
+//
+// std::cout << allRoots<< '\n';
 
-  MatrixXd allRoots(initsols.rows(), initsols.cols());
-  allRoots = rt.trackAllBranches(legvals.row(2), initsols, etaext, Jetaextphi);
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++ NEWTON RAPHSON METHOD +++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++ WITH SEI +++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-std::cout << allRoots<< '\n';
+  VectorXd ys(ySize);
+  ys << 0.2, 0., 1.28, 0.2, 0., 0., 0.00305624, -0.0668855, 0.456963, \
+0.546956, -0.0946901, 0.00349011, 0.336276, 0.286891, -0.0210274, \
+0.0247844, -0.395383, -0.379795;
+  // solsNR << ys;
+  // tempNR = ys;
+  tempNR = (initsols.row(3)).transpose();
+
+  // // Tracking using NRTracker
+  // for (int i = 1; i < legvals.rows(); i++){
+  //   tempNR = rt.NRTracker(legvals.row(i), tempNR, etaext, Jetaextphi);
+  //   std::cout << tempNR << '\n';
+  //
+  //   solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
+  // 	solsNR.col(solsNR.cols()-1) = tempNR;
+  // }
+  //
+  // // ToDo: Make saveData an overloaded function
+  // saveCData(solsNR.transpose(), "NRCTracker_SEI.txt");
+
+  // Tracking using NRTracker with a parametric path
+  // stepsize of pi/150 shows that the NRTracker doesnt converge at two points
+  // but doesnt encounter any singularity
+
+  double stepsize = M_PI/150, alpha = 0;
+  // Declare variables to save the distance and alpha histories
+  MatrixXd disthist(3, initsols.rows()), currentroots(initsols.rows(), initsols.cols());
+  VectorXd alphahist(3);
+  // Initialise history Variables
+  alphahist << 0,0,0;
+  disthist = MatrixXd::Zero(3, initsols.rows());
+  // std::cout << initsols.row(1) << '\n';
+  currentroots = initsols;
+  for (alpha = stepsize; alpha <= M_PI/3; alpha = alpha+stepsize){
+    currentroots = rt.trackAllBranches(computeXfromParam(alpha), currentroots, etaext, Jetaextphi);
+    if(rt.SEI(currentroots, alpha, 2, computeXfromParam, alphahist, disthist, etaext, Jetaextphi)==1){
+      std::cout << "Singularity predicted. Exiting simulation." << '\n';
+      break;
+    }
+    else{
+      // tempNR = rt.NRTracker(computeXfromParam(alpha), tempNR, etaext, Jetaextphi);
+
+      // solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
+      // solsNR.col(solsNR.cols()-1) = tempNR;
+    }
+    // std::cout << tempNR.transpose() << '\n';
+  }
+
+  // ToDo: Make saveData an overloaded function
+  // saveCData(solsNR.transpose(), "NRCTracker_SEI.txt");
 
   return 0;
 }

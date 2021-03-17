@@ -9,84 +9,159 @@ Include dependency graph for inputs.\+hh\+:\nopagebreak
 \includegraphics[width=272pt]{inputs_8hh__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=220pt]{inputs_8hh__dep__incl}
+\includegraphics[width=350pt]{inputs_8hh__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-Vector\+Xcd \mbox{\hyperlink{inputs_8hh_ab6ab96c4f1838b8bdb8fbcb980333138}{etaext}} (Vector\+Xcd q)
-\item 
-Matrix\+Xcd \mbox{\hyperlink{inputs_8hh_abb54cf24560be05deaf2d5069966b50a}{Jetaexttheta}} (Vector\+Xcd q)
-\item 
-Matrix\+Xcd \mbox{\hyperlink{inputs_8hh_ade0dd58ec0019ed726f3642fdd674c47}{Jetaextphi}} (Vector\+Xcd q)
-\item 
 Matrix$<$ double, 51, 6 $>$ \mbox{\hyperlink{inputs_8hh_a92331060d01e36c02f47859b92ee964f}{legvals}} (\mbox{\hyperlink{inputs_8hh_afb79babe6cad9239e004d1a2c5f608eb}{legvals\+\_\+data}})
+\item 
+Matrix$<$ double, 8, 18 $>$ \mbox{\hyperlink{inputs_8hh_a5c845d4148f6176940ec2460f4254e11}{initsols}} (\mbox{\hyperlink{inputs_8hh_a3a2e413c0ac246eb1d759ff01666345f}{initsols\+\_\+data}})
+\item 
+Matrix$<$ double, 18, 1 $>$ \mbox{\hyperlink{inputs_8hh_a6582b94ac3f1656dc0c4aacb2e04ccf2}{phii}} (\mbox{\hyperlink{inputs_8hh_a32aeb489fe60daf980d7532c1b5fc98f}{phii\+\_\+data}})
+\item 
+Matrix$<$ std\+::complex$<$ double $>$, 18, 1 $>$ \mbox{\hyperlink{inputs_8hh_a1bf4712522738023e7df0e4fe245fa67}{phii2}} (\mbox{\hyperlink{inputs_8hh_a2889417c44c4fccaf3af08c507943cad}{phii\+\_\+data2}})
+\item 
+Matrix$<$ std\+::complex$<$ double $>$, 14, 18 $>$ \mbox{\hyperlink{inputs_8hh_adb5d81b18f23f310e2210ea9fec0adbc}{initsols2}} (\mbox{\hyperlink{inputs_8hh_a84403bb3572758297baa0aa67324fccb}{initsols\+\_\+data2}})
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 const double \mbox{\hyperlink{inputs_8hh_afb79babe6cad9239e004d1a2c5f608eb}{legvals\+\_\+data}} \mbox{[}$\,$\mbox{]}
+\item 
+const double \mbox{\hyperlink{inputs_8hh_a3a2e413c0ac246eb1d759ff01666345f}{initsols\+\_\+data}} \mbox{[}$\,$\mbox{]}
+\item 
+const double \mbox{\hyperlink{inputs_8hh_a32aeb489fe60daf980d7532c1b5fc98f}{phii\+\_\+data}} \mbox{[}$\,$\mbox{]}
+\item 
+const std\+::complex$<$ double $>$ \mbox{\hyperlink{inputs_8hh_a2889417c44c4fccaf3af08c507943cad}{phii\+\_\+data2}} \mbox{[}$\,$\mbox{]}
+\item 
+const std\+::complex$<$ double $>$ \mbox{\hyperlink{inputs_8hh_a84403bb3572758297baa0aa67324fccb}{initsols\+\_\+data2}} \mbox{[}$\,$\mbox{]}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{inputs_8hh_ab6ab96c4f1838b8bdb8fbcb980333138}\label{inputs_8hh_ab6ab96c4f1838b8bdb8fbcb980333138}} 
-\index{inputs.hh@{inputs.hh}!etaext@{etaext}}
-\index{etaext@{etaext}!inputs.hh@{inputs.hh}}
-\doxysubsubsection{\texorpdfstring{etaext()}{etaext()}}
-{\footnotesize\ttfamily Vector\+Xcd etaext (\begin{DoxyParamCaption}\item[{Vector\+Xcd}]{q }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{inputs_8hh_a5c845d4148f6176940ec2460f4254e11}\label{inputs_8hh_a5c845d4148f6176940ec2460f4254e11}} 
+\index{inputs.hh@{inputs.hh}!initsols@{initsols}}
+\index{initsols@{initsols}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{initsols()}{initsols()}}
+{\footnotesize\ttfamily Matrix$<$double, 8, 18$>$ initsols (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inputs_8hh_a3a2e413c0ac246eb1d759ff01666345f}{initsols\+\_\+data}}}]{ }\end{DoxyParamCaption})}
 
-The funcion etaext is the set of constraint equations of an S\+R\+S\+PM formulated in the extended configuration space of the manipulator. This is for the example problem demosntrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily S\+R\+S\+P\+M\+\_\+root\+\_\+tracking.\+nb}.
+\mbox{\Hypertarget{inputs_8hh_adb5d81b18f23f310e2210ea9fec0adbc}\label{inputs_8hh_adb5d81b18f23f310e2210ea9fec0adbc}} 
+\index{inputs.hh@{inputs.hh}!initsols2@{initsols2}}
+\index{initsols2@{initsols2}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{initsols2()}{initsols2()}}
+{\footnotesize\ttfamily Matrix$<$std\+::complex$<$double$>$, 14, 18$>$ initsols2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inputs_8hh_a84403bb3572758297baa0aa67324fccb}{initsols\+\_\+data2}}}]{ }\end{DoxyParamCaption})}
 
-
-\begin{DoxyParams}{Parameters}
-{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{inputs_8hh_ade0dd58ec0019ed726f3642fdd674c47}\label{inputs_8hh_ade0dd58ec0019ed726f3642fdd674c47}} 
-\index{inputs.hh@{inputs.hh}!Jetaextphi@{Jetaextphi}}
-\index{Jetaextphi@{Jetaextphi}!inputs.hh@{inputs.hh}}
-\doxysubsubsection{\texorpdfstring{Jetaextphi()}{Jetaextphi()}}
-{\footnotesize\ttfamily Matrix\+Xcd Jetaextphi (\begin{DoxyParamCaption}\item[{Vector\+Xcd}]{q }\end{DoxyParamCaption})}
-
-The funcion Jetaextphi is the constraint Jacobian matrix of an S\+R\+S\+PM formulated in the extended configuration space of the manipulator. This is for the example problem demonstrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily S\+R\+S\+P\+M\+\_\+root\+\_\+tracking.\+nb}.
-
-
-\begin{DoxyParams}{Parameters}
-{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{inputs_8hh_abb54cf24560be05deaf2d5069966b50a}\label{inputs_8hh_abb54cf24560be05deaf2d5069966b50a}} 
-\index{inputs.hh@{inputs.hh}!Jetaexttheta@{Jetaexttheta}}
-\index{Jetaexttheta@{Jetaexttheta}!inputs.hh@{inputs.hh}}
-\doxysubsubsection{\texorpdfstring{Jetaexttheta()}{Jetaexttheta()}}
-{\footnotesize\ttfamily Matrix\+Xcd Jetaexttheta (\begin{DoxyParamCaption}\item[{Vector\+Xcd}]{q }\end{DoxyParamCaption})}
-
-The funcion Jetaexttheta is the Jacobian matrix of an S\+R\+S\+PM formulated in the extended configuration space of the manipulator. This is for the example problem demonstrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily S\+R\+S\+P\+M\+\_\+root\+\_\+tracking.\+nb}.
-
-
-\begin{DoxyParams}{Parameters}
-{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{inputs_8hh_a92331060d01e36c02f47859b92ee964f}\label{inputs_8hh_a92331060d01e36c02f47859b92ee964f}} 
 \index{inputs.hh@{inputs.hh}!legvals@{legvals}}
 \index{legvals@{legvals}!inputs.hh@{inputs.hh}}
 \doxysubsubsection{\texorpdfstring{legvals()}{legvals()}}
 {\footnotesize\ttfamily Matrix$<$double, 51, 6$>$ legvals (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inputs_8hh_afb79babe6cad9239e004d1a2c5f608eb}{legvals\+\_\+data}}}]{ }\end{DoxyParamCaption})}
 
-Leg values corresponding to the path to be tracked in the task-\/space typecasted into a matrix 
+Leg values corresponding to the path to be tracked in the task-\/space typecasted into a matrix \mbox{\Hypertarget{inputs_8hh_a6582b94ac3f1656dc0c4aacb2e04ccf2}\label{inputs_8hh_a6582b94ac3f1656dc0c4aacb2e04ccf2}} 
+\index{inputs.hh@{inputs.hh}!phii@{phii}}
+\index{phii@{phii}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{phii()}{phii()}}
+{\footnotesize\ttfamily Matrix$<$double, 18, 1$>$ phii (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inputs_8hh_a32aeb489fe60daf980d7532c1b5fc98f}{phii\+\_\+data}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{inputs_8hh_a1bf4712522738023e7df0e4fe245fa67}\label{inputs_8hh_a1bf4712522738023e7df0e4fe245fa67}} 
+\index{inputs.hh@{inputs.hh}!phii2@{phii2}}
+\index{phii2@{phii2}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{phii2()}{phii2()}}
+{\footnotesize\ttfamily Matrix$<$std\+::complex$<$double$>$, 18, 1$>$ phii2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inputs_8hh_a2889417c44c4fccaf3af08c507943cad}{phii\+\_\+data2}}}]{ }\end{DoxyParamCaption})}
+
+
 
 \doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{inputs_8hh_a3a2e413c0ac246eb1d759ff01666345f}\label{inputs_8hh_a3a2e413c0ac246eb1d759ff01666345f}} 
+\index{inputs.hh@{inputs.hh}!initsols\_data@{initsols\_data}}
+\index{initsols\_data@{initsols\_data}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{initsols\_data}{initsols\_data}}
+{\footnotesize\ttfamily const double initsols\+\_\+data\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{0.218338, 0.2, -\/0.513695, 0.524434, 0.2, -\/0.513695, 0.218338, }
+\DoxyCodeLine{0.524434, -\/0.790621, 0, -\/0.519996, 0.268509, 0, -\/0.519996, -\/0.790621, }
+\DoxyCodeLine{0.268509, 0.724086, 1.28, -\/0.798723, 1.0308, -\/1.28, 0.798723, }
+\DoxyCodeLine{-\/0.724086, -\/1.0308, -\/0.715499, 0.2, -\/0.333759, 0.603749, -\/0.2, }
+\DoxyCodeLine{0.333759, 0.715499, -\/0.603749, -\/0.645258, 0, -\/0.951699, -\/0.188561, 0, }
+\DoxyCodeLine{0.951699, 0.645258, 0.188561, 0, 0, 0, 0, 0, 0, 0, 0, -\/0.112247, }
+\DoxyCodeLine{0.00305624, -\/1.88547, 0.192004, 3.13854, -\/1.25612, -\/3.02935, 2.94959, }
+\DoxyCodeLine{0.745313, -\/0.0668855, -\/2.65366, 0.0889258, -\/3.07471, -\/0.487928, }
+\DoxyCodeLine{2.39628, 3.05267, 1.42996, 0.456963, 2.78228, 0.682842, 2.68463, }
+\DoxyCodeLine{0.359309, 1.71163, 2.45875, 0.830045, 0.546956, 2.89251, 1.07125, }
+\DoxyCodeLine{2.59464, 0.249078, 2.31155, 2.07034, -\/0.28684, -\/0.0946901, -\/2.20522, }
+\DoxyCodeLine{0.558764, -\/3.0469, -\/0.93637, -\/2.85475, 2.58283, -\/0.247355, }
+\DoxyCodeLine{0.00349011, -\/1.74294, 0.329797, 3.1381, -\/1.39865, -\/2.89424, 2.8118, }
+\DoxyCodeLine{0.876191, 0.336276, 0.61606, 0.275819, 0.336276, 0.61606, 0.876191, }
+\DoxyCodeLine{0.275819, 1.35618, 0.286891, 0.697469, 0.269746, 0.286891, 0.697469, }
+\DoxyCodeLine{1.35618, 0.269746, 0.805412, -\/0.0210274, 0.419763, -\/0.139217, }
+\DoxyCodeLine{-\/0.0210274, 0.419763, 0.805412, -\/0.139217, 0.719639, 0.0247844, }
+\DoxyCodeLine{0.5377, -\/0.356444, 0.0247844, 0.5377, 0.719639, -\/0.356444, 0.106613, }
+\DoxyCodeLine{-\/0.395383, 0.0705025, -\/1.01698, -\/0.395383, 0.0705025, 0.106613, }
+\DoxyCodeLine{-\/1.01698, -\/0.0339125, -\/0.379795, -\/0.103948, -\/0.62811, -\/0.379795, }
+\DoxyCodeLine{-\/0.103948, -\/0.0339125, -\/0.62811, 1.44582, 1.44582, 1.44582, 1.44582, }
+\DoxyCodeLine{1.44582, 1.44582, 1.44582, 1.44582, 1.56868, 1.56868, 1.56868, }
+\DoxyCodeLine{1.56868, 1.56868, 1.56868, 1.56868, 1.56868, 1.57865, 1.57865, }
+\DoxyCodeLine{1.57865, 1.57865, 1.57865, 1.57865, 1.57865, 1.57865, 1.33939, }
+\DoxyCodeLine{1.33939, 1.33939, 1.33939, 1.33939, 1.33939, 1.33939, 1.33939, }
+\DoxyCodeLine{1.15248, 1.15248, 1.15248, 1.15248, 1.15248, 1.15248, 1.15248, }
+\DoxyCodeLine{1.15248, 1.28688, 1.28688, 1.28688, 1.28688, 1.28688, 1.28688, }
+\DoxyCodeLine{1.28688, 1.28688\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{inputs_8hh_a84403bb3572758297baa0aa67324fccb}\label{inputs_8hh_a84403bb3572758297baa0aa67324fccb}} 
+\index{inputs.hh@{inputs.hh}!initsols\_data2@{initsols\_data2}}
+\index{initsols\_data2@{initsols\_data2}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{initsols\_data2}{initsols\_data2}}
+{\footnotesize\ttfamily const std\+::complex$<$double$>$ initsols\+\_\+data2\mbox{[}$\,$\mbox{]}}
+
 \mbox{\Hypertarget{inputs_8hh_afb79babe6cad9239e004d1a2c5f608eb}\label{inputs_8hh_afb79babe6cad9239e004d1a2c5f608eb}} 
 \index{inputs.hh@{inputs.hh}!legvals\_data@{legvals\_data}}
 \index{legvals\_data@{legvals\_data}!inputs.hh@{inputs.hh}}
 \doxysubsubsection{\texorpdfstring{legvals\_data}{legvals\_data}}
 {\footnotesize\ttfamily const double legvals\+\_\+data\mbox{[}$\,$\mbox{]}}
 
-An array of leg values corresponding to the path to be tracked in the task-\/space 
+An array of leg values corresponding to the path to be tracked in the task-\/space \mbox{\Hypertarget{inputs_8hh_a32aeb489fe60daf980d7532c1b5fc98f}\label{inputs_8hh_a32aeb489fe60daf980d7532c1b5fc98f}} 
+\index{inputs.hh@{inputs.hh}!phii\_data@{phii\_data}}
+\index{phii\_data@{phii\_data}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{phii\_data}{phii\_data}}
+{\footnotesize\ttfamily const double phii\+\_\+data\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  0.2,0,1.28,0.2,0,0,}
+\DoxyCodeLine{   0.003056244705087313,-\/0.06688548576654774,0.45696277640159066,0.5469562635040984,}
+\DoxyCodeLine{   -\/0.09469005512919006,0.0034901115067618653,0.3362762851850709,0.2868906143657115,}
+\DoxyCodeLine{   -\/0.021027360477035077,0.024784412575612605,-\/0.3953833637520812,-\/0.37979521343323663}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{inputs_8hh_a2889417c44c4fccaf3af08c507943cad}\label{inputs_8hh_a2889417c44c4fccaf3af08c507943cad}} 
+\index{inputs.hh@{inputs.hh}!phii\_data2@{phii\_data2}}
+\index{phii\_data2@{phii\_data2}!inputs.hh@{inputs.hh}}
+\doxysubsubsection{\texorpdfstring{phii\_data2}{phii\_data2}}
+{\footnotesize\ttfamily const std\+::complex$<$double$>$ phii\+\_\+data2\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  std::complex<double>(1.8700438348728161,0),std::complex<double>(-\/0.5235870043873335,0),std::complex<double>(0.,-\/0.926898973258719),std::complex<double>(0.,-\/0.10569096861540776),}
+\DoxyCodeLine{     std::complex<double>(0.,0.7154784037290103),0,std::complex<double>(1.5707963267948966,1.5262959577414468),}
+\DoxyCodeLine{     std::complex<double>(1.5707963267948966,0.6913993396133373),std::complex<double>(1.5707963267948966,-\/0.1997919002830573),}
+\DoxyCodeLine{     std::complex<double>(1.5707963267948966,-\/0.5230490884925065),std::complex<double>(1.5707963267948966,0.37718441615032156),}
+\DoxyCodeLine{     std::complex<double>(1.5707963267948966,1.3985097660833001),std::complex<double>(0.5889695511742916,-\/1.7974114210661284e-\/16),}
+\DoxyCodeLine{     std::complex<double>(0.6273584382908439,-\/9.456869853007833e-\/17),std::complex<double>(0.3845316700324741,8.803289786100487e-\/17),}
+\DoxyCodeLine{     std::complex<double>(0.5910427650086764,-\/9.488696919310518e-\/17),std::complex<double>(0.1527945222318842,-\/1.6367096645383268e-\/17),}
+\DoxyCodeLine{     std::complex<double>(-\/0.07498723590723597,2.5098272394581245e-\/17)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
