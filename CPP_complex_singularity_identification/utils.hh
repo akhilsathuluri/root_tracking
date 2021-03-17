@@ -126,19 +126,12 @@ Can handle only real roots for now.
 */
 
 VectorXd computeDist(MatrixXd allroots, int selectedroot, int qx=1){
-  // std::cout << "Input selected root " << selectedroot << '\n';
-  // std::cout << "allroots 3 to computeDist " << allroots.row(3) << '\n';
   VectorXd dist((allroots.rows()));
-  // int j = 0;
   for (size_t i = 0; i < allroots.rows(); i++) {
-    // if (i!=selectedroot) {
       if (qx == 1) {
         dist(i) = (((allroots.row(selectedroot)).head(6)) - ((allroots.row(i)).head(6))).norm();
-        // j++;
       }
-    // }
   }
-  // std::cout << "dist computed in computeDist " << dist << '\n';
   return dist;
 }
 
@@ -162,30 +155,6 @@ VectorXd findExtrapCoeffs(VectorXd xlist, VectorXd ylist, int degree = 2){
   }
   return coeff;
 }
-
-
-// // Taking this into the manipulator.hh file as it is relevant to the manipulator
-// // and its path.
-//
-// /*!
-// The computeXfromParam returns input values x from the path parametrisation.
-// Edit this function to suite the required path paramterisation and the mapping
-// between the parametrisation and the actual input values. In the case of an SRSPM,
-// we use the IK mapping to find the leg lengths from the task space parametrisation
-// */
-//
-// VectorXd computeXfromParam(double alpha){
-//   // The first example is for the SRSPM so using the parametrisation of the SRSPM path
-//   VectorXd qx(6), l(6);
-//   double scale = 0.2;
-//   qx << scale-alpha, alpha, 1.28-alpha, scale, 0, 0;
-//   std::cout << qx << '\n';
-//   // Now since the NRTracker needs the legvals for the simulation we use the
-//   // IKsolver to compute legvals from qx
-//   l = computeLvals(qx);
-//   return l;
-// }
-
 
 /*!
 The pushHist is an overloaded function to save the distance and alpha history

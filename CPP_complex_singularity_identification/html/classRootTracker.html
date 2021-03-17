@@ -89,8 +89,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa6467ae384a2333b03f7432da49513a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73c068967c8f4403f9a0ec1c703c2be8"><td class="memItemLeft" align="right" valign="top">VectorXcd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a73c068967c8f4403f9a0ec1c703c2be8">NNCTracker</a> (VectorXcd ys, MatrixXcd ysols, int index)</td></tr>
 <tr class="separator:a73c068967c8f4403f9a0ec1c703c2be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2c07af9e346c56dd0ea2f71f2a5dce6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#ac2c07af9e346c56dd0ea2f71f2a5dce6">SEI</a> (MatrixXd allroots, double alpha, int selectedroot, std::function&lt; VectorXd(double)&gt; <a class="el" href="utils_8hh.html#a617dcde540c04aa64274710efb425bb7">computeXfromParam</a>, Ref&lt; VectorXd &gt; alphahist, Ref&lt; MatrixXd &gt; disthist, std::function&lt; VectorXd(VectorXd)&gt; f, std::function&lt; MatrixXd(VectorXd)&gt; Jfy)</td></tr>
-<tr class="separator:ac2c07af9e346c56dd0ea2f71f2a5dce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b24fe40d4f662b984311365ffd07aa2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootTracker.html#a9b24fe40d4f662b984311365ffd07aa2">SEI</a> (MatrixXd allroots, double alpha, int selectedroot, std::function&lt; VectorXd(double)&gt; <a class="el" href="manipulator_8hh.html#a617dcde540c04aa64274710efb425bb7">computeXfromParam</a>, Ref&lt; VectorXd &gt; alphahist, Ref&lt; MatrixXd &gt; disthist, std::function&lt; VectorXd(VectorXd)&gt; f, std::function&lt; MatrixXd(VectorXd)&gt; Jfy, std::function&lt; VectorXd(double)&gt; <a class="el" href="manipulator_8hh.html#a1c6194cffda1938f04d3178b7f4b3f1a">computeqExtfromParam</a>)</td></tr>
+<tr class="separator:a9b24fe40d4f662b984311365ffd07aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classRootTracker.html">RootTracker</a> class consists of implementations of the following:</p><ul>
@@ -235,22 +235,6 @@ Public Member Functions</h2></td></tr>
 <p class="interdd">This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. </p>
 <p class="enddd">The same scheme estimating dx as xnext-x is unstable </p>
 </dd></dl>
-<p>The DMTracker uses the Davindenkos' integration method to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. The problem of tracking is solved as an initial value problem using the first order derivative form of the constraint equations. This function accepts functions as arguments using the <code>C++11</code> style functional library. This method by default uses the Explicit Euler integration scheme and is the only supported scheme currently. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">xprev</td><td>The set of input/known variables at the previous tracking step </td></tr>
-    <tr><td class="paramname">x</td><td>The set of input/known variables at the current tracking step </td></tr>
-    <tr><td class="paramname">y</td><td>The set of output/unknown variables at current step </td></tr>
-    <tr><td class="paramname">Jfx</td><td>The expression of the Jacobian matrix of f with respect to x, the known variables. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of Jfx </td></tr>
-    <tr><td class="paramname">Jfy</td><td>The expression of the Jacobian matrix of f with respect to y, the unknown variables. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of Jfy. </td></tr>
-    <tr><td class="paramname">eps</td><td>The tolerance of <code>drift</code> to which the computed solutions are to satisfy the non-linear equations. If the drift exceeds the given tolerance, a Newton-Raphson (NR) step is used to bring the variables back to the constraint manifold. The default value of <code>eps</code> is set to 0, meaning the NR step correction is <code>off</code> by default. </td></tr>
-    <tr><td class="paramname">f</td><td>The set of expressions of the non-linear functions relating x, y. This parameter is only required if <code>eps</code> is defined. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd><p class="startdd">Provide support for different integration methods </p>
-<p class="interdd">This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. </p>
-<p class="enddd">The same scheme estimating dx as xnext-x is unstable </p>
-</dd></dl>
 
 </div>
 </div>
@@ -269,7 +253,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The methods function can be called to view names of all the implemented root tracking methods. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Give provision for an FK solver along with root trackers to use when trackers fail. </dd></dl>
-<p>The methods function can be called to view names of all the implemented root tracking methods. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Give provision for an FK solver along with root trackers to use when trackers fail. </dd></dl>
 
 </div>
 </div>
@@ -352,19 +335,6 @@ Public Member Functions</h2></td></tr>
 <p class="interdd">Treating the Rodriques parameters as locally belonging to R. </p>
 <p class="enddd">Add assertions for cols of ys and ysols to be same. </p>
 </dd></dl>
-<p>The NNTracker uses the nearest neighbour method to identify the roots belonging to a required branch. The output is the selected root at each tracking step. This method assumes the existance of a solver method, <code>Solve</code>, which computes all the roots for given input variables, <code>x</code>. The function expects the solutions to be ordered with all the reals together and the variables belonging to S1 together.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ys</td><td>The initiation of the known root of the required branch </td></tr>
-    <tr><td class="paramname">ysols</td><td>All the solutions obtained by the <code>Solve</code> method used </td></tr>
-    <tr><td class="paramname">index</td><td>The index upto which the reals are present.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd><p class="startdd">The method currently deals only with variables belonging to R and S1. </p>
-<p class="interdd">Treating the Rodriques parameters as locally belonging to R. </p>
-<p class="enddd">Add assertions for cols of ys and ysols to be same. </p>
-</dd></dl>
 
 </div>
 </div>
@@ -412,10 +382,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The NRCTracker uses the Newton-Raphson method iteratively to find the solutions satisfied by the constrain equations. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd><p class="startdd">Write overloaded function for saveDate </p>
-<p class="interdd">Write overloaded function for eta and J </p>
-<p class="enddd">Make the tracker itself overloaded </p>
-</dd></dl>
-<p>The NRCTracker uses the Newton-Raphson method iteratively to find the solutions satisfied by the constrain equations. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd><p class="startdd">Write overloaded function for saveDate </p>
 <p class="interdd">Write overloaded function for eta and J </p>
 <p class="enddd">Make the tracker itself overloaded </p>
 </dd></dl>
@@ -479,25 +445,11 @@ Public Member Functions</h2></td></tr>
 <p class="interdd">fval returning nan is not being handled in the while loop </p>
 <p class="enddd">Input argument format and other relevant checks </p>
 </dd></dl>
-<p>The NRTracker uses the Newton-Raphson method iteratively to find the solutions satisfied by the constrain equations. The output is the values of the unknown variables at each tracking step. This function accepts functions as arguments using the <code>C++11</code> style functional library. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>The set of input/known variables at current tracking step </td></tr>
-    <tr><td class="paramname">y</td><td>The set of output/unknown variables at current step </td></tr>
-    <tr><td class="paramname">f</td><td>The set of expressions of the non-linear functions relating x, y. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of f. </td></tr>
-    <tr><td class="paramname">Jfy</td><td>The expression of the Jacobian matrix of f with respect to y, the unknown variables. Takes in a single argument of type <code>VectorXd</code> consisting y, x and outputs the evaluation of Jfy. </td></tr>
-    <tr><td class="paramname">eps</td><td>The required tolerance to which the computed solutions are to satisfy the non-linear equations. Default value is set to 10^-10 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd><p class="startdd">Decide to return q or y in the NRTracker method </p>
-<p class="interdd">fval returning nan is not being handled in the while loop </p>
-<p class="enddd">Input argument format and other relevant checks </p>
-</dd></dl>
 
 </div>
 </div>
-<a id="ac2c07af9e346c56dd0ea2f71f2a5dce6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2c07af9e346c56dd0ea2f71f2a5dce6">&#9670;&nbsp;</a></span>SEI()</h2>
+<a id="a9b24fe40d4f662b984311365ffd07aa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b24fe40d4f662b984311365ffd07aa2">&#9670;&nbsp;</a></span>SEI()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -548,7 +500,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::function&lt; MatrixXd(VectorXd)&gt;&#160;</td>
-          <td class="paramname"><em>Jfy</em>&#160;</td>
+          <td class="paramname"><em>Jfy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; VectorXd(double)&gt;&#160;</td>
+          <td class="paramname"><em>computeqExtfromParam</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -557,6 +515,25 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The SEI uses the distance between different branches of the solutions to identify and estimate the singular configuration of the given set of non-linear equations. Further, it uses a quadratic extrapolation scheme to estimate the singular configuration. This function needs the computation of all the roots (currently handles only real roots).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">allroots</td><td>Solutions of all the branches of the non-linear equations </td></tr>
+    <tr><td class="paramname">alpha</td><td>Parameter value </td></tr>
+    <tr><td class="paramname">selectedroot</td><td>The index of the selected branch (Use index starting with 1) </td></tr>
+    <tr><td class="paramname">computeXfromParam</td><td>Compute the values of the input variables based on the path parametrisation </td></tr>
+    <tr><td class="paramname">alphahist</td><td>Input vector (global to main) to store history of alphas for estimating the singular configuration </td></tr>
+    <tr><td class="paramname">disthist</td><td>Input vector (global to main) to store history of distances for estimating the singular configuration </td></tr>
+    <tr><td class="paramname">f</td><td>Set of non-linear equations </td></tr>
+    <tr><td class="paramname">Jft</td><td>Jacobian matrix of the set of equations </td></tr>
+    <tr><td class="paramname">computeqExtfromParam</td><td>Function which produces the extended configuration values given the path parameter</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd><p class="startdd">Optionally Bertini can be used to compute all the roots. Note that the method is limited to single parameter paths. </p>
+<p class="interdd">Check the alpha selection with Aditya </p>
+<p class="enddd">Assumes a quadratic interpolation, but can be made to accept an nth degree polynomial </p>
+</dd></dl>
 
 </div>
 </div>
@@ -604,7 +581,6 @@ Public Member Functions</h2></td></tr>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="root__tracker_8hh_source.html">root_tracker.hh</a></li>
 <li><a class="el" href="root__tracker_8cc.html">root_tracker.cc</a></li>
-<li><a class="el" href="root__tracker__backup_8cc.html">root_tracker_backup.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

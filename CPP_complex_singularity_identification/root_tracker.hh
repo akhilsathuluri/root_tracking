@@ -41,10 +41,12 @@ public:
    std::function<MatrixXcd (VectorXcd)> Jfy, double eps = 0, std::function<VectorXcd (VectorXcd)> f = NULL);
   VectorXcd NNCTracker(VectorXcd ys, MatrixXcd ysols, int index);
 
-  int SEI(MatrixXd allroots, double alpha, int selectedroot, std::function<VectorXd (double)> computeXfromParam, Ref<VectorXd> alphahist, Ref<MatrixXd> disthist, \
-     std::function<VectorXd (VectorXd)> f, std::function<MatrixXd (VectorXd)> Jfy);
+  int SEI(MatrixXd allroots, double alpha, int selectedroot, \
+    std::function<VectorXd (double)> computeXfromParam, Ref<VectorXd> alphahist, \
+    Ref<MatrixXd> disthist, std::function<VectorXd (VectorXd)> f, \
+    std::function<MatrixXd (VectorXd)> Jfy, std::function<VectorXd (double)> computeqExtfromParam);
 
 };
 
 // #endif RootTracker_H
-#endif 
+#endif

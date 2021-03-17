@@ -1,7 +1,7 @@
 
 \begin{DoxyRefList}
-\item[Member \mbox{\hyperlink{utils_8hh_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}{linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)]\label{todo__todo000015}%
-\Hypertarget{todo__todo000015}%
+\item[Member \mbox{\hyperlink{utils_8hh_a7ed506e6d7b8ba153e1b8b24a7b6e5c4}{linear\+Solve}} (Matrix\+Xd Amat, Vector\+Xd bvec)]\label{todo__todo000009}%
+\Hypertarget{todo__todo000009}%
 Add assertions for square matrix verification and verification of sizes of A and b  
 \item[Class \mbox{\hyperlink{classRootTracker}{Root\+Tracker}} ]\label{todo__todo000007}%
 \Hypertarget{todo__todo000007}%
@@ -20,32 +20,12 @@ Provide support for different integration methods
 
 This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. 
 
-The same scheme estimating dx as xnext-\/x is unstable 
-
-\label{todo__todo000012}%
-\Hypertarget{todo__todo000012}%
-Provide support for different integration methods 
-
-This isnt working. Implement it using prevtheta like in Mathematica rather than using xnext. That should fix it. 
-
 The same scheme estimating dx as xnext-\/x is unstable  
 \item[Member \mbox{\hyperlink{classRootTracker_a0d29be3a24392b6a864b8e471f23db6c}{Root\+Tracker\+::Methods}} ()]\label{todo__todo000001}%
 \Hypertarget{todo__todo000001}%
-Give provision for an FK solver along with root trackers to use when trackers fail. 
-
-\label{todo__todo000009}%
-\Hypertarget{todo__todo000009}%
 Give provision for an FK solver along with root trackers to use when trackers fail.  
 \item[Member \mbox{\hyperlink{classRootTracker_ae13e787a2ef083592f5c8d07ac4d08bc}{Root\+Tracker\+::NNTracker}} (Vector\+Xd ys, Matrix\+Xd ysols, int index)]\label{todo__todo000005}%
 \Hypertarget{todo__todo000005}%
-The method currently deals only with variables belonging to R and S1. 
-
-Treating the Rodriques parameters as locally belonging to R. 
-
-Add assertions for cols of ys and ysols to be same. 
-
-\label{todo__todo000013}%
-\Hypertarget{todo__todo000013}%
 The method currently deals only with variables belonging to R and S1. 
 
 Treating the Rodriques parameters as locally belonging to R. 
@@ -57,14 +37,6 @@ Write overloaded function for save\+Date
 
 Write overloaded function for eta and J 
 
-Make the tracker itself overloaded 
-
-\label{todo__todo000011}%
-\Hypertarget{todo__todo000011}%
-Write overloaded function for save\+Date 
-
-Write overloaded function for eta and J 
-
 Make the tracker itself overloaded  
 \item[Member \mbox{\hyperlink{classRootTracker_a6bb3dcb73ea58ac44ab15d7803de3d5a}{Root\+Tracker\+::NRTracker}} (Vector\+Xd x, Vector\+Xd y, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, double eps=pow(10, -\/10))]\label{todo__todo000002}%
 \Hypertarget{todo__todo000002}%
@@ -72,26 +44,20 @@ Decide to return q or y in the NRTracker method
 
 fval returning nan is not being handled in the while loop 
 
-Input argument format and other relevant checks 
-
-\label{todo__todo000010}%
-\Hypertarget{todo__todo000010}%
-Decide to return q or y in the NRTracker method 
-
-fval returning nan is not being handled in the while loop 
-
 Input argument format and other relevant checks  
-\item[Member \mbox{\hyperlink{utils_8hh_a5d8b5ec8d7d9f33e2b89dbd54a9dfbd6}{s1\+CDist}} (Vector\+Xcd theta1, Vector\+Xcd theta2)]\label{todo__todo000017}%
-\Hypertarget{todo__todo000017}%
+\item[Member \mbox{\hyperlink{classRootTracker_a9b24fe40d4f662b984311365ffd07aa2}{Root\+Tracker\+::SEI}} (Matrix\+Xd allroots, double alpha, int selectedroot, std\+::function$<$ Vector\+Xd(double)$>$ compute\+Xfrom\+Param, Ref$<$ Vector\+Xd $>$ alphahist, Ref$<$ Matrix\+Xd $>$ disthist, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy, std\+::function$<$ Vector\+Xd(double)$>$ computeq\+Extfrom\+Param)]\label{todo__todo000006}%
+\Hypertarget{todo__todo000006}%
+Optionally Bertini can be used to compute all the roots. Note that the method is limited to single parameter paths. 
+
+Check the alpha selection with Aditya 
+
+Assumes a quadratic interpolation, but can be made to accept an nth degree polynomial  
+\item[Member \mbox{\hyperlink{utils_8hh_a5d8b5ec8d7d9f33e2b89dbd54a9dfbd6}{s1\+CDist}} (Vector\+Xcd theta1, Vector\+Xcd theta2)]\label{todo__todo000011}%
+\Hypertarget{todo__todo000011}%
 Inrtoduce a complex modulo operator  
-\item[Member \mbox{\hyperlink{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}{s1\+Dist}} (Vector\+Xd theta1, Vector\+Xd theta2)]\label{todo__todo000016}%
-\Hypertarget{todo__todo000016}%
+\item[Member \mbox{\hyperlink{utils_8hh_aa55cfeada673b3ce1ce1e504925e117c}{s1\+Dist}} (Vector\+Xd theta1, Vector\+Xd theta2)]\label{todo__todo000010}%
+\Hypertarget{todo__todo000010}%
 Can do more effecient computation if the angles mapping is saved in the memory 
 
-Assert sizes of theta1 and theta2 to be same  
-\item[Member \mbox{\hyperlink{root__tracker_8cc_a42a0ca2bc65ca9d6f2c126d8bb319d49}{SEI}} (Matrix\+Xd allroots, double alpha, int selectedroot, std\+::function$<$ Vector\+Xd(double)$>$ compute\+Xfrom\+Param, Ref$<$ Vector\+Xd $>$ alphahist, Ref$<$ Matrix\+Xd $>$ disthist, std\+::function$<$ Vector\+Xd(\+Vector\+Xd)$>$ f, std\+::function$<$ Matrix\+Xd(\+Vector\+Xd)$>$ Jfy)]\label{todo__todo000006}%
-\Hypertarget{todo__todo000006}%
-Integrate Bertini to find all the roots 
-
-Need a way to eliminate the declaration of a global Vector\+Xd for dist and alpha 
+Assert sizes of theta1 and theta2 to be same 
 \end{DoxyRefList}

@@ -2,8 +2,7 @@
 \label{manipulator_8hh}\index{manipulator.hh@{manipulator.hh}}
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
-Include dependency graph for manipulator.\+hh\+:
-\nopagebreak
+Include dependency graph for manipulator.\+hh\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +14,7 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{manipulator_8hh__dep__incl}
+\includegraphics[width=196pt]{manipulator_8hh__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Functions}
@@ -35,7 +34,11 @@ Matrix\+Xcd \mbox{\hyperlink{manipulator_8hh_a0f40e0da78136d904474bcae11bb2404}{
 \item 
 Vector\+Xd \mbox{\hyperlink{manipulator_8hh_a2353ef7d96e45b69f88c64c5a19da404}{compute\+Lvals}} (Vector\+Xd qx)
 \item 
+Vector\+Xd \mbox{\hyperlink{manipulator_8hh_a617dcde540c04aa64274710efb425bb7}{compute\+Xfrom\+Param}} (double alpha)
+\item 
 Vector\+Xd \mbox{\hyperlink{manipulator_8hh_aa9d66b35b25a88cfcc7106892a162628}{compute\+IK}} (Vector\+Xd qx)
+\item 
+Vector\+Xd \mbox{\hyperlink{manipulator_8hh_a1c6194cffda1938f04d3178b7f4b3f1a}{computeq\+Extfrom\+Param}} (double alpha)
 \end{DoxyCompactItemize}
 
 
@@ -52,7 +55,19 @@ Vector\+Xd \mbox{\hyperlink{manipulator_8hh_aa9d66b35b25a88cfcc7106892a162628}{c
 \doxysubsubsection{\texorpdfstring{computeLvals()}{computeLvals()}}
 {\footnotesize\ttfamily Vector\+Xd compute\+Lvals (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{qx }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{manipulator_8hh_a2a996dfcd9a8b885a0aa4fb7b9b082c5}\label{manipulator_8hh_a2a996dfcd9a8b885a0aa4fb7b9b082c5}} 
+\mbox{\Hypertarget{manipulator_8hh_a1c6194cffda1938f04d3178b7f4b3f1a}\label{manipulator_8hh_a1c6194cffda1938f04d3178b7f4b3f1a}} 
+\index{manipulator.hh@{manipulator.hh}!computeqExtfromParam@{computeqExtfromParam}}
+\index{computeqExtfromParam@{computeqExtfromParam}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{computeqExtfromParam()}{computeqExtfromParam()}}
+{\footnotesize\ttfamily Vector\+Xd computeq\+Extfrom\+Param (\begin{DoxyParamCaption}\item[{double}]{alpha }\end{DoxyParamCaption})}
+
+The computeq\+Extfrom\+Param returns the extended space coordinates for the given configuration \mbox{\Hypertarget{manipulator_8hh_a617dcde540c04aa64274710efb425bb7}\label{manipulator_8hh_a617dcde540c04aa64274710efb425bb7}} 
+\index{manipulator.hh@{manipulator.hh}!computeXfromParam@{computeXfromParam}}
+\index{computeXfromParam@{computeXfromParam}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{computeXfromParam()}{computeXfromParam()}}
+{\footnotesize\ttfamily Vector\+Xd compute\+Xfrom\+Param (\begin{DoxyParamCaption}\item[{double}]{alpha }\end{DoxyParamCaption})}
+
+The compute\+Xfrom\+Param returns input values x from the path parametrisation. Edit this function to suite the required path paramterisation and the mapping between the parametrisation and the actual input values. In the case of an SRSPM, we use the IK mapping to find the leg lengths from the task space parametrisation \mbox{\Hypertarget{manipulator_8hh_a2a996dfcd9a8b885a0aa4fb7b9b082c5}\label{manipulator_8hh_a2a996dfcd9a8b885a0aa4fb7b9b082c5}} 
 \index{manipulator.hh@{manipulator.hh}!etaext@{etaext}}
 \index{etaext@{etaext}!manipulator.hh@{manipulator.hh}}
 \doxysubsubsection{\texorpdfstring{etaext()}{etaext()}}

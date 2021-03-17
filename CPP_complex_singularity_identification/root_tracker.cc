@@ -270,112 +270,69 @@ MatrixXd RootTracker::trackAllBranches(VectorXd x, MatrixXd y, std::function<Vec
     return roots;
   }
 
+/*!
+The SEI uses the distance between different branches of the solutions to identify
+and estimate the singular configuration of the given set of non-linear equations.
+Further, it uses a quadratic extrapolation scheme to estimate the singular configuration.
+This function needs the computation of all the roots (currently handles only real roots).
 
-//   /*!
-// TODO: (text) The SingularityEventIdentifier uses a distance metric to identify when the
-// configuration approaches a singularity. Further, it uses a linear interpolation
-// to estimate the singular configuration.
-// This function needs the computation of all the roots, real or imaginary to be
-// provided. Optionally Bertini can be used to compute all the roots.
-//
-// 1. Find distance betwwen all the solutions
-// 2. Check one or more pairs are within the eps distance
-// 3. If yes, take 6 more steps or the size of the y steps into the future only for the corresponding solutions
-// 4. Fit a hyperplane to the points
-// 6. Solve the hyperplane from both the sides and find the singular location and inform the same
-//
-// For 1 we'll need to iteratively use the nearest neighbout method
-//
-// Needs the declaration of a global variable to store the history of
-//
-// @param ys The current root of the required branch
-// @param ysols All the roots at the instant
-// @param eps The distance tolerance after which the singularity event is triggered
-//
-// @todo Integrate Bertini to find all the roots
-// @todo Need a way to eliminate the declaration of a global VectorXd for dist and alpha
-// */
-// int RootTracker::SEI(MatrixXd allroots, double alpha, int selectedroot, \
-//   std::function<VectorXd (double)> computeXfromParam, Ref<VectorXd> alphahist, \
-//   Ref<MatrixXd> disthist, std::function<VectorXd (VectorXd)> f, \
-//   std::function<MatrixXd (VectorXd)> Jfy){
-//   // Convert branch number to solution index
-//   selectedroot = selectedroot-1;
-//   VectorXd x(6), dist(allroots.rows()), graddist(allroots.rows()), preddist(allroots.rows());
-//   MatrixXd currentroots(allroots.rows(), allroots.cols());
-//   currentroots = allroots;
-//   double stepsize;
-//   // std::cout << "Entered SEI successful" << '\n';
-//   assert(pushHist(alphahist, alpha) && "Pushing alpha to history unsuccessful");
-//   // std::cout << "Push alpha successful" << '\n';
-//   // Edit the required path parametrisation in the computeXfromParam function
-//   x = computeXfromParam(alpha);
-//   // std::cout << "x compute" << x << '\n';
-//   currentroots = RootTracker::trackAllBranches(x, currentroots, f, Jfy);
-//   // std::cout << "Tracking all branches successful" << '\n';
-//   // Compute the distance between the selected root and the rest
-//   // Returns the distance with itself too, size = nuber of branches
-//   dist = computeDist(currentroots, selectedroot);
-//   // std::cout << "Computing distance successful" << '\n';
-//   assert(pushHist(disthist, dist) && "Pushing alpha to history unsuccessful");
-//   // std::cout << "Push dist successful" << '\n';
-//   stepsize = (alphahist(0)-alphahist(1));
-//   graddist = (disthist.row(0)-disthist.row(1))/stepsize;
-//   preddist = ((disthist.row(0)).transpose())+graddist*stepsize;
-//   // std::cout << "Predstep successful" << '\n';
-//   // std::cout << "The corresponding dist is " << disthist.row(0) << '\n';
-//   for (size_t i = 0; i < preddist.size(); i++) {
-//     if (preddist(i) < 0 &&  i!= selectedroot){
-//       std::cout << "Approaching singularity. Branches " << selectedroot+1 << " and " << i+1 << " are going to merge!" << '\n';
-//       std::cout << "The corresponding alpha is " << alphahist(0) << '\n';
-//       // std::cout << "The corresponding dist is " << disthist.row(0) << '\n';
-//       // quad = findExtrapCoeffs(alpha, dist.col(i));
-//       // x = computealphasandxfromcoeff(quad);
-//       // std::cout << "The estimated singular configuration is "<< x << '\n';
-//       return 1;
-//     }
-//   }
-//   return 0;
-// }
+@param allroots Solutions of all the branches of the non-linear equations
+@param alpha Parameter value
+@param selectedroot The index of the selected branch (Use index starting with 1)
+@param computeXfromParam Compute the values of the input variables based on
+the path parametrisation
+@param alphahist Input vector (global to main) to store history of alphas for
+estimating the singular configuration
+@param disthist Input vector (global to main) to store history of distances for
+estimating the singular configuration
+@param f Set of non-linear equations
+@param Jft Jacobian matrix of the set of equations
+@param computeqExtfromParam Function which produces the extended configuration values
+given the path parameter
 
+@todo Optionally Bertini can be used to compute all the roots. Note that the method is
+limited to single parameter paths.
+@todo Check the alpha selection with Aditya
+@todo Assumes a quadratic interpolation, but can be made to accept an nth degree polynomial
+*/
 
 int RootTracker::SEI(MatrixXd allroots, double alpha, int selectedroot, \
   std::function<VectorXd (double)> computeXfromParam, Ref<VectorXd> alphahist, \
   Ref<MatrixXd> disthist, std::function<VectorXd (VectorXd)> f, \
-  std::function<MatrixXd (VectorXd)> Jfy){
+  std::function<MatrixXd (VectorXd)> Jfy, std::function<VectorXd (double)> computeqExtfromParam){
   // Convert branch number to solution index
   selectedroot = selectedroot-1;
-  VectorXd x(6), dist(allroots.rows()), graddist(allroots.rows()), preddist(allroots.rows());
+  VectorXd alphaest(2), x(6), dist(allroots.rows()), graddist(allroots.rows()), preddist(allroots.rows()), coeff(3);
   MatrixXd currentroots(allroots.rows(), allroots.cols());
   currentroots = allroots;
-  double stepsize;
-  // std::cout << "Entered SEI successful" << '\n';
+  double stepsize, aa, bb, cc;
   assert(pushHist(alphahist, alpha) && "Pushing alpha to history unsuccessful");
-  // std::cout << "Push alpha successful" << '\n';
-  // Edit the required path parametrisation in the computeXfromParam function
-  // x = computeXfromParam(alpha);
-  // // std::cout << "x compute" << x << '\n';
-  // currentroots = RootTracker::trackAllBranches(x, currentroots, f, Jfy);
-  // std::cout << "Tracking all branches successful" << '\n';
-  // Compute the distance between the selected root and the rest
-  // Returns the distance with itself too, size = nuber of branches
   dist = computeDist(currentroots, selectedroot);
-  // std::cout << "Computing distance successful" << '\n';
   assert(pushHist(disthist, dist) && "Pushing alpha to history unsuccessful");
-  // std::cout << "Push dist successful" << '\n';
   stepsize = (alphahist(0)-alphahist(1));
   graddist = (disthist.row(0)-disthist.row(1))/stepsize;
   preddist = ((disthist.row(0)).transpose())+graddist*stepsize;
-  // std::cout << "Predstep successful" << '\n';
-  // std::cout << "The corresponding dist is " << disthist.row(0) << '\n';
   for (size_t i = 0; i < preddist.size(); i++) {
     if (preddist(i) < 0 &&  i!= selectedroot){
       std::cout << "Approaching singularity. Branches " << selectedroot+1 << " and " << i+1 << " are going to merge!" << '\n';
       std::cout << "The corresponding alpha is " << alphahist(0) << '\n';
-      // std::cout << "The corresponding dist is " << disthist.row(0) << '\n';
-      // quad = findExtrapCoeffs(alpha, dist.col(i));
-      // x = computealphasandxfromcoeff(quad);
-      // std::cout << "The estimated singular configuration is "<< x << '\n';
+      // Estimating the singular configuration
+      // This assumes a quadratic extrapolation
+      coeff = findExtrapCoeffs(alphahist, disthist.col(i));
+      aa = coeff(0);
+      bb = coeff(1);
+      cc = coeff(2);
+      alphaest(0) = (-bb+pow(pow(bb, 2)-4*aa*cc, 0.5))/(2*aa);
+      alphaest(1) = (-bb-pow(pow(bb, 2)-4*aa*cc, 0.5))/(2*aa);
+      // Returning the configuration for both the possibilities
+      if(abs(alphaest(0)-alphahist(0))<abs(alphaest(1)-alphahist(0))){
+        std::cout << "The estimated singular configuration is " << '\n' << \
+        computeqExtfromParam(alphaest(0)) << '\n';
+      }
+      else{
+        std::cout << "The estimated singular configuration is " << '\n' << \
+        computeqExtfromParam(alphaest(1)) << '\n';
+      }
       return 1;
     }
   }

@@ -910,9 +910,6 @@ VectorXd computeXfromParam(double alpha){
   VectorXd qx(6), l(6);
   double scale = 0.2;
   qx << scale-alpha, alpha, 1.28-alpha, scale, 0, 0;
-  // std::cout << qx << '\n';
-  // Now since the NRTracker needs the legvals for the simulation we use the
-  // IKsolver to compute legvals from qx
   l = computeLvals(qx);
   return l;
 }
@@ -1171,6 +1168,22 @@ VectorXd computeIK(VectorXd qx){
 
     return iksol;
 }
+
+
+/*!
+The computeqExtfromParam returns the extended space coordinates for the given
+configuration
+*/
+
+VectorXd computeqExtfromParam(double alpha){
+  // The first example is for the SRSPM so using the parametrisation of the SRSPM path
+  VectorXd qx(6), qext(24);
+  double scale = 0.2;
+  qx << scale-alpha, alpha, 1.28-alpha, scale, 0, 0;
+  qext << qx, computeIK(qx);
+  return qext;
+}
+
 
 
 // #endif CONSTRAINTS_H

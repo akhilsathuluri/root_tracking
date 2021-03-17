@@ -152,7 +152,7 @@ int main(int argc, char const *argv[])
   currentroots = initsols;
   for (alpha = stepsize; alpha <= M_PI/3; alpha = alpha+stepsize){
     currentroots = rt.trackAllBranches(computeXfromParam(alpha), currentroots, etaext, Jetaextphi);
-    if(rt.SEI(currentroots, alpha, 2, computeXfromParam, alphahist, disthist, etaext, Jetaextphi)==1){
+    if(rt.SEI(currentroots, alpha, 2, computeXfromParam, alphahist, disthist, etaext, Jetaextphi, computeqExtfromParam)==1){
       std::cout << "Singularity predicted. Exiting simulation." << '\n';
       break;
     }
