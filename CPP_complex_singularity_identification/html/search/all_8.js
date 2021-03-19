@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['s1cdist_30',['s1CDist',['../utils_8hh.html#a5d8b5ec8d7d9f33e2b89dbd54a9dfbd6',1,'utils.hh']]],
-  ['s1dist_31',['s1Dist',['../utils_8hh.html#aa55cfeada673b3ce1ce1e504925e117c',1,'utils.hh']]],
-  ['savecdata_32',['saveCData',['../main_8cc.html#ada06aa60e0faf582ae01132ccbe8b065',1,'main.cc']]],
-  ['savedata_33',['saveData',['../main_8cc.html#ade24902e309127c75974d1e24d715e51',1,'saveData(MatrixXd A, const char file_name[]):&#160;main.cc'],['../timings_8cc.html#ade24902e309127c75974d1e24d715e51',1,'saveData(MatrixXd A, const char file_name[]):&#160;timings.cc']]],
-  ['singularityeventidentifier_34',['SingularityEventIdentifier',['../classRootTracker.html#ada1cf0e1ae31392f075fe5f92972f17f',1,'RootTracker']]]
+  ['main_32',['main',['../cdpr__sei_8cc.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main(int argc, char const *argv[]):&#160;cdpr_sei.cc'],['../ik_8cc.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main(int argc, char const *argv[]):&#160;ik.cc'],['../main_8cc.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main(int argc, char const *argv[]):&#160;main.cc'],['../test_8cc.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main(int argc, char const *argv[]):&#160;test.cc'],['../timings_8cc.html#abf9e6b7e6f15df4b525a2e7705ba3089',1,'main(int argc, char const *argv[]):&#160;timings.cc']]],
+  ['main_2ecc_33',['main.cc',['../main_8cc.html',1,'']]],
+  ['manipulator_2ehh_34',['manipulator.hh',['../manipulator_8hh.html',1,'']]],
+  ['methods_35',['Methods',['../classRootTracker.html#a0d29be3a24392b6a864b8e471f23db6c',1,'RootTracker']]]
 ];

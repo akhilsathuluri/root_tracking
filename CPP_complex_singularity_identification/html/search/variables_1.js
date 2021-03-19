@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nan_77',['nan',['../DMCTracker__NRC__2_8txt.html#a32077e33a08c1e9ba02bbdabfe645c24',1,'DMCTracker_NRC_2.txt']]]
+  ['legvals_5fdata_124',['legvals_data',['../inputs_8hh.html#afb79babe6cad9239e004d1a2c5f608eb',1,'inputs.hh']]]
 ];

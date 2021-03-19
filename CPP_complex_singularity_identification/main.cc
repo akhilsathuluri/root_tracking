@@ -16,7 +16,7 @@ The saveData function takes in an input `MatrixXd` and saves it in a .txt file
 @param file_name Name of the file to save the input matrix in
 */
 
-// Define all teh constants so that for a new problem everything can be setup from here
+// Define all the constants so that for a new problem everything can be setup from here
 #define ySize 18
 #define iters 51
 #define xSize 6
@@ -138,24 +138,34 @@ int main(int argc, char const *argv[])
   // +++++++++++++++++++SINGULARITY EVENT IDENTIFICATION++++++++++++++++++++++++
   // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  // solsNRC << phii2;
-  // tempNRC = phii2;
-  //
-  // // Tracking using NRTracker with SingularityEventIdentification
-  // for (int i = 1; i < singular_iter; i++){
-  //   tempNRC = rt.NRCTracker(Clegvals.row(i), tempNRC, etaextC, JetaextphiC);
-  //   std::cout << tempNRC << '\n';
-  //
-  //   solsNRC.conservativeResize(solsNRC.rows(), solsNRC.cols()+1);
-  // 	solsNRC.col(solsNRC.cols()-1) = tempNRC;
-  // }
-  //
-  // // ToDo: Make saveData an overloaded function
-  // saveCData(solsNRC.transpose(), "NRCTracker_2.txt");
+  MatrixXd solsNR(ySize,1);
 
-  VectorXd qx(6);
-  qx << 0.2, 0, 1.28, 0.2, 0, 0;
-  std::cout << computeIK(qx) << std::endl;
+  tempNR = (initsols.row(3)).transpose();
+
+  double stepsize = M_PI/150, alpha = 0;
+  // Declare variables to save the distance and alpha histories
+  MatrixXd disthist(3, initsols.rows()), currentroots(initsols.rows(), initsols.cols());
+  VectorXd alphahist(3);
+  // Initialise history Variables
+  alphahist << 0,0,0;
+  disthist = MatrixXd::Zero(3, initsols.rows());
+  currentroots = initsols;
+  for (alpha = stepsize; alpha <= M_PI/3; alpha = alpha+stepsize){
+    currentroots = rt.trackAllBranches(computeXfromParam(alpha), currentroots, etaext, Jetaextphi);
+    if(rt.SEI(currentroots, alpha, 2, computeXfromParam, alphahist, disthist, etaext, Jetaextphi, computeqExtfromParam)==1){
+      std::cout << "Singularity predicted. Exiting simulation." << '\n';
+      break;
+    }
+    else{
+      tempNR = rt.NRTracker(computeXfromParam(alpha), tempNR, etaext, Jetaextphi);
+
+      solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
+      solsNR.col(solsNR.cols()-1) = tempNR;
+    }
+  }
+
+  // ToDo: Make saveData an overloaded function
+  saveCData(solsNR.transpose(), "NRCTracker_SEI.txt");
 
   return 0;
 }
