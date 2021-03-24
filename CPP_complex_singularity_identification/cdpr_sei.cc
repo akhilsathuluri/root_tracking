@@ -32,7 +32,7 @@ void saveData(MatrixXd A, const char file_name[]){
   std::cout << "Saved data to file " << file_name << std::endl;
 }
 
-void saveData(MatrixXcd A, const char file_name[]){
+void saveCData(MatrixXcd A, const char file_name[]){
   std::ofstream file(file_name);
   if(file.is_open()){
     file << A;
@@ -59,8 +59,8 @@ int main(int argc, char const *argv[])
   MatrixXd solsNR(ySize,1);
 
   int selectedroot = 1;
-  tempNR = initsols.row(selectedroot);
-  // std::cout << tempNR << '\n';
+  tempNR = initsols.row(selectedroot-1);
+  std::cout << tempNR << '\n';
 
   double stepsize = 0.001, alpha = 0;
   // Declare variables to save the distance and alpha histories
@@ -70,31 +70,32 @@ int main(int argc, char const *argv[])
   alphahist << 0,0,0;
   disthist = MatrixXd::Zero(3, initsols.rows());
   currentroots = initsols;
+  // std::cout << computeXfromParam(0) << '\n';
   // VectorXd q(9);
-  // q << tempNR, computeXfromParam(0.02);
-  // std::cout << initsols << '\n';
+  // std::cout << computeXfromParam(0) << '\n';
+  // q << tempNR, computeXfromParam(0);
   // std::cout << eta(q) << '\n';
-  // std::cout << (Jetaphi(q)).determinant() << '\n';
-  // std::cout << ((Jetaphi(q)).inverse())*eta(q) << '\n';
-  // std::cout << linearSolve << '\n';
-  // for (alpha = stepsize; alpha <= 1; alpha = alpha+stepsize){
-  //   std::cout << "before trackall" << '\n';
-  //   currentroots = rt.trackAllBranches(computeXfromParam(alpha), currentroots, eta, Jetaphi);
-  //   std::cout << "after trackall" << '\n';
-  //   if(rt.SEI(currentroots, alpha, selectedroot, computeXfromParam, alphahist, disthist, eta, Jetaphi, computeXfromParam)==1){
-  //     std::cout << "Singularity predicted. Exiting simulation." << '\n';
-  //     break;
-  //   }
-  //   else{
-      tempNR = rt.NRTracker(computeXfromParam(0.02), tempNR, eta, Jetaphi);
-    //
-    //   solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
-    //   solsNR.col(solsNR.cols()-1) = tempNR;
+  // std::cout << Jetaphi(q) << '\n';
+  std::cout << rt.NRTracker(computeXfromParam(0.01), tempNR, eta, Jetaphi) << '\n';
+  for (alpha = stepsize; alpha <= 1; alpha = alpha+stepsize){
+    // if(rt.SEI(currentroots, alpha, selectedroot, computeXfromParam, alphahist, disthist, eta, Jetaphi, computeXfromParam)==1){
+    //   std::cout << "Singularity predicted. Exiting simulation." << '\n';
+    //   break;
     // }
-  // }
+    // else{
+      tempNR = rt.NRTracker(computeXfromParam(alpha), tempNR, eta, Jetaphi);
+
+      // solsNR.conservativeResize(solsNR.rows(), solsNR.cols()+1);
+      // solsNR.col(solsNR.cols()-1) = tempNR;
+      //
+      // std::cout << currentroots << '\n';
+      // currentroots = rt.trackAllBranches(computeXfromParam(alpha), currentroots, eta, Jetaphi);
+      // std::cout << tempNR << '\n';
+    // }
+  }
 
   // ToDo: Make saveData an overloaded function
-  saveData(solsNR.transpose(), "NRTracker_SEI_CDPR.txt");
+  // saveData(solsNR.transpose(), "NRTracker_SEI_CDPR.txt");
   // std::cout << "Simulation done" << '\n';
 
   return 0;

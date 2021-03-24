@@ -59,21 +59,23 @@ Default value is set to 10^-10
 */
 VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (VectorXd)> f, \
   std::function<MatrixXd (VectorXd)> Jfy, double eps /*= pow(10, -10)*/){
+  double iterLimit = 1000;
   VectorXd q(x.size()+y.size()), tempy(y.size()), dy(y.size()), fval;
   MatrixXd Jval;
   int loopcounter = 0;
   q << y, x;
   fval = f(q);
   tempy = y;
-  while (fval.norm()>=eps) {
-		if (loopcounter>=100){
+  while (fval.norm()>=eps){
+		if (loopcounter>=iterLimit){
       std::cout << "NRTracker::Warning::Max iterations reached. Convergence not achived for the input tolerance, eps" << std::endl;
       return tempy;
     }
 		loopcounter++;
     Jval = Jfy(q);
+    // std::cout << Jval.determinant() << '\n';
 		dy = linearSolve(Jval, fval);
-    // std::cout << "Completed linearSolve" << '\n';
+    // dy = Jval.inverse()*fval;
 		tempy = tempy - dy;
 		q << tempy, x;
 		fval = f(q);
@@ -292,7 +294,6 @@ given the path parameter
 
 @todo Optionally Bertini can be used to compute all the roots. Note that the method is
 limited to single parameter paths.
-@todo Check the alpha selection with Aditya
 @todo Assumes a quadratic interpolation, but can be made to accept an nth degree polynomial
 */
 
@@ -308,10 +309,12 @@ int RootTracker::SEI(MatrixXd allroots, double alpha, int selectedroot, \
   double stepsize, aa, bb, cc;
   assert(pushHist(alphahist, alpha) && "Pushing alpha to history unsuccessful");
   dist = computeDist(currentroots, selectedroot);
+  std::cout << dist << '\n';
   assert(pushHist(disthist, dist) && "Pushing alpha to history unsuccessful");
   stepsize = (alphahist(0)-alphahist(1));
   graddist = (disthist.row(0)-disthist.row(1))/stepsize;
   preddist = ((disthist.row(0)).transpose())+graddist*stepsize;
+  // std::cout << dist << '\n';
   for (size_t i = 0; i < preddist.size(); i++) {
     if (preddist(i) < 0 &&  i!= selectedroot){
       std::cout << "Approaching singularity. Branches " << selectedroot+1 << " and " << i+1 << " are going to merge!" << '\n';
