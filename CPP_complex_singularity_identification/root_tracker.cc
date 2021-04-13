@@ -22,6 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "root_tracker.hh"
 #include "utils.hh"
 #include<functional>
+#include<cassert>
 
 using namespace Eigen;
 
@@ -34,6 +35,8 @@ to use when trackers fail.
 int RootTracker::Methods(){
   std::cout << "Listing available trackers:" << std::endl;
   std::cout << "NRTracker, DMTracker, NNTracker" << std::endl;
+  std::cout << "NRCTracker, DMCTracker, NNCTracker" << std::endl;
+  std::cout << "trackAllBranches and SEI" << std::endl;
   return 0;
 }
 
@@ -56,20 +59,23 @@ Default value is set to 10^-10
 */
 VectorXd RootTracker::NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (VectorXd)> f, \
   std::function<MatrixXd (VectorXd)> Jfy, double eps /*= pow(10, -10)*/){
+  double iterLimit = 1000;
   VectorXd q(x.size()+y.size()), tempy(y.size()), dy(y.size()), fval;
   MatrixXd Jval;
   int loopcounter = 0;
   q << y, x;
   fval = f(q);
   tempy = y;
-  while (fval.norm()>=eps) {
-		if (loopcounter>=100){
+  while (fval.norm()>=eps){
+		if (loopcounter>=iterLimit){
       std::cout << "NRTracker::Warning::Max iterations reached. Convergence not achived for the input tolerance, eps" << std::endl;
       return tempy;
     }
 		loopcounter++;
     Jval = Jfy(q);
+    // std::cout << Jval.determinant() << '\n';
 		dy = linearSolve(Jval, fval);
+    // dy = Jval.inverse()*fval;
 		tempy = tempy - dy;
 		q << tempy, x;
 		fval = f(q);
@@ -247,32 +253,91 @@ VectorXcd RootTracker::NNCTracker(VectorXcd ys, MatrixXcd ysols, int index){
 }
 
 
+/*!
+The trackAllBranches routine tracks one step in all the branches given the next steps input variable
+and an initial guess of the unknown variables using the relating function f and its Jacobian Jfy.
+*/
 
+MatrixXd RootTracker::trackAllBranches(VectorXd x, MatrixXd y, std::function<VectorXd (VectorXd)> f, \
+  std::function<MatrixXd (VectorXd)> Jfy){
+    MatrixXd roots(y.rows(), y.cols());
+    // roots = MatrixXd::Zero(y.rows(), y.cols());
+    roots = y;
+    // std::cout << "Input y to trackAllBranches" << y << '\n';
+    for (size_t i = 0; i < y.rows(); i++) {
+      roots.row(i) = RootTracker::NRTracker(x, y.row(i), f, Jfy);
+    }
+    // std::cout << roots << '\n';
+    // std::cout << " " << '\n';
+    return roots;
+  }
 
 /*!
-The SingularityEventIdentifier uses a distance metric to identify when the
-configuration approaches a singularity. Further, it uses a linear interpolation
-to estimate the singular configuration.
-This function needs the computation of all the roots, real or imaginary to be
-provided. Optionally Bertini can be used to compute all the roots.
+The SEI uses the distance between different branches of the solutions to identify
+and estimate the singular configuration of the given set of non-linear equations.
+Further, it uses a quadratic extrapolation scheme to estimate the singular configuration.
+This function needs the computation of all the roots (currently handles only real roots).
 
-@param ys The current root of the required branch
-@param ysols All the roots at the instant
-@param eps The distance tolerance after which the singularity event is triggered
+@param allroots Solutions of all the branches of the non-linear equations
+@param alpha Parameter value
+@param selectedroot The index of the selected branch (Use index starting with 1)
+@param computeXfromParam Compute the values of the input variables based on
+the path parametrisation
+@param alphahist Input vector (global to main) to store history of alphas for
+estimating the singular configuration
+@param disthist Input vector (global to main) to store history of distances for
+estimating the singular configuration
+@param f Set of non-linear equations
+@param Jft Jacobian matrix of the set of equations
+@param computeqExtfromParam Function which produces the extended configuration values
+given the path parameter
 
-@todo Integrate Bertini to find all the roots
+@todo Optionally Bertini can be used to compute all the roots. Note that the method is
+limited to single parameter paths.
+@todo Assumes a quadratic interpolation, but can be made to accept an nth degree polynomial
 */
-// VectorXd RootTracker::SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, int index, double eps /*= pow(10, -2)*/){
-//   MatrixXd sol;
-//   sol = NNTracker(ys, ysols, index);
-//   return sol;
 
-// 1. Find distance betwwen all the solutions
-// 2. Check one or more pairs are within the eps distance
-// 3. If yes, take 6 more steps or the size of the y steps into the future only for the corresponding solutions
-// 4. Fit a hyperplane to the points
-// 6. Solve the hyperplane from both the sides and find the singular location and inform the same
-
-// For 1 we'll need to iteratively use the nearest neighbout method
-
-// }
+int RootTracker::SEI(MatrixXd allroots, double alpha, int selectedroot, \
+  std::function<VectorXd (double)> computeXfromParam, Ref<VectorXd> alphahist, \
+  Ref<MatrixXd> disthist, std::function<VectorXd (VectorXd)> f, \
+  std::function<MatrixXd (VectorXd)> Jfy, std::function<VectorXd (double)> computeqExtfromParam){
+  // Convert branch number to solution index
+  selectedroot = selectedroot-1;
+  VectorXd alphaest(2), x(6), dist(allroots.rows()), graddist(allroots.rows()), preddist(allroots.rows()), coeff(3);
+  MatrixXd currentroots(allroots.rows(), allroots.cols());
+  currentroots = allroots;
+  double stepsize, aa, bb, cc;
+  assert(pushHist(alphahist, alpha) && "Pushing alpha to history unsuccessful");
+  dist = computeDist(currentroots, selectedroot);
+  std::cout << dist << '\n';
+  assert(pushHist(disthist, dist) && "Pushing alpha to history unsuccessful");
+  stepsize = (alphahist(0)-alphahist(1));
+  graddist = (disthist.row(0)-disthist.row(1))/stepsize;
+  preddist = ((disthist.row(0)).transpose())+graddist*stepsize;
+  // std::cout << dist << '\n';
+  for (size_t i = 0; i < preddist.size(); i++) {
+    if (preddist(i) < 0 &&  i!= selectedroot){
+      std::cout << "Approaching singularity. Branches " << selectedroot+1 << " and " << i+1 << " are going to merge!" << '\n';
+      std::cout << "The corresponding alpha is " << alphahist(0) << '\n';
+      // Estimating the singular configuration
+      // This assumes a quadratic extrapolation
+      coeff = findExtrapCoeffs(alphahist, disthist.col(i));
+      aa = coeff(0);
+      bb = coeff(1);
+      cc = coeff(2);
+      alphaest(0) = (-bb+pow(pow(bb, 2)-4*aa*cc, 0.5))/(2*aa);
+      alphaest(1) = (-bb-pow(pow(bb, 2)-4*aa*cc, 0.5))/(2*aa);
+      // Returning the configuration for both the possibilities
+      if(abs(alphaest(0)-alphahist(0))<abs(alphaest(1)-alphahist(0))){
+        std::cout << "The estimated singular configuration is " << '\n' << \
+        computeqExtfromParam(alphaest(0)) << '\n';
+      }
+      else{
+        std::cout << "The estimated singular configuration is " << '\n' << \
+        computeqExtfromParam(alphaest(1)) << '\n';
+      }
+      return 1;
+    }
+  }
+  return 0;
+}

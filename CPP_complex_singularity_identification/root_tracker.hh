@@ -26,20 +26,27 @@ find their intersection  to find the location of singularity.
 class RootTracker
 {
 public:
+  int Methods();
   VectorXd NRTracker(VectorXd x, VectorXd y, std::function<VectorXd (VectorXd)> f,\
    std::function<MatrixXd (VectorXd)> Jfy, double eps = pow(10, -10));
   VectorXd DMTracker(VectorXd xprev, VectorXd x, VectorXd y, std::function<MatrixXd (VectorXd)> Jfx, \
      std::function<MatrixXd (VectorXd)> Jfy, double eps = 0, std::function<VectorXd (VectorXd)> f = NULL);
   VectorXd NNTracker(VectorXd ys, MatrixXd ysols, int index);
-  int Methods();
+  MatrixXd trackAllBranches(VectorXd x, MatrixXd y, std::function<VectorXd (VectorXd)> f, \
+    std::function<MatrixXd (VectorXd)> Jfy);
 
   VectorXcd NRCTracker(VectorXcd x, VectorXcd y, std::function<VectorXcd (VectorXcd)> f,\
    std::function<MatrixXcd (VectorXcd)> Jfy, double eps = pow(10, -10));
   VectorXcd DMCTracker(VectorXcd xprev, VectorXcd x, VectorXcd y, std::function<MatrixXcd (VectorXcd)> Jfx, \
    std::function<MatrixXcd (VectorXcd)> Jfy, double eps = 0, std::function<VectorXcd (VectorXcd)> f = NULL);
-   VectorXcd NNCTracker(VectorXcd ys, MatrixXcd ysols, int index);
+  VectorXcd NNCTracker(VectorXcd ys, MatrixXcd ysols, int index);
 
-  VectorXd SingularityEventIdentifier(VectorXd ys, MatrixXd ysols, int index, double eps = pow(10, -2));
+  int SEI(MatrixXd allroots, double alpha, int selectedroot, \
+    std::function<VectorXd (double)> computeXfromParam, Ref<VectorXd> alphahist, \
+    Ref<MatrixXd> disthist, std::function<VectorXd (VectorXd)> f, \
+    std::function<MatrixXd (VectorXd)> Jfy, std::function<VectorXd (double)> computeqExtfromParam);
+
 };
 
+// #endif RootTracker_H
 #endif

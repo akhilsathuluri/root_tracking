@@ -12,12 +12,18 @@ SRC = main.cc root_tracker.cc # utils.hh inputs.hh
 TIM = timings.cc root_tracker.cc # utils.hh inputs.hh
 OBJ = $(SRC:.cpp = .o)
 OBJ_TIM = $(TIM:.cpp = .o)
+# For CDPR
+SRC_CDPR = cdpr_sei.cc root_tracker.cc
+OBJ_CDPR = $(SRC_CDPR:.cpp = .o)
 
-TrackedRoots: $(OBJ)	## Produces an executable for the root tracking problem formulated in main.cpp
+TrackedRoots: $(OBJ)	## Produces an executable for the root tracking problem of an SRSPM
 	$(CC) $(CFLAGS) -o TrackedRoots $(OBJ) $(LIBS)
 
 Timings: $(OBJ_TIM) ## Produces an executable measureing the time taken for the root tracking methods formulated in timings.cpp
 	$(CC) $(CFLAGS) -o Timings $(OBJ_TIM) $(LIBS)
+
+CDPR: $(OBJ_SRC)	## Produces an executable for the root tracking problem of a CDPR
+		$(CC) $(CFLAGS) -o CDPR $(OBJ_CDPR) $(LIBS)
 
 clean:	## Removes the generated *.o files
 	rm -f core *.o

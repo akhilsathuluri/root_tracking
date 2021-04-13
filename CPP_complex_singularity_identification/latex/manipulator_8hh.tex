@@ -1,0 +1,147 @@
+\hypertarget{manipulator_8hh}{}\doxysection{manipulator.\+hh File Reference}
+\label{manipulator_8hh}\index{manipulator.hh@{manipulator.hh}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$eigen3/\+Eigen/\+Dense$>$}\newline
+Include dependency graph for manipulator.\+hh\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{manipulator_8hh__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{manipulator_8hh__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector\+Xd \mbox{\hyperlink{manipulator_8hh_a2a996dfcd9a8b885a0aa4fb7b9b082c5}{etaext}} (Vector\+Xd q)
+\item 
+Matrix\+Xd \mbox{\hyperlink{manipulator_8hh_af2f0af1d02e35589e24f31852fd5f8fa}{Jetaexttheta}} (Vector\+Xd q)
+\item 
+Matrix\+Xd \mbox{\hyperlink{manipulator_8hh_ae6bd9216fb8ab83ba8989c40d801dd3b}{Jetaextphi}} (Vector\+Xd q)
+\item 
+Vector\+Xcd \mbox{\hyperlink{manipulator_8hh_a56a5dd8b0d769f3867898f90f74b97a0}{etaextC}} (Vector\+Xcd q)
+\item 
+Matrix\+Xcd \mbox{\hyperlink{manipulator_8hh_ac2c8c229e7221d40216c0668a9c4796c}{JetaextthetaC}} (Vector\+Xcd q)
+\item 
+Matrix\+Xcd \mbox{\hyperlink{manipulator_8hh_a0f40e0da78136d904474bcae11bb2404}{JetaextphiC}} (Vector\+Xcd q)
+\item 
+Vector\+Xd \mbox{\hyperlink{manipulator_8hh_a2353ef7d96e45b69f88c64c5a19da404}{compute\+Lvals}} (Vector\+Xd qx)
+\item 
+Vector\+Xd \mbox{\hyperlink{manipulator_8hh_a617dcde540c04aa64274710efb425bb7}{compute\+Xfrom\+Param}} (double alpha)
+\item 
+Vector\+Xd \mbox{\hyperlink{manipulator_8hh_aa9d66b35b25a88cfcc7106892a162628}{compute\+IK}} (Vector\+Xd qx)
+\item 
+Vector\+Xd \mbox{\hyperlink{manipulator_8hh_a1c6194cffda1938f04d3178b7f4b3f1a}{computeq\+Extfrom\+Param}} (double alpha)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{manipulator_8hh_aa9d66b35b25a88cfcc7106892a162628}\label{manipulator_8hh_aa9d66b35b25a88cfcc7106892a162628}} 
+\index{manipulator.hh@{manipulator.hh}!computeIK@{computeIK}}
+\index{computeIK@{computeIK}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{computeIK()}{computeIK()}}
+{\footnotesize\ttfamily Vector\+Xd compute\+IK (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{qx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{manipulator_8hh_a2353ef7d96e45b69f88c64c5a19da404}\label{manipulator_8hh_a2353ef7d96e45b69f88c64c5a19da404}} 
+\index{manipulator.hh@{manipulator.hh}!computeLvals@{computeLvals}}
+\index{computeLvals@{computeLvals}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{computeLvals()}{computeLvals()}}
+{\footnotesize\ttfamily Vector\+Xd compute\+Lvals (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{qx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{manipulator_8hh_a1c6194cffda1938f04d3178b7f4b3f1a}\label{manipulator_8hh_a1c6194cffda1938f04d3178b7f4b3f1a}} 
+\index{manipulator.hh@{manipulator.hh}!computeqExtfromParam@{computeqExtfromParam}}
+\index{computeqExtfromParam@{computeqExtfromParam}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{computeqExtfromParam()}{computeqExtfromParam()}}
+{\footnotesize\ttfamily Vector\+Xd computeq\+Extfrom\+Param (\begin{DoxyParamCaption}\item[{double}]{alpha }\end{DoxyParamCaption})}
+
+The computeq\+Extfrom\+Param returns the extended space coordinates for the given configuration \mbox{\Hypertarget{manipulator_8hh_a617dcde540c04aa64274710efb425bb7}\label{manipulator_8hh_a617dcde540c04aa64274710efb425bb7}} 
+\index{manipulator.hh@{manipulator.hh}!computeXfromParam@{computeXfromParam}}
+\index{computeXfromParam@{computeXfromParam}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{computeXfromParam()}{computeXfromParam()}}
+{\footnotesize\ttfamily Vector\+Xd compute\+Xfrom\+Param (\begin{DoxyParamCaption}\item[{double}]{alpha }\end{DoxyParamCaption})}
+
+The compute\+Xfrom\+Param returns input values x from the path parametrisation. Edit this function to suite the required path paramterisation and the mapping between the parametrisation and the actual input values. In the case of an SRSPM, we use the IK mapping to find the leg lengths from the task space parametrisation \mbox{\Hypertarget{manipulator_8hh_a2a996dfcd9a8b885a0aa4fb7b9b082c5}\label{manipulator_8hh_a2a996dfcd9a8b885a0aa4fb7b9b082c5}} 
+\index{manipulator.hh@{manipulator.hh}!etaext@{etaext}}
+\index{etaext@{etaext}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{etaext()}{etaext()}}
+{\footnotesize\ttfamily Vector\+Xd etaext (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{q }\end{DoxyParamCaption})}
+
+The funcion etaext is the set of constraint equations of an SRSPM formulated in the extended configuration space of the manipulator. This is for the example problem demosntrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily SRSPM\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{manipulator_8hh_a56a5dd8b0d769f3867898f90f74b97a0}\label{manipulator_8hh_a56a5dd8b0d769f3867898f90f74b97a0}} 
+\index{manipulator.hh@{manipulator.hh}!etaextC@{etaextC}}
+\index{etaextC@{etaextC}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{etaextC()}{etaextC()}}
+{\footnotesize\ttfamily Vector\+Xcd etaextC (\begin{DoxyParamCaption}\item[{Vector\+Xcd}]{q }\end{DoxyParamCaption})}
+
+The funcion etaext is the set of constraint equations of an SRSPM formulated in the extended configuration space of the manipulator. This is for the example problem demosntrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily SRSPM\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{manipulator_8hh_ae6bd9216fb8ab83ba8989c40d801dd3b}\label{manipulator_8hh_ae6bd9216fb8ab83ba8989c40d801dd3b}} 
+\index{manipulator.hh@{manipulator.hh}!Jetaextphi@{Jetaextphi}}
+\index{Jetaextphi@{Jetaextphi}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{Jetaextphi()}{Jetaextphi()}}
+{\footnotesize\ttfamily Matrix\+Xd Jetaextphi (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{q }\end{DoxyParamCaption})}
+
+The funcion Jetaextphi is the constraint Jacobian matrix of an SRSPM formulated in the extended configuration space of the manipulator. This is for the example problem demonstrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily SRSPM\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{manipulator_8hh_a0f40e0da78136d904474bcae11bb2404}\label{manipulator_8hh_a0f40e0da78136d904474bcae11bb2404}} 
+\index{manipulator.hh@{manipulator.hh}!JetaextphiC@{JetaextphiC}}
+\index{JetaextphiC@{JetaextphiC}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{JetaextphiC()}{JetaextphiC()}}
+{\footnotesize\ttfamily Matrix\+Xcd JetaextphiC (\begin{DoxyParamCaption}\item[{Vector\+Xcd}]{q }\end{DoxyParamCaption})}
+
+The funcion Jetaextphi is the constraint Jacobian matrix of an SRSPM formulated in the extended configuration space of the manipulator. This is for the example problem demonstrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily SRSPM\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{manipulator_8hh_af2f0af1d02e35589e24f31852fd5f8fa}\label{manipulator_8hh_af2f0af1d02e35589e24f31852fd5f8fa}} 
+\index{manipulator.hh@{manipulator.hh}!Jetaexttheta@{Jetaexttheta}}
+\index{Jetaexttheta@{Jetaexttheta}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{Jetaexttheta()}{Jetaexttheta()}}
+{\footnotesize\ttfamily Matrix\+Xd Jetaexttheta (\begin{DoxyParamCaption}\item[{Vector\+Xd}]{q }\end{DoxyParamCaption})}
+
+The funcion Jetaexttheta is the Jacobian matrix of an SRSPM formulated in the extended configuration space of the manipulator. This is for the example problem demonstrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily SRSPM\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{manipulator_8hh_ac2c8c229e7221d40216c0668a9c4796c}\label{manipulator_8hh_ac2c8c229e7221d40216c0668a9c4796c}} 
+\index{manipulator.hh@{manipulator.hh}!JetaextthetaC@{JetaextthetaC}}
+\index{JetaextthetaC@{JetaextthetaC}!manipulator.hh@{manipulator.hh}}
+\doxysubsubsection{\texorpdfstring{JetaextthetaC()}{JetaextthetaC()}}
+{\footnotesize\ttfamily Matrix\+Xcd JetaextthetaC (\begin{DoxyParamCaption}\item[{Vector\+Xcd}]{q }\end{DoxyParamCaption})}
+
+The funcion Jetaexttheta is the Jacobian matrix of an SRSPM formulated in the extended configuration space of the manipulator. This is for the example problem demonstrating the use of the root-\/trackers. The formulation of the symbolic equations can be found in the accompanying Mathematica notebook named, {\ttfamily SRSPM\+\_\+root\+\_\+tracking.\+nb}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Takes in the 24-\/dimensional extended-\/configuration-\/space variables as input \\
+\hline
+\end{DoxyParams}
