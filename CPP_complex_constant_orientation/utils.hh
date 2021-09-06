@@ -22,6 +22,7 @@ VectorXd linearSolve(MatrixXd Amat, VectorXd bvec){
   int bsize = bvec.size();
   Amat.transposeInPlace();
   double *a_data = Amat.data(), *b_data=bvec.data();
+
   gsl_matrix_view m
     = gsl_matrix_view_array (a_data, Amat.rows(), Amat.cols());
 
@@ -32,7 +33,7 @@ VectorXd linearSolve(MatrixXd Amat, VectorXd bvec){
 
   int s;
 
-  gsl_permutation * p = gsl_permutation_alloc (bsize);
+  gsl_permutation *p = gsl_permutation_alloc (bsize);
 
   gsl_linalg_LU_decomp (&m.matrix, p, &s);
 
