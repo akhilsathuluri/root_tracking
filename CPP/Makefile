@@ -1,5 +1,5 @@
 ## ----------------------------------------------------------------------
-## The current make file generates the executable 'TrackedRoots' for the
+## The current make file generates the executable 'TrackedRoots' and 'Timings' for the
 ## root-tracking problem setup in the main.cpp file
 ## ----------------------------------------------------------------------
 # Add color and helpfile later if needed
@@ -20,7 +20,7 @@ Timings: $(OBJ_TIM) ## Produces an executable measureing the time taken for the 
 	$(CC) $(CFLAGS) -o Timings $(OBJ_TIM) $(LIBS)
 
 clean:	## Removes the generated *.o files
-	rm -f core *.o
+	rm -f core *.o TrackedRoots Timings
 
 docs:	## Generates documentation using doxygen and opens the generated html files
 	@echo Building documentation ...
