@@ -1,0 +1,66 @@
+General corrections and TBDs:
+
+Use \noindent globally at the start of a new paragraph.
+
+Abrupt jumps between sections; add small introductions before starting a new section.
+
+Grammatical errors: of of, the the etc.
+
+Use the acronyms and symbols once introduced, do not use the full forms.
+
+Check grammar in the footnotes.
+
+Specify the page number wherever a book is referred.
+
+Add the figures and tables to the top of the pages to maximise the use of space.
+
+Wherever a paper from the same lab is referred, add more references if available.
+
+Add labels for axes in all figures.
+
+Check if all the notations are used in a unique manner, and check for repetition.
+
+Introduce acronyms in the full form at the first usage in the text and use the acronym henceforth.
+
+Differentiate between the epsilons used in the paper.
+
+Reorder the paper to include CDPRs.
+
+Use c1,c2,c3 instead of e1,e2,e3 for the orientation parameters. - AK
+
+Check the number of significant digits. - AS
+
+Add a table containing all the real FK branches and refer to this table in the figure, 
+and the figure captions should refer to the table. - AS
+
+Add sub-captions to all the figures wherever applicable. - AK
+
+Have one image for CDPR with the axes and zoom in on the platform for the other subfigures. - AS
+
+Change NN, NR to NNM, NRM. fg: tb: sc: eq: for the labels. - AK
+
+Units are missing everywhere; mention if scaling is done. If not, add the units wherever applicable. - AK
+
+(SEI on hold) Add the background mathematics in the case of the algorithms NN, NR, DM and SEI. 
+Explain the algorithm with the help of this mathematics.
+
+Use \emph{} for all the phrases which are introduced. 
+If a definition is required, then add a footnote where the information is optional in the main text. Refer to a standard text 
+(book or the oldest paper that can be found) in the footnotes. - AK
+
+Connect the singularity event identifier and algorithms used to detect singularities in the workspace. - AK/AS
+Fit this in the narrative of the introduction.
+
+Epsilon is the defined numerical tolerance; rewrite the definition. - AS
+
+Add a figure which shows all the variables. - AK
+
+Check and correct Fig. (6). - AS
+
+Check and update the references for correct formatting. Update the tags in the ".bib" file. - AK
+
+Reproduce the equations where required; mention that these are reproduced for the sake of completeness. -  AS
+
+The norm used for SEI does not have a defined unit. Find a solution for this. 
+Use rotation matrices to compute the difference in orientations. 
+- Can compute k-phi, and phi may be used as the difference in orientation. -AK/AS
